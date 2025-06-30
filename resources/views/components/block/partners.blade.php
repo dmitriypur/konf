@@ -35,7 +35,7 @@
                                     <img src="{{ asset('images/question-mark.svg') }}" alt="Иконка знак вопроса">
                                 </div>
                                 <div data-modal-target="form2" class="open-modal-btn cursor-pointer mt-5 relative circle-gr w-full h-15 flex items-center justify-center rounded-full text-sm/4 text-center tracking-tight bg-linear-(--violet-gr) before:absolute before:bg-linear-(--white3-gr) before:p-0.5 before:rounded-3xl before:rounded-full before:mix-blend-overlay after:-z-10 before:-z-10">
-                                    <span class="relative z-10">Занять место</span>
+                                    <span class="relative z-10">Стать партнером</span>
                                 </div>
                             </div>
                         </div>

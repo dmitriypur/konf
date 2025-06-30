@@ -20,7 +20,7 @@
                     </span>
                 </button>
             </div>
-            <div class="lg:ml-auto w-full lg:max-w-96 mt-20">
+            <div class="lg:ml-auto w-full lg:max-w-96 mt-20 lg:mt-0">
                 <div class="relative w-full h-full rounded-4xl overflow-hidden pb-5">
                     <div class="absolute w-120 h-120 left-1/2 -translate-x-1/2 -top-5 -z-10">
                         <img src="{{ asset('images/bg-tabs-slider.svg') }}" alt="Цветное облако фоновое изображение" width="580" height="580">

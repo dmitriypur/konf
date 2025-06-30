@@ -20,27 +20,18 @@
                     </span>
                     спикеры
                 </h3>
-                <div class="lg:w-full lg:h-auto lg:flex-initial lg:mt-8 lg:px-11 lg:relative">
+                <div class="lg:w-full lg:h-auto lg:flex-initial lg:mt-8 lg:px-8 lg:relative">
                     <!-- Контейнер -->
                     <div class="swiper speakers md:w-full h-46 lg:h-58 rounded-4xl">
                         <!-- Обертка слайдов -->
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="relative circle-gr overflow-hidden w-full h-full bg-linear-(--white2-gr) before:bg-linear-(--white-gr) rounded-4xl before:rounded-4xl before:p-1 before:-z-10 flex mix-blend-overlay after:-z-10">
+                                <div class="relative circle-gr overflow-hidden w-full h-full bg-linear-(--white2-gr) before:bg-linear-(--white-gr) rounded-4xl before:rounded-4xl before:p-1 before:-z-10 flex items-center mix-blend-overlay after:-z-10">
                                     <div class="absolute w-200 h-127 left-1/2 top-1/2 -translate-y-2/4 -translate-x-2/5 -z-10">
-                                        <img src="{{ asset('images/bg-slide-speacker.svg') }}" alt="Фон карточки спикера" width="1080" height="668" class="w-full h-full">
-                                    </div>
-                                    <img src="{{ asset('images/logo-transparent.svg') }}" alt="Логотип прозрачный" width="210" height="210" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 mix-blend-overlay -z-10">
-                                    <button type="button" data-modal-target="form1" class="open-modal-btn flex items-center justify-center w-full h-full text-2xl lg:text-4xl font-secondary cursor-pointer">Стать спикером</button>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="relative circle-gr overflow-hidden w-full h-full bg-linear-(--white2-gr) before:bg-linear-(--white-gr) rounded-4xl before:rounded-4xl before:p-1 before:-z-10 flex mix-blend-overlay after:-z-10">
-                                    <div class="absolute w-200 h-127 left-1/2 top-1/2 -translate-y-2/4 -translate-x-2/5 -z-10">
-                                        <img src="{{ asset('images/bg-slide-speacker.svg') }}" alt="Фон карточки спикера" width="1080" height="668" class="w-full h-full">
+                                        <img src="{{ asset('images/bg-slide-speacker.webp') }}" alt="Фон карточки спикера" width="1080" height="668" class="w-full h-full">
                                     </div>
                                     <img src="{{ asset('images/logo-transparent.svg') }}" alt="Логотип прозрачный" width="87" height="85" class="absolute bottom-5 right-7">
-                                    <div class="circle-gr overflow-hidden w-full max-w-29 lg:max-w-37 h-full before:max-w-29 lg:before:max-w-37 before:bg-linear-(--white-gr) rounded-4xl before:rounded-4xl before:p-2 before:mix-blend-overlay">
+                                    <div class="circle-gr overflow-hidden w-full max-w-29 lg:max-w-37 h-full before:max-w-29 lg:before:max-w-37 before:bg-linear-(--white-gr) rounded-4xl before:rounded-4xl before:p-2 before:mix-blend-overlay after:-z-10">
                                         <img src="{{ asset('images/speacker-1.webp') }}" alt="Фото спикера 1" class="w-full h-full object-cover">
                                     </div>
                                     <div class="py-4 px-6">
@@ -54,6 +45,15 @@
                                             <div class="circle-gr relative -top-1.5 bg-linear-(--white2-gr) before:bg-linear-(--white2-gr) before:p-[1.5px] rounded-b-lg before:rounded-b-lg p-3 text-[10px] italic mix-blend-overlay">“Тренды медицинского рынка 2025.”</div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative circle-gr overflow-hidden w-full h-full bg-linear-(--white2-gr) before:bg-linear-(--white-gr) rounded-4xl before:rounded-4xl before:p-1 before:-z-10 flex mix-blend-overlay after:-z-10">
+                                    <div class="absolute w-200 h-127 left-1/2 top-1/2 -translate-y-2/4 -translate-x-2/5 -z-10">
+                                        <img src="{{ asset('images/bg-slide-speacker.webp') }}" alt="Фон карточки спикера" width="1080" height="668" class="w-full h-full">
+                                    </div>
+                                    <img src="{{ asset('images/logo-transparent.svg') }}" alt="Логотип прозрачный" width="210" height="210" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 mix-blend-overlay -z-10">
+                                    <button type="button" data-modal-target="form1" class="open-modal-btn flex items-center justify-center w-full h-full text-2xl lg:text-4xl font-secondary cursor-pointer">Стать спикером</button>
                                 </div>
                             </div>
                         </div>

@@ -24,8 +24,8 @@
                 <div class="block lg:hidden min-w-[53px] -ml-2" id="hamburger">
                     <x-hamburger></x-hamburger>
                 </div>
-                <button data-modal-target="form3" type="button" class="open-modal-btn btn-gr w-full h-13 lg:w-54 lg:h-12 xl:w-66 xl:h-13.5 rounded-full before:rounded-full cursor-pointer">
-                    стать участником
+                <button data-modal-target="form3" type="button" class="open-modal-btn btn-gr-pink before:p-0.5 w-full h-13 lg:w-54 lg:h-12 xl:w-66 xl:h-13.5 rounded-full before:rounded-full cursor-pointer">
+                    зарегистрироваться
                     <span class="bg-gr"></span>
                 </button>
             </div>

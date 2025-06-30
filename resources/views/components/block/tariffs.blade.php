@@ -1,6 +1,6 @@
 <section class="relative py-8">
     <div class="container mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 px-3">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-9 px-3 lg:px-0">
             <div class="bg-[rgba(31, 52, 98, 0.09)] border rounded-(--radius-40)">
                 <div class="p-6 lg:py-8 lg:px-10">
                     <p class="lg:font-semibold text-white/50 lg:text-white">Стоимость участия</p>
@@ -23,17 +23,17 @@
                         </ul>
                     </div>
                 </div>
-                <div class="relative p-6 lg:py-8 lg:px-10">
+                <div class="relative p-6 lg:p-8">
                     <p class="text-xs lg:text-base">15 % скидка при регистрации от 2-х человек</p>
                     <div class="relative flex items-center gap-2 lg:gap-4 rounded-full bg-white p-[2px] mt-2.5">
                         <div class="bg-linear-(--violet-gr) text-xs text-center font-bold rounded-full w-14 lg:w-43 h-full py-1 px-2">-20%</div>
                         <p class="flex-auto text-xs text-center text-[#1F3462] font-medium">специальная цена до 1 августа</p>
                     </div>
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-2 gap-x-8 mt-8.5">
-                        <p class="font-bold text-[32px] lg:text-[40px]">25 000 руб.</p>
+                        <div class="relative font-bold text-[32px] lg:text-[40px]">25 000 руб. <del class="hidden lg:block absolute -top-5 right-0 block text-xl text-white/50 font-normal">5 000 руб.</del></div>
                         <button type="button"
                                 data-modal-target="form3"
-                                class="open-modal-btn flex-auto btn-gr w-full lg:w-auto h-15 text-xl font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg">
+                                class="open-modal-btn flex-auto btn-gr-pink before:p-0.5 w-full lg:w-auto h-20 font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg">
                             стать участником
                             <span class="bg-gr"></span>
                         </button>
@@ -63,7 +63,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="relative p-6 lg:py-8 lg:px-10">
+                <div class="relative p-6 lg:p-8">
                     <p class="text-xs lg:text-base">15 % скидка при регистрации от 2-х человек</p>
                     <div class="relative flex items-center gap-2 lg:gap-4 rounded-full bg-white p-[2px] mt-2.5">
                         <div class="bg-linear-(--violet-gr) text-xs text-center font-bold rounded-full w-14 lg:w-43 h-full py-1 px-2">-20%</div>
@@ -73,7 +73,7 @@
                         <div class="relative font-bold text-[32px] lg:text-[40px]">30 000 руб. <del class="hidden lg:block absolute -top-5 right-0 block text-xl text-white/50 font-normal">7 000 руб.</del></div>
                         <button type="button"
                                 data-modal-target="form3"
-                                class="open-modal-btn flex-auto btn-gr w-full lg:w-auto h-15 text-xl font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg">
+                                class="open-modal-btn flex-auto btn-gr-pink before:p-0.5 w-full lg:w-auto h-20 font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg">
                             стать участником
                             <span class="bg-gr"></span>
                         </button>

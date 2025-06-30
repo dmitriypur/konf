@@ -1,6 +1,6 @@
 <section class="relative pt-10 pb-20">
-    <div class="absolute opacity-50 lg:opacity-100 -rotate-130 lg:rotate-0 w-400 -left-180 -top-150 lg:left-1/2 lg:-translate-x-1/2 lg:-top-80 lg:w-648 h-auto -z-10">
-        <img src="{{ asset('images/morph.svg') }}" alt="Разноцветное облако" width="2592" height="1084"
+    <div class="absolute opacity-50 lg:opacity-100 -rotate-130 lg:rotate-0 w-400 -left-180 -top-150 lg:left-1/2 lg:-translate-x-1/2 lg:-top-90 lg:w-550 h-auto -z-10">
+        <img src="{{ asset('images/morph.webp') }}" alt="Разноцветное облако" width="2200" height="920"
              class="w-full">
     </div>
     <div class="container mx-auto px-3 lg:px-0">
