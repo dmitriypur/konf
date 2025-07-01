@@ -30,7 +30,7 @@
                     <div class="flex w-full relative">
                         <div class="w-full lg:max-w-md">
                             <p class="font-medium text-lg text-center lg:text-left">Присоединяйсь к нашему сообществу в&nbsp;Telegram</p>
-                            <a href="https://t.me/SoluxeHotelMoscow" target="_blank"
+                            <a href="https://t.me/OpticaFuture" target="_blank"
                                class="flex items-center justify-center lg:max-w-75 h-15 lg:h-12.5 mt-6 circle-gr relative rounded-full bg-linear-(--blue-gr) before:bg-linear-(--white-gr) before:p-[2px] before:rounded-full hover:bg-sky-700 transition-colors">Наш
                                 Telegram</a>
                         </div>
@@ -72,10 +72,6 @@
         </div>
     </div>
 </footer>
-<!-- Скрытые шаблоны форм -->
-
-
-
 
 <x-forms.speacker></x-forms.speacker>
 <x-forms.partner></x-forms.partner>

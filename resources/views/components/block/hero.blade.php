@@ -1,4 +1,4 @@
-<section class="relative">
+<section class="relative pt-55 lg:pt-35">
     <div class="absolute -top-10 left-[50%] -translate-x-1/2 w-full max-w-470 -z-10">
         <img src="{{ asset('images/bg-hero-circles.webp') }}" alt="Фон из кружков">
     </div>
@@ -10,7 +10,7 @@
     <div class="container mx-auto pt-5 pb-8  lg:py-16">
         <div class="flex flex-col md:flex-row relative px-3">
             <div class="max-w-140 relative">
-                <div class="absolute animate-[reverse-rotate_8s_ease-in-out_infinite] rotate-270 md:-rotate-20 w-40 h-auto top-70 md:-top-14 left-65 md:left-90 -z-10">
+                <div class="absolute md:animate-[reverse-rotate_8s_ease-in-out_infinite] rotate-270 md:-rotate-20 w-40 h-auto top-70 md:-top-14 left-65 md:left-90 -z-10">
                     <img src="{{ asset('images/pink-ring.webp') }}" alt="Розовое колечко" width="160" height="145"
                          class="w-full">
                 </div>
@@ -86,14 +86,14 @@
                 <x-hero-mobile></x-hero-mobile>
             </div>
         </div>
-        <div class="relative mt-23 px-3 z-10">
+        <div class="relative mt-23 px-3 z-10 lg:px-0">
             <ul class="grid lg:grid-cols-3 gap-5 lg:gap-10">
                 <li class="circle-gr bg-linear-(--white2-gr) inline-flex items-center px-10 py-6 rounded-3xl before:rounded-3xl before:bg-linear-(--white3-gr) before:p-[3px] after:bg-linear-(--pink-gr) after:rounded-3xl after:p-[3px] after:opacity-100 lg:after:opacity-0 hover:after:opacity-100 hover:-translate-y-1 hover:[&_span]:border-0 hover:[&_span]:bg-linear-(--pink-gr) backdrop-blur-lg font-secondary transition-transform">
                     <span
                         class="inline-flex items-center justify-center w-17 h-17 rounded-full bg-linear-(--pink-gr) lg:bg-linear-(--white4-gr) border border-white/10 mr-5 transition-color">
                         <x-icons.user></x-icons.user>
                     </span>
-                    <b class="font-primary font-bold mr-1.5">CEO</b> уровень участников
+                    <p><b class="font-primary mr-1">CEO</b> уровень участников</p>
                 </li>
                 <li class="circle-gr bg-linear-(--white2-gr) inline-flex items-center px-10 py-6 rounded-3xl before:rounded-3xl before:bg-linear-(--white3-gr) before:p-[3px] after:bg-linear-(--pink-gr) after:rounded-3xl after:p-[3px] after:opacity-0 hover:after:opacity-100 hover:-translate-y-1 hover:[&_span]:border-0 hover:[&_span]:bg-linear-(--pink-gr) backdrop-blur-lg font-secondary transition-transform">
                     <span

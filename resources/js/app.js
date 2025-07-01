@@ -179,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('hamburger').addEventListener('click', toggleMobileMenu)
 
     function toggleMobileMenu(){
+        document.getElementById('pink-circle').classList.toggle('opacity-60')
         document.getElementById('mobile-menu').classList.toggle('max-h-80')
     }
 });

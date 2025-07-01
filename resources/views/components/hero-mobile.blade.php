@@ -11,7 +11,7 @@
         </div>
         <div class="relative h-72.5 mt-2">
             <span class="absolute vertical-white-gr before:p-0.5 bg-linear-(--white-vertical-gr) mix-blend-overlay rounded-2xl before:rounded-2xl inset-0 -z-10"></span>
-            <a href="https://t.me/SoluxeHotelMoscow" target="_blank" class="flex items-center justify-start gap-6 px-5 rounded-2xl bg-white/40 border border-white w-full h-15 text-sm text-white font-semibold">
+            <a href="https://t.me/OpticaFuture" target="_blank" class="flex items-center justify-start gap-6 px-5 rounded-2xl bg-white/40 border border-white w-full h-15 text-sm text-white font-semibold">
                 <img src="{{ asset('images/icon-tg.svg') }}" alt="Иконка открытый конверт" width="40" height="40">
                 Оптика Будущего
             </a>
