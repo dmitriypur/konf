@@ -48,8 +48,6 @@ class BitrixFormController extends Controller
                 break;
         }
 
-        dump($fields);
-
         $response = Http::post($webhook, ['fields' => $fields]);
 
         return response()->json(['success' => $response->successful()]);
