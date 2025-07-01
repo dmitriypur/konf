@@ -4,7 +4,7 @@
 <x-app-layout>
     <x-block.hero></x-block.hero>
     <x-block.about></x-block.about>
-    <x-block.themes></x-block.themes>
+{{--    <x-block.themes></x-block.themes>--}}
     <x-block.programm></x-block.programm>
     <x-block.call-to-action></x-block.call-to-action>
     <x-block.tariffs></x-block.tariffs>
