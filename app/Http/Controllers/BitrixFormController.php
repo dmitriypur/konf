@@ -47,7 +47,7 @@ class BitrixFormController extends Controller
                     "Организация: " . $request->input('org');
                 break;
         }
-
+dump($webhook);
         $response = Http::post($webhook, ['fields' => $fields]);
 
         return response()->json(['success' => $response->successful()]);
