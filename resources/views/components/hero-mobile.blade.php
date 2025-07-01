@@ -1,6 +1,6 @@
 <div class="relative overflow-hidden max-w-90 rounded-(--radius-40) top-6 md:-top-8 left-8 md:absolute md:left-75 rotate-6 md:rotate-11 backdrop-blur-lg">
     <div class="w-full md:w-83 h-144">
-        <div class="circle-gr w-full h-full bg-linear-(--white2-gr) before:bg-linear-(--white2-gr) before:p-1 rounded-(--radius-40) before:rounded-(--radius-40) "></div>
+        <div class="circle-gr w-full h-full bg-linear-(--white4-gr) before:bg-linear-(--pink4-gr) before:p-1 rounded-(--radius-40) before:rounded-(--radius-40) "></div>
     </div>
     <div class="absolute inset-0 py-4 px-5">
         <div class="flex items-center justify-between">
@@ -11,7 +11,7 @@
         </div>
         <div class="relative h-72.5 mt-2">
             <span class="absolute vertical-white-gr before:p-0.5 bg-linear-(--white-vertical-gr) mix-blend-overlay rounded-2xl before:rounded-2xl inset-0 -z-10"></span>
-            <a href="#" class="flex items-center justify-start gap-6 px-5 rounded-2xl bg-white/40 border border-white w-full h-15 text-sm text-white font-semibold">
+            <a href="https://t.me/SoluxeHotelMoscow" target="_blank" class="flex items-center justify-start gap-6 px-5 rounded-2xl bg-white/40 border border-white w-full h-15 text-sm text-white font-semibold">
                 <img src="{{ asset('images/icon-tg.svg') }}" alt="Иконка открытый конверт" width="40" height="40">
                 Оптика Будущего
             </a>
@@ -44,13 +44,13 @@
         </div>
         <button type="button"
                 data-modal-target="form3"
-                class="open-modal-btn btn-gr-pink before:p-0.5 w-full h-15 text-xl font-secondary col-span-full rounded-full before:rounded-full cursor-pointer backdrop-blur-lg mt-4.5">
+                class="open-modal-btn btn-gr-pink before:p-0.5 w-full h-15 font-secondary col-span-full rounded-full before:rounded-full cursor-pointer backdrop-blur-lg mt-4.5">
             Зарегистрироваться
             <span class="bg-gr"></span>
         </button>
         <button type="button"
                 data-modal-target="form1"
-                class="open-modal-btn btn-gr-pink before:p-0.5 w-full h-15 text-xl font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg mt-4.5">
+                class="open-modal-btn btn-gr-pink before:p-0.5 w-full h-15 font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg mt-4.5">
             Стать спикером
             <span class="bg-gr"></span>
         </button>

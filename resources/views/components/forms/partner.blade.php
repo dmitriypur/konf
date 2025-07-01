@@ -5,7 +5,9 @@
         </div>
         <div class="w-full h-full">
         <form
-            class="px-6 h-full overflow-y-auto md:px-20 rounded-[30px] text-white space-y-5 ">
+            data-name="Форма 'Стать партнером'"
+            data-form="form2"
+            class="bitrix-form px-6 h-full overflow-y-auto scrollbar-hide md:px-20 rounded-[30px] text-white space-y-5 ">
             <!-- Заголовок -->
             <div class="flex items-start justify-between">
                 <h2 class="text-5xl/9">стать<br>партнером</h2>
@@ -15,29 +17,37 @@
             <!-- Поля формы -->
             <div
                 class="circle-gr relative rounded-full before:bg-linear-(--white2-gr) before:p-[1px] before:rounded-[30px] before:-z-10 after:-z-10">
-                <input type="text" placeholder="*Организация" required
+                <input type="text" placeholder="*Организация" data-required name="org"
                        class="w-full rounded-full px-6 py-3 bg-white/15 placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30"/>
             </div>
 
             <div
                 class="circle-gr relative rounded-full before:bg-linear-(--white2-gr) before:p-[1px] before:rounded-[30px] before:-z-10 after:-z-10">
-                <input type="tel" placeholder="*ФИО" required
+                <input type="text" placeholder="*ФИО" data-required name="fio"
                        class="w-full rounded-full px-6 py-3 bg-[rgba(255,255,255,0.15)] placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30 transition"/>
             </div>
             <div
                 class="circle-gr relative rounded-full before:bg-linear-(--white2-gr) before:p-[1px] before:rounded-[30px] before:-z-10 after:-z-10">
-                <input type="text" placeholder="*Номер телефона" required
-                       class="w-full rounded-full px-6 py-3 bg-[rgba(255,255,255,0.15)] placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30 transition"/>
+                <input type="tel" placeholder="*Номер телефона" data-required name="phone"
+                       class="phone-input w-full rounded-full px-6 py-3 bg-[rgba(255,255,255,0.15)] placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30 transition"/>
             </div>
             <div
                 class="circle-gr relative rounded-full before:bg-linear-(--white2-gr) before:p-[1px] before:rounded-[30px] before:-z-10 after:-z-10">
-                <input type="email" placeholder="E-mail"
+                <input type="email" placeholder="E-mail" name="email"
                        class="w-full rounded-full px-6 py-3 bg-[rgba(255,255,255,0.15)] placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30 transition"/>
+            </div>
+
+            <!-- Alert -->
+            <div class="form-alert hidden text-sm mt-2"></div>
+
+            <!-- Loader -->
+            <div class="form-loader hidden absolute inset-0 bg-white/60 flex items-center justify-center z-10">
+                <span class="animate-spin h-6 w-6 border-4 border-gray-300 border-t-blue-500 rounded-full"></span>
             </div>
 
             <!-- Кнопка -->
             <button type="submit"
-                    class="btn-gr w-full h-13 rounded-full before:rounded-full cursor-pointer mt-5">
+                    class="btn-gr w-full h-13 rounded-full before:rounded-full cursor-pointer mt-4">
                 отправить заявку
                 <span class="bg-gr mix-blend-overlay"></span>
             </button>

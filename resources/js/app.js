@@ -7,6 +7,7 @@ import {Navigation} from "swiper/modules";
 import './popup';
 import './timer';
 import './dinamic-adapt';
+import './bitrix-form';
 
 document.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector('.speakers')){
@@ -184,8 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    // let formSection = document.getElementById('add-user');
-
     document.addEventListener('click', function(e){
         if(e.target.classList.contains('add-user')){
             e.target.remove();
@@ -198,6 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(el.parentNode.classList.contains('phone')){
                     el.parentNode.remove();
                 }
+                el.name = el.name + '2'
             });
             clone.insertAdjacentHTML('afterbegin', '<p class="text-sm mb-2">Участник №2</p>');
             block.after(clone);

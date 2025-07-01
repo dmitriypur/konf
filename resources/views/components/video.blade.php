@@ -1,5 +1,5 @@
 <template id="video">
-    <div class="px-2">
+    <div class="px-2 mt-10">
         <div class="relative w-full max-w-3xl bg-black rounded-xl lg:rounded-3xl overflow-hidden">
             <video id="html5Video" class="w-full h-auto" controls>
                 <source src="{{ asset('files/video.mp4') }}" type="video/mp4" />

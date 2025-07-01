@@ -4,7 +4,7 @@
     </div>
     <div
         id="follower"
-        class="hidden lg:block circle-gr w-80 h-80 bg-linear-(--white2-gr) before:bg-linear-(--violet-gr) mix-blend-overlay rounded-full before:rounded-full fixed w-[320px] h-[320px] before:p-2 pointer-events-none -z-50"
+        class="hidden lg:block circle-gr w-80 h-80 bg-linear-(--violet3-gr) rounded-full fixed w-[320px] h-[320px] before:p-2 pointer-events-none -z-100"
         style="top: 0; left: 0;"
     ></div>
     <div class="container mx-auto pt-5 pb-8  lg:py-16">
@@ -15,7 +15,7 @@
                          class="w-full">
                 </div>
 
-                <div class="absolute left-1/2 -top-80 w-492 h-auto -z-10">
+                <div class="absolute left-1/2 -top-50 w-492 h-auto -z-10">
                     <img src="{{ asset('images/morph.webp') }}" alt="Разноцветное облако" width="1967" height="1295"
                          class="w-full">
                 </div>
@@ -43,10 +43,10 @@
                         Лидеры отрасли
                     </div>
                 </div>
-                <div class="hidden relative md:grid grid-cols-2 mt-12 gap-y-8 gap-x-3 text-xl font-secondary max-w-125">
+                <div class="hidden relative md:grid grid-cols-2 mt-12 gap-y-8 gap-x-3 font-secondary max-w-125">
                     <button type="button"
                             data-modal-target="form3"
-                            class="open-modal-btn btn-gr-pink w-full h-20 col-span-full rounded-full before:rounded-full before:p-0.5 cursor-pointer backdrop-blur-lg">
+                            class="open-modal-btn btn-gr-pink text-xl w-full h-20 col-span-full rounded-full before:rounded-full before:p-0.5 cursor-pointer backdrop-blur-lg">
                         Зарегистрироваться на конференцию
                         <span class="bg-gr"></span>
                     </button>
@@ -93,7 +93,7 @@
                         class="inline-flex items-center justify-center w-17 h-17 rounded-full bg-linear-(--pink-gr) lg:bg-linear-(--white4-gr) border border-white/10 mr-5 transition-color">
                         <x-icons.user></x-icons.user>
                     </span>
-                    CEO уровень участников
+                    <b class="font-primary font-bold mr-1.5">CEO</b> уровень участников
                 </li>
                 <li class="circle-gr bg-linear-(--white2-gr) inline-flex items-center px-10 py-6 rounded-3xl before:rounded-3xl before:bg-linear-(--white3-gr) before:p-[3px] after:bg-linear-(--pink-gr) after:rounded-3xl after:p-[3px] after:opacity-0 hover:after:opacity-100 hover:-translate-y-1 hover:[&_span]:border-0 hover:[&_span]:bg-linear-(--pink-gr) backdrop-blur-lg font-secondary transition-transform">
                     <span

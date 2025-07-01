@@ -3,7 +3,7 @@
         <img src="{{ asset('images/bg-bottom.webp') }}" alt="Фоновое изображение разноцветное облако" width="3276" height="4500">
     </div>
     <div class="lg:hidden absolute left-1/2 -top-40 -translate-x-1/2 w-528 -z-10">
-        <img src="{{ asset('images/bg-mobile-location.svg') }}" alt="Фоновое изображение разноцветное облако" width="2114" height="2347">
+        <img src="{{ asset('images/bg-mobile-location.webp') }}" alt="Фоновое изображение разноцветное облако" width="2114" height="2347">
     </div>
     <div class="container mx-auto">
         <div class="lg:flex px-3 lg:px-0">
@@ -39,25 +39,25 @@
                         </div>
                         <div class="col-span-2 w-full flex flex-col gap-8 lg:gap-0">
                             <div class="grid grid-cols-2 gap-x-4 lg:gap-x-7.5">
-                                <a href="#" class="btn-gr flex items-center justify-center w-full h-14 rounded-full before:rounded-full font-secondary text-sm">
+                                <a href="https://yandex.ru/maps/org/soluxe_hotel_moscow/124173523175/?indoorLevel=1&ll=37.633013%2C55.844870&z=17" target="_blank" class="btn-gr flex items-center justify-center w-full h-14 rounded-full before:rounded-full font-secondary text-sm">
                                     открыть карту
                                     <span class="bg-gr"></span>
                                 </a>
-                                <a href="#" class="btn-gr flex items-center justify-center w-full h-14 rounded-full before:rounded-full font-secondary text-sm">
+                                <a href="https://taxi.yandex.ru/order?gfrom=,&gto=55.844723,37.634604&tariff=econom&lang=ru&utm_source=yamaps&utm_medium=2334692&ref=2334692" target="_blank" class="btn-gr flex items-center justify-center w-full h-14 rounded-full before:rounded-full font-secondary text-sm">
                                     Заказать такси
                                     <span class="bg-gr"></span>
                                 </a>
                             </div>
                             <div class="flex gap-2 items-center justify-between mt-auto">
-                                <a href="#" class="circle-gr overflow-hidden relative bg-linear-(--white3-gr) py-1.5 px-7 flex items-center justify-center rounded-full before:bg-linear-(--white2-gr) before:p-0.5 before:rounded-full underline hover:no-underline hover:[&_span]:opacity-100">
+                                <a href="https://vk.com/soluxehotelmoscow" target="_blank" class="circle-gr overflow-hidden relative bg-linear-(--white3-gr) py-1.5 px-7 flex items-center justify-center rounded-full before:bg-linear-(--white2-gr) before:p-0.5 before:rounded-full underline hover:no-underline hover:[&_span]:opacity-100">
                                     <span class="absolute inset-0 bg-linear-(--violet-gr) z-10 mix-blend-overlay opacity-0 transition-opacity"></span>
                                     VK
                                 </a>
-                                <a href="#" class="circle-gr overflow-hidden relative bg-linear-(--white3-gr) py-1.5 px-7 flex items-center justify-center rounded-full before:bg-linear-(--white2-gr) before:p-0.5 before:rounded-full underline hover:no-underline hover:[&_span]:opacity-100">
+                                <a href="https://soluxehotelmoscow.com/" target="_blank" class="circle-gr overflow-hidden relative bg-linear-(--white3-gr) py-1.5 px-7 flex items-center justify-center rounded-full before:bg-linear-(--white2-gr) before:p-0.5 before:rounded-full underline hover:no-underline hover:[&_span]:opacity-100">
                                     <span class="absolute inset-0 bg-linear-(--violet-gr) z-10 mix-blend-overlay opacity-0 transition-opacity"></span>
-                                    WhatsApp
+                                    Сайт
                                 </a>
-                                <a href="#" class="circle-gr overflow-hidden relative bg-linear-(--white3-gr) py-1.5 px-7 flex items-center justify-center rounded-full before:bg-linear-(--white2-gr) before:p-0.5 before:rounded-full underline hover:no-underline hover:[&_span]:opacity-100">
+                                <a href="https://t.me/SoluxeHotelMoscow" target="_blank" class="circle-gr overflow-hidden relative bg-linear-(--white3-gr) py-1.5 px-7 flex items-center justify-center rounded-full before:bg-linear-(--white2-gr) before:p-0.5 before:rounded-full underline hover:no-underline hover:[&_span]:opacity-100">
                                     <span class="absolute inset-0 bg-linear-(--violet-gr) z-10 mix-blend-overlay opacity-0 transition-opacity"></span>
                                     Telegram
                                 </a>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BitrixFormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/send-bitrix', [BitrixFormController::class, 'send']);

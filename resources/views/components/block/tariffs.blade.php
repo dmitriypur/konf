@@ -30,7 +30,7 @@
                         <p class="flex-auto text-xs text-center text-[#1F3462] font-medium">специальная цена до 1 августа</p>
                     </div>
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-2 gap-x-8 mt-8.5">
-                        <div class="relative font-bold text-[32px] lg:text-[40px]">25 000 руб. <del class="hidden lg:block absolute -top-5 right-0 block text-xl text-white/50 font-normal">5 000 руб.</del></div>
+                        <div class="relative font-bold text-[32px] lg:text-[40px]">24 000 руб. <del class="hidden lg:block absolute -top-5 right-0 block text-xl text-white/50 font-normal">30 000 руб.</del></div>
                         <button type="button"
                                 data-modal-target="form3"
                                 class="open-modal-btn flex-auto btn-gr-pink before:p-0.5 w-full lg:w-auto h-20 font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg">
@@ -70,7 +70,7 @@
                         <p class="flex-auto text-xs text-center text-[#1F3462] font-medium">специальная цена до 1 августа</p>
                     </div>
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-2 gap-x-8 mt-8.5">
-                        <div class="relative font-bold text-[32px] lg:text-[40px]">30 000 руб. <del class="hidden lg:block absolute -top-5 right-0 block text-xl text-white/50 font-normal">7 000 руб.</del></div>
+                        <div class="relative font-bold text-[32px] lg:text-[40px]">28 000 руб. <del class="hidden lg:block absolute -top-5 right-0 block text-xl text-white/50 font-normal">35 000 руб.</del></div>
                         <button type="button"
                                 data-modal-target="form3"
                                 class="open-modal-btn flex-auto btn-gr-pink before:p-0.5 w-full lg:w-auto h-20 font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg">

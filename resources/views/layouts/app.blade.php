@@ -14,6 +14,7 @@
     <link rel="apple-touch-icon" sizes="180x180"
           href="{{ asset('icons/apple-touch-icon.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @stack('header-scripts')
 </head>
 <body class="font-primary bg-no-repeat bg-linear-(--color-primary-gr) text-white">
 <div class="w-full overflow-hidden">

@@ -30,7 +30,7 @@
                     <div class="flex w-full relative">
                         <div class="w-full lg:max-w-md">
                             <p class="font-medium text-lg text-center lg:text-left">Присоединяйсь к нашему сообществу в&nbsp;Telegram</p>
-                            <a href="#"
+                            <a href="https://t.me/SoluxeHotelMoscow" target="_blank"
                                class="flex items-center justify-center lg:max-w-75 h-15 lg:h-12.5 mt-6 circle-gr relative rounded-full bg-linear-(--blue-gr) before:bg-linear-(--white-gr) before:p-[2px] before:rounded-full hover:bg-sky-700 transition-colors">Наш
                                 Telegram</a>
                         </div>
@@ -59,15 +59,15 @@
         <div class="flex flex-col gap-5 lg:gap-0 lg:flex-row justify-between mx-auto lg:max-w-234">
             <div class="flex items-center lg:justify-center gap-2 flex-auto">
                 <img src="{{ asset('images/map.svg') }}" alt="Иконка метки на карте" width="32" height="32">
-                <a href="#" class="hover:text-pink transition-colors">ул. Вильгельма Пика, д.16, Москва</a>
+                <a href="https://yandex.ru/maps/org/soluxe_hotel_moscow/124173523175/?indoorLevel=1&ll=37.633013%2C55.844870&z=17" target="_blank" class="hover:text-pink transition-colors">ул. Вильгельма Пика, д.16, Москва</a>
             </div>
             <div class="flex items-center lg:justify-center gap-2 flex-auto">
                 <img src="{{ asset('images/email.svg') }}" alt="Иконка конверт" width="32" height="32">
-                <a href="mailto:support@norch.ai" class="hover:text-pink transition-colors">support@norch.ai</a>
+                <a href="mailto:konf@future-optic.pro" class="hover:text-pink transition-colors">konf@future-optic.pro</a>
             </div>
             <div class="flex items-center lg:justify-center gap-2 flex-auto">
                 <img src="{{ asset('images/call.svg') }}" alt="Иконка телефон" width="32" height="32">
-                <a href="tel:80001234567" class="hover:text-pink transition-colors">+8 (000) 123-4567</a>
+                <a href="tel:+79804605150" class="hover:text-pink transition-colors">+7 (980) 460-51-50</a>
             </div>
         </div>
     </div>

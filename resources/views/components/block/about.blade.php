@@ -26,12 +26,12 @@
                         <!-- Обертка слайдов -->
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="relative circle-gr overflow-hidden w-full h-full bg-linear-(--white2-gr) before:bg-linear-(--white-gr) rounded-4xl before:rounded-4xl before:p-1 before:-z-10 flex items-center mix-blend-overlay after:-z-10">
+                                <div class="relative circle-gr overflow-hidden w-full h-full bg-linear-(--white2-gr) before:bg-linear-(--white3-gr) rounded-4xl before:rounded-4xl before:p-1 before:-z-10 flex items-center mix-blend-overlay after:-z-10">
                                     <div class="absolute w-200 h-127 left-1/2 top-1/2 -translate-y-2/4 -translate-x-2/5 -z-10">
                                         <img src="{{ asset('images/bg-slide-speacker.webp') }}" alt="Фон карточки спикера" width="1080" height="668" class="w-full h-full">
                                     </div>
                                     <img src="{{ asset('images/logo-transparent.svg') }}" alt="Логотип прозрачный" width="87" height="85" class="absolute bottom-5 right-7">
-                                    <div class="circle-gr overflow-hidden w-full max-w-29 lg:max-w-37 h-full before:max-w-29 lg:before:max-w-37 before:bg-linear-(--white-gr) rounded-4xl before:rounded-4xl before:p-2 before:mix-blend-overlay after:-z-10">
+                                    <div class="circle-gr overflow-hidden w-full max-w-29 lg:max-w-37 h-full before:max-w-29 lg:before:max-w-37 before:bg-linear-(--pink3-gr) rounded-4xl before:rounded-4xl before:p-2 before:mix-blend-overlay after:-z-10">
                                         <img src="{{ asset('images/speacker-1.webp') }}" alt="Фото спикера 1" class="w-full h-full object-cover">
                                     </div>
                                     <div class="py-4 px-6">
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="relative circle-gr overflow-hidden w-full h-full bg-linear-(--white2-gr) before:bg-linear-(--white-gr) rounded-4xl before:rounded-4xl before:p-1 before:-z-10 flex mix-blend-overlay after:-z-10">
+                                <div class="relative circle-gr overflow-hidden w-full h-full bg-linear-(--white2-gr) before:bg-linear-(--white3-gr) rounded-4xl before:rounded-4xl before:p-1 before:-z-10 flex mix-blend-overlay after:-z-10">
                                     <div class="absolute w-200 h-127 left-1/2 top-1/2 -translate-y-2/4 -translate-x-2/5 -z-10">
                                         <img src="{{ asset('images/bg-slide-speacker.webp') }}" alt="Фон карточки спикера" width="1080" height="668" class="w-full h-full">
                                     </div>

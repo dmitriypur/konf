@@ -25,7 +25,7 @@
         <div class="flex items-center justify-center w-14.5 h-11.5" style="background: url({{ asset('images/timer-item.svg') }}) no-repeat center;">
             <span class="text-[32px] font-bold" id="seconds">00</span>
         </div>
-        <div class="circle-gr relative mt-0.5 bg-linear-(--white2-gr) rounded-sm before:rounded-sm before:bg-linear-(--white-gr) before:p-[1px] w-full py-0.5 text-xs text-center font-medium">месяца</div>
+        <div class="circle-gr relative mt-0.5 bg-linear-(--white2-gr) rounded-sm before:rounded-sm before:bg-linear-(--white-gr) before:p-[1px] w-full py-0.5 text-xs text-center font-medium">секунд</div>
     </div>
 
 </div>

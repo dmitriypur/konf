@@ -1,7 +1,8 @@
 @push('header-scripts')
-    <link rel="canonical" href="rutifhiuh">
+    <link rel="canonical" href="{{ url('/') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
-<x-app-layout>
+<x-app-layout title='III Национальная конференция "Оптика Будущего"'>
     <x-block.hero></x-block.hero>
     <x-block.about></x-block.about>
 {{--    <x-block.themes></x-block.themes>--}}

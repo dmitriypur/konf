@@ -1,6 +1,6 @@
 <section class="relative py-8">
     <div class="lg:hidden absolute -left-30 -top-40 w-180 -z-10">
-        <img src="{{ asset('images/bg-mobile-partner.svg') }}" alt="Фоновое изображение разноцветное облако" width="720" height="1047">
+        <img src="{{ asset('images/bg-mobile-partner.webp') }}" alt="Фоновое изображение разноцветное облако" width="720" height="1047">
     </div>
     <div class="container mx-auto">
         <div class="max-w-270 mx-auto">
