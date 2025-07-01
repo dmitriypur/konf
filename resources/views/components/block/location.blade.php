@@ -39,11 +39,11 @@
                         </div>
                         <div class="col-span-2 w-full flex flex-col gap-8 lg:gap-0">
                             <div class="grid grid-cols-2 gap-x-4 lg:gap-x-7.5">
-                                <a href="#" class="btn-gr-pink before:p-0.5 flex items-center justify-center w-full h-14 rounded-full before:rounded-full font-secondary text-sm">
+                                <a href="#" class="btn-gr flex items-center justify-center w-full h-14 rounded-full before:rounded-full font-secondary text-sm">
                                     открыть карту
                                     <span class="bg-gr"></span>
                                 </a>
-                                <a href="#" class="btn-gr-pink before:p-0.5 flex items-center justify-center w-full h-14 rounded-full before:rounded-full font-secondary text-sm">
+                                <a href="#" class="btn-gr flex items-center justify-center w-full h-14 rounded-full before:rounded-full font-secondary text-sm">
                                     Заказать такси
                                     <span class="bg-gr"></span>
                                 </a>

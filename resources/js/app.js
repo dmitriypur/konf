@@ -225,8 +225,8 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animate);
     }
 
-    if(window.matchMedia('(min-width: 1024px)').matches){
-        animate();
-    }
+    // if(window.matchMedia('(min-width: 1024px)').matches){
+    //     animate();
+    // }
 
 });
