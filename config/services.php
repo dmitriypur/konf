@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'bitrix' => [
+        'webhook_url' => env('BITRIX_WEBHOOK_URL'),
+    ],
+
 ];
