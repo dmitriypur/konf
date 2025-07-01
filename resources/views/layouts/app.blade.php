@@ -7,12 +7,8 @@
     @isset($description)
         <meta name="description" content="{{ $description }}">
     @endisset
-    <link rel="icon" type="image/png" sizes="32x32"
-          href="{{ asset('icons/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16"
-          href="{{ asset('icons/favicon-16x16.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180"
-          href="{{ asset('icons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="alternate icon" href="{{ asset('favicon.png') }}" type="image/png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('header-scripts')
 </head>
