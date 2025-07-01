@@ -4,7 +4,7 @@
     </div>
     <div
         id="follower"
-        class="hidden lg:block circle-gr w-80 h-80 bg-linear-(--white2-gr) before:bg-linear-(--violet-gr) mix-blend-overlay rounded-full before:rounded-full fixed w-[320px] h-[320px] before:p-2 pointer-events-none transition-transform -z-50"
+        class="hidden lg:block circle-gr w-80 h-80 bg-linear-(--white2-gr) before:bg-linear-(--violet-gr) mix-blend-overlay rounded-full before:rounded-full fixed w-[320px] h-[320px] before:p-2 pointer-events-none -z-50"
         style="top: 0; left: 0;"
     ></div>
     <div class="container mx-auto pt-5 pb-8  lg:py-16">
