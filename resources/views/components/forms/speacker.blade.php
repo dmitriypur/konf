@@ -15,13 +15,13 @@
                 <!-- Поля формы -->
                 <div
                     class="circle-gr relative rounded-full before:bg-linear-(--violet-gr) before:p-[1px] before:rounded-[30px] before:-z-10 after:-z-10">
-                    <input type="text" placeholder="*ФИО" required name="fio"
+                    <input type="text" placeholder="*ФИО" data-required name="fio"
                            class="w-full rounded-full px-6 py-3 bg-white/15 placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30"/>
                 </div>
 
                 <div
                     class="circle-gr relative rounded-full before:bg-linear-(--violet-gr) before:p-[1px] before:rounded-[30px] before:-z-10 after:-z-10">
-                    <input type="tel" placeholder="*Номер телефона" required name="phone"
+                    <input type="tel" placeholder="*Номер телефона" data-required name="phone"
                            class="phone-input w-full rounded-full px-6 py-3 bg-[rgba(255,255,255,0.15)] placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30 transition"/>
                 </div>
                 <div

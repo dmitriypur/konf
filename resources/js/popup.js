@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 input.addEventListener('input', function (e) {
                     if (e.target.value.trim().length < 2) {
                         input.parentNode.classList.add('before:bg-red-600');
-                        input.parentNode.classList.remove('before:bg-linear-(--white2-gr)');
+                        input.parentNode.classList.remove('before:bg-linear-(--white2-gr)', 'before:bg-linear-(--violet-gr)');
                     }else{
                         input.parentNode.classList.add('before:bg-green-600');
                         input.parentNode.classList.remove('before:bg-red-600');

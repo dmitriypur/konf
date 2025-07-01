@@ -28,7 +28,7 @@
             if (!value) {
                 valid = false;
                 input.parentNode.classList.add('before:bg-red-600');
-                input.parentNode.classList.remove('before:bg-linear-(--white2-gr)');
+                input.parentNode.classList.remove('before:bg-linear-(--white2-gr)', 'before:bg-linear-(--violet-gr)');
             }
         });
 
