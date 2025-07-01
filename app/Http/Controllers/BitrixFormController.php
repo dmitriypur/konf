@@ -9,7 +9,8 @@ class BitrixFormController extends Controller
 {
     public function send(Request $request)
     {
-        $webhook = env('BITRIX_WEBHOOK_URL'); // crm.lead.add endpoint
+//        $webhook = env('BITRIX_WEBHOOK_URL'); // crm.lead.add endpoint
+        $webhook = 'https://zrenie1.bitrix24.ru/rest/1/wv49g0rovqdogsn8/crm.lead.add.json'; // crm.lead.add endpoint
 
         $formType = $request->input('form_type');
         $formName = $request->input('form_name');
@@ -47,7 +48,6 @@ class BitrixFormController extends Controller
                     "Организация: " . $request->input('org');
                 break;
         }
-dump($webhook);
         $response = Http::post($webhook, ['fields' => $fields]);
 
         return response()->json(['success' => $response->successful()]);
