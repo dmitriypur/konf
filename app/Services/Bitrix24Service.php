@@ -57,7 +57,7 @@ class Bitrix24Service
             'fields' => [
                 'NAME' => $data['fio'],
                 'PHONE' => [['VALUE' => $data['phone'], 'VALUE_TYPE' => 'WORK']],
-                'EMAIL' => [['VALUE' => $data['email1'] ?? '', 'VALUE_TYPE' => 'WORK']],
+                'EMAIL' => [['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']],
             ],
             'params' => ['REGISTER_SONET_EVENT' => 'Y']
         ]);

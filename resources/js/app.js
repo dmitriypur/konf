@@ -186,10 +186,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    let i = 0;
+    let i = 1;
     document.addEventListener('click', function(e){
-        i++;
         if(e.target.classList.contains('add-user')){
+            i++;
             // e.target.remove();
             let block = document.querySelectorAll('.user-data');
             let clone = block[block.length - 1].cloneNode(true);

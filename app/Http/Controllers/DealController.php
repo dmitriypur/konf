@@ -70,7 +70,7 @@ class DealController extends Controller
                 $index = $matches[1];
                 $participants[] = [
                     'fio' => $data["fio{$index}"] ?? '',
-                    'phone' => $data["phone{$index}"] ?? '',
+                    'phone' => $data["phone"] ?? '',
                     'telegram' => $data["telegram{$index}"] ?? '',
                     'email' => $data["email{$index}"] ?? '',
                 ];
@@ -117,7 +117,7 @@ class DealController extends Controller
         if (count($participants) >= 1) {
             $products[] = [
                 'PRODUCT_ID' => 2,
-                'PRICE' => 25000,
+                'PRICE' => 30000,
                 'QUANTITY' => 1,
             ];
         }
@@ -125,10 +125,10 @@ class DealController extends Controller
         if (count($participants) > 1) {
             $products[] = [
                 'PRODUCT_ID' => 2,
-                'PRICE' => 20000,
+                'PRICE' => 24000,
                 'QUANTITY' => count($participants) - 1,
                 'DISCOUNT_TYPE_ID' => 1,
-                'DISCOUNT_SUM' => 5000,
+                'DISCOUNT_SUM' => 6000,
             ];
         }
 
@@ -137,7 +137,7 @@ class DealController extends Controller
 
     protected function calculateTotalCost(array $participants): int
     {
-        return 25000 + max(0, count($participants) - 1) * 20000;
+        return 24000 * count($participants) - ((24000 * count($participants)) * 0.15);
     }
 
     protected function generateComments(array $data, array $participants, int $totalCost): string

@@ -12,7 +12,7 @@ class DealStoreRequest extends FormRequest
             'city' => 'nullable|string',
             'org' => 'nullable|string',
             'brand' => 'nullable|string',
-            'phone' => 'nullable|string',
+            'phone' => 'required',
             'form_type' => 'nullable|string',
             'form_name' => 'nullable|string',
         ];
