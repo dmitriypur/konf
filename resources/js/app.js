@@ -186,22 +186,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    let i = 0;
     document.addEventListener('click', function(e){
+        i++;
         if(e.target.classList.contains('add-user')){
-            e.target.remove();
-            let block = document.querySelector('.user-data');
-            let clone = block.cloneNode(true);
+            // e.target.remove();
+            let block = document.querySelectorAll('.user-data');
+            let clone = block[block.length - 1].cloneNode(true);
 
             let inputs = clone.querySelectorAll('input, textarea, select');
             inputs.forEach(el => {
+                el.name = el.name.replace(/[0-9]/g, '');
                 el.value = '';
                 if(el.parentNode.classList.contains('phone')){
                     el.parentNode.remove();
                 }
-                el.name = el.name + '2'
+                el.name = el.name + i;
             });
-            clone.insertAdjacentHTML('afterbegin', '<p class="text-sm mb-2">Участник №2</p>');
-            block.after(clone);
+
+            clone.insertAdjacentHTML('afterbegin', `<p class="user-num text-sm mb-2">Участник №${i}</p>`);
+            if(clone.querySelectorAll('.user-num').length > 1){
+                clone.querySelectorAll('.user-num')[1].remove();
+            }
+
+            block[block.length - 1].after(clone);
         }
 
     });

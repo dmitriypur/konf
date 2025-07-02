@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BitrixFormController;
+use App\Http\Controllers\DealController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::post('/send-bitrix', [BitrixFormController::class, 'send']);
+Route::post('/deals', [DealController::class, 'store']);
