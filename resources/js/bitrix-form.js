@@ -75,8 +75,8 @@ function handleBitrixResponse(form, loader, response) {
                 form.reset();
 
                 // Закрытие модального окна после успешной отправки (если нужно)
-                const modal = form.closest('.modal');
-                if (modal) setTimeout(() => modal.style.display = 'none', 2000);
+                const modal = form.closest('#modal');
+                if (modal) setTimeout(() => modal.classList.add('hidden'), 1000);
             } else {
                 showBitrixAlert(form, data.message || 'Ошибка отправки. Попробуйте позже.', 'error');
             }

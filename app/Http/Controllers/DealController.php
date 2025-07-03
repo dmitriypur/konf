@@ -114,10 +114,10 @@ class DealController extends Controller
     {
         $products = [];
 
-        if (count($participants) >= 1) {
+        if (count($participants) == 1) {
             $products[] = [
                 'PRODUCT_ID' => 2,
-                'PRICE' => 30000,
+                'PRICE' => 24000,
                 'QUANTITY' => 1,
             ];
         }
@@ -125,7 +125,7 @@ class DealController extends Controller
         if (count($participants) > 1) {
             $products[] = [
                 'PRODUCT_ID' => 2,
-                'PRICE' => 24000,
+                'PRICE' => $this->calculateTotalCost($participants),
                 'QUANTITY' => count($participants) - 1,
                 'DISCOUNT_TYPE_ID' => 1,
                 'DISCOUNT_SUM' => 6000,

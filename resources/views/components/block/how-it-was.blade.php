@@ -1,12 +1,12 @@
-<section class="relative py-8">
+<section class="relative py-8" id="how-it-was">
     <div class="container mx-auto">
         <h2 class="text-[40px]/10 text-center lg:text-[64px]">Как это было в&nbsp;феврале ‘25</h2>
         <div class="flex flex-col lg:flex-row items-center my-6 lg:my-16 px-3 lg:px-0">
             <div class="relative">
                 <div
                     class="overflow-hidden rounded-4xl circle-gr before:bg-linear-(--white2-gr) before:p-1.5 before:rounded-4xl after:-z-10">
-                    <img src="{{ asset('images/vide-cover.webp') }}" alt="Девушка на фоне стэнда" width="618"
-                         height="363">
+                    <img data-src="{{ asset('images/video-cover.webp') }}" alt="Девушка на фоне стэнда" width="618"
+                         height="363" class="lazy">
                 </div>
                 <button type="button"
                         data-modal-target="video"
@@ -23,7 +23,7 @@
             <div class="lg:ml-auto w-full lg:max-w-96 mt-20 lg:mt-0">
                 <div class="relative w-full h-full rounded-4xl overflow-hidden pb-5">
                     <div class="absolute w-120 h-120 left-1/2 -translate-x-1/2 -top-5 -z-10">
-                        <img src="{{ asset('images/bg-tabs-slider.svg') }}" alt="Цветное облако фоновое изображение" width="580" height="580">
+                        <img data-src="{{ asset('images/bg-tabs-slider.svg') }}" class="lazy" alt="Цветное облако фоновое изображение" width="580" height="580">
                     </div>
                     <span class="absolute inset-0 -z-10 bg-linear-(--white3-gr) mix-blend-overlay"></span>
                     <div class="py-5 px-13.5">

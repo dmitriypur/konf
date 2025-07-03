@@ -16,6 +16,7 @@
         "@tailwindcss/postcss": "^4.1.10",
         "@tailwindcss/vite": "^4.1.10",
         "swiper": "^11.2.8",
-        "tailwind-scrollbar-hide": "^4.0.0"
+        "tailwind-scrollbar-hide": "^4.0.0",
+        "vanilla-lazyload": "^19.1.3"
     }
 }

@@ -1,6 +1,6 @@
-<section class="relative py-8">
+<section class="relative py-8" id="partners">
     <div class="lg:hidden absolute -left-30 -top-40 w-180 -z-10">
-        <img src="{{ asset('images/bg-mobile-partner.webp') }}" alt="Фоновое изображение разноцветное облако" width="720" height="1047">
+        <img data-src="{{ asset('images/bg-mobile-partner.webp') }}" alt="Фоновое изображение разноцветное облако" width="720" height="1047">
     </div>
     <div class="container mx-auto">
         <div class="max-w-270 mx-auto">
@@ -11,7 +11,7 @@
                         <div class="swiper-slide">
                             <div class="circle-gr relative bg-white/5 w-full h-full rounded-3xl p-5 before:absolute before:bg-linear-(--violet-gr) before:p-0.5 before:rounded-3xl before:-z-10">
                                 <div class="flex items-center justify-center w-full h-29.5">
-                                    <img src="{{ asset('images/fond.webp') }}" alt="Национальный фонд защиты детского зрения">
+                                    <img data-src="{{ asset('images/fond.webp') }}" alt="Национальный фонд защиты детского зрения">
                                 </div>
                                 <div class="mt-5 relative circle-gr w-full h-15 flex items-center justify-center rounded-full text-sm/4 text-center tracking-tight bg-linear-(--violet-gr) before:absolute before:bg-linear-(--white3-gr) before:p-0.5 before:rounded-3xl before:rounded-full before:mix-blend-overlay">
                                     <span class="relative z-10">Национальный фонд защиты детского зрения</span>
@@ -21,7 +21,7 @@
                         <div class="swiper-slide">
                             <div class="circle-gr relative bg-white/5 w-full h-full rounded-3xl p-5 before:absolute before:bg-linear-(--violet-gr) before:p-0.5 before:rounded-3xl before:-z-10">
                                 <div class="flex items-center justify-center w-full h-29.5">
-                                    <img src="{{ asset('images/cooper.webp') }}" alt="Сooper Vision">
+                                    <img data-src="{{ asset('images/cooper.webp') }}" alt="Сooper Vision">
                                 </div>
                                 <div class="mt-5 relative circle-gr w-full h-15 flex items-center justify-center rounded-full text-sm/4 text-center tracking-tight bg-linear-(--violet-gr) before:absolute before:bg-linear-(--white3-gr) before:p-0.5 before:rounded-3xl before:rounded-full before:mix-blend-overlay">
                                     <span class="relative z-10">Сooper Vision</span>
@@ -32,7 +32,7 @@
                             <div class="circle-gr relative bg-white/5 w-full h-full rounded-3xl p-5 before:absolute before:bg-linear-(--violet-gr) before:p-0.5 before:rounded-3xl before:-z-10 after:-z-10">
                                 <div class="flex items-center justify-center w-full h-29.5 circle-gr relative rounded-3xl p-5 before:absolute before:bg-linear-(--violet-gr) before:p-[1px] before:rounded-3xl before:-z-10">
                                     <span class="absolute inset-0 bg-linear-(--white3-gr) rounded-3xl -z-10 opacity-30"></span>
-                                    <img src="{{ asset('images/question-mark.svg') }}" alt="Иконка знак вопроса">
+                                    <img data-src="{{ asset('images/question-mark.svg') }}" alt="Иконка знак вопроса">
                                 </div>
                                 <div data-modal-target="form2" class="open-modal-btn cursor-pointer mt-5 relative circle-gr w-full h-15 flex items-center justify-center rounded-full text-sm/4 text-center tracking-tight bg-linear-(--violet-gr) before:absolute before:bg-linear-(--white3-gr) before:p-0.5 before:rounded-3xl before:rounded-full before:mix-blend-overlay after:-z-10 before:-z-10">
                                     <span class="relative z-10">Стать партнером</span>

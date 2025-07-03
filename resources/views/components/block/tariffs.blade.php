@@ -9,7 +9,7 @@
                 <div class="relative flex flex-col lg:flex-row gap-x-2 p-6 lg:py-8 lg:px-10 border-y-1 before:absolute before:inset-0 before:bg-linear-(--white3-gr) before:mix-blend-overlay before:-z-10">
                     <div class="w-4/5 lg:w-2/5 lg:min-w-2/5">
                         <h4 class="text-3xl/7">Что включено в&nbsp;тариф:</h4>
-                        <img src="{{ asset('images/tariff-1.svg') }}" alt="Картинка слои цветная" width="168" height="109" class="absolute top-4 right-4 max-w-28 lg:max-w-full lg:relative lg:mt-15">
+                        <img data-src="{{ asset('images/tariff-1.svg') }}" alt="Картинка слои цветная" width="168" height="109" class="absolute top-4 right-4 max-w-28 lg:max-w-full lg:relative lg:mt-15">
                     </div>
                     <div class="flex-auto mt-4 lg:mt-0">
                         <ul class="flex flex-col gap-2">
@@ -44,12 +44,12 @@
                 <div class="p-6 lg:py-8 lg:px-10 relative">
                     <p class="lg:font-semibold text-white/50 lg:text-white">Стоимость участия</p>
                     <h3 class="text-[38px]/10 lg:text-[55px]/11">Тариф <span class="text-pink">“премиум”</span></h3>
-                    <img src="{{ asset('images/star-violet.webp') }}" alt="Цветная звезда на фоне облака" width="95" height="92" class="absolute top-30 right-2 lg:top-4 lg:-right-4 z-10">
+                    <img data-src="{{ asset('images/star-violet.webp') }}" alt="Цветная звезда на фоне облака" width="95" height="92" class="absolute top-30 right-2 lg:top-4 lg:-right-4 z-10">
                 </div>
                 <div class="relative flex flex-col lg:flex-row gap-x-2 p-6 lg:py-8 lg:px-10 border-y-1 before:absolute before:inset-0 before:bg-linear-(--violet-gr)  before:-z-10 before:opacity-70">
                     <div class="w-4/5 lg:w-2/5 lg:min-w-2/5">
                         <h4 class="text-3xl/7">Что включено в&nbsp;тариф:</h4>
-                        <img src="{{ asset('images/tariff-2.svg') }}" alt="Картинка слои цветная" width="168" height="109" class="hidden lg:block mt-15">
+                        <img data-src="{{ asset('images/tariff-2.svg') }}" alt="Картинка слои цветная" width="168" height="109" class="hidden lg:block mt-15">
                     </div>
                     <div class="flex-auto mt-4 lg:mt-0">
                         <div class="relative pl-6 font-semibold before:absolute before:top-1/2 before:right-0 before:-translate-y-1/2 before:h-7.5 before:w-1.5 before:border-y before:border-e before:rounded-r-sm" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">Все из тарифа “Бизнес”</div>

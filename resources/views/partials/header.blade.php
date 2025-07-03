@@ -7,16 +7,18 @@
         <div class="relative px-2 lg:px-0 flex flex-col lg:flex-row items-center justify-between lg:py-8 xl:py-11 text-white font-secondary">
             <span class="absolute -left-20 top-10 w-100 h-100 bg-purple rounded-full blur-2xl -z-40 opacity-0 transition-opacity" id="pink-circle"></span>
             <div class="w-full md:w-auto py-6 lg:py-0">
+                <a href="#top">
                 <img src="{{ asset('images/logo-header.svg') }}" alt="Логотип Оптика будущего" class="w-full max-w-92 mx-auto">
+                </a>
             </div>
             <div class="relative order-3 lg:order-0 overflow-hidden max-h-0 lg:max-h-full w-full lg:w-auto transition-[max-height] duration-500 ease-in-out" id="mobile-menu">
                 <nav class="circle-gr relative after:-z-10 before:-z-10 before:bg-linear-(--pink4-gr) before:p-1 before:rounded-3xl before:mix-blend-overlay lg:before:opacity-0 py-3.5 px-10 lg:p-0 rounded-3xl mt-4 lg:mt-0 w-full lg:w-auto lg:relative">
                     <span class="absolute inset-0 bg-linear-(--white4-gr)  rounded-3xl -z-20 lg:hidden"></span>
                     <ul class="flex flex-col lg:flex-row lg:gap-6 xl:gap-12">
-                        <li><a href="#" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Программа</a></li>
-                        <li><a href="#" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Спикеры</a></li>
-                        <li><a href="#" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Регистрация</a></li>
-                        <li><a href="#" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Место и контакты</a></li>
+                        <li><a href="#programm" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Программа</a></li>
+                        <li><a href="#speackers" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Спикеры</a></li>
+                        <li><a href="#register" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Регистрация</a></li>
+                        <li><a href="#location" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Место и контакты</a></li>
                     </ul>
                 </nav>
             </div>

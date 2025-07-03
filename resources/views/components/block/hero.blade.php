@@ -1,6 +1,6 @@
 <section class="relative pt-55 lg:pt-35">
     <div class="absolute -top-10 left-[50%] -translate-x-1/2 w-full max-w-470 -z-10">
-        <img src="{{ asset('images/bg-hero-circles.webp') }}" alt="Фон из кружков">
+        <img data-src="{{ asset('images/bg-hero-circles.webp') }}" alt="Фон из кружков" class="lazy">
     </div>
     <div
         id="follower"
@@ -11,13 +11,13 @@
         <div class="flex flex-col md:flex-row relative px-3">
             <div class="max-w-140 relative">
                 <div class="absolute md:animate-[reverse-rotate_8s_ease-in-out_infinite] rotate-270 md:-rotate-20 w-40 h-auto top-70 md:-top-14 left-65 md:left-90 -z-10">
-                    <img src="{{ asset('images/pink-ring.webp') }}" alt="Розовое колечко" width="160" height="145"
-                         class="w-full">
+                    <img data-src="{{ asset('images/pink-ring.webp') }}" alt="Розовое колечко" width="160" height="145"
+                         class="w-full lazy">
                 </div>
 
                 <div class="absolute left-1/2 -top-50 w-492 h-auto -z-10">
-                    <img src="{{ asset('images/morph.webp') }}" alt="Разноцветное облако" width="1967" height="1295"
-                         class="w-full">
+                    <img data-src="{{ asset('images/morph.webp') }}" alt="Разноцветное облако" width="1967" height="1295"
+                         class="w-full lazy">
                 </div>
                 <div class="absolute -left-10 top-10 w-100 h-400 bg-linear-(--violet-gr) opacity-50 md:-left-1/3 md:w-100 md:h-100 md:bg-purple rounded-full blur-[70px] -z-10"></div>
                 <small class="text-white/70 text-[10px] md:text-sm font-normal flex items-center justify-between">ул. Вильгельма Пика, д.16, Москва <b class="block text-white text-base lg:text-lg lg:mr-20">21/09/25 </b></small>
@@ -66,11 +66,11 @@
             </div>
             <div class="relative flex-auto flex flex-col justify-center">
                 <span class="absolute left-75 -bottom-30 z-10 md:z-0 md:left-full md:-bottom-20 md:-translate-x-20 w-24 h-auto">
-                    <img src="{{ asset('images/blue-cylinder.webp') }}" alt="Голубой цилиндр" width="95" height="85">
+                    <img data-src="{{ asset('images/blue-cylinder.webp') }}" alt="Голубой цилиндр" width="95" height="85" class="lazy">
                 </span>
                 <div class="hidden md:block absolute md:-rotate-20 w-40 h-auto md:left-40 md:bottom-5 -z-10">
-                    <img src="{{ asset('images/pink-ring.webp') }}" alt="Розовое колечко" width="160" height="145"
-                         class="w-full">
+                    <img data-src="{{ asset('images/pink-ring.webp') }}" alt="Розовое колечко" width="160" height="145"
+                         class="w-full lazy">
                 </div>
                 <ul class="hidden md:block w-full max-w-70 z-10">
                     <li class="btn-gr hover:animate-[wiggle_1s_ease-in-out_infinite] rounded-full before:rounded-full text-[46px] font-bold flex items-center justify-evenly px-10 w-full h-20 mb-4 backdrop-blur-lg">
@@ -111,8 +111,8 @@
                 </li>
             </ul>
             <div class="absolute w-50 h-auto -left-20 -bottom-30 md:w-70 md:h-auto md:-left-40 md:-bottom-18 md:rotate-270 -z-40">
-                <img src="{{ asset('images/pink-ring.webp') }}" alt="Розовое колечко" width="440" height="300"
-                     class="w-full">
+                <img data-src="{{ asset('images/pink-ring.webp') }}" alt="Розовое колечко" width="440" height="300"
+                     class="w-full lazy">
             </div>
         </div>
     </div>

@@ -38,7 +38,7 @@
                 </div>
                 <div
                     class="phone circle-gr relative rounded-full before:bg-linear-(--white2-gr) before:p-[1px] before:rounded-[30px] before:-z-10 after:-z-10">
-                    <input type="tel" placeholder="*Номер телефона" data-required name="phone"
+                    <input type="tel" placeholder="*Номер телефона" data-required name="phone1"
                            class="phone-input w-full rounded-full px-6 py-3 bg-[rgba(255,255,255,0.15)] placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30 transition"/>
                 </div>
                 <div

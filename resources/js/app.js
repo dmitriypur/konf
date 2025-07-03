@@ -8,7 +8,68 @@ import './popup';
 import './timer';
 import './dinamic-adapt';
 import './bitrix-form';
+import LazyLoad from "vanilla-lazyload";
 
+// Работает с объектами с класом ._lazy
+const lazyMedia = new LazyLoad({
+    elements_selector: '[data-src],[data-srcset]',
+    class_loaded: '_lazy-loaded',
+    use_native: true
+});
+
+// Плавный скролл
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Плавный скролл по якорным ссылкам
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+
+            // Проверяем, что это именно якорная ссылка (начинается с # и не просто #)
+            if (targetId === '#' || targetId === '#!') {
+                return; // Прерываем выполнение для ссылок вида href="#"
+            }
+
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                smoothScrollTo(targetElement);
+            }
+        });
+    });
+
+    // 3. Функция плавного скролла
+    function smoothScrollTo(target) {
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        const duration = 800; // Длительность анимации в ms
+        let startTime = null;
+
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+            }
+        }
+
+        // Функция для плавного ускорения и замедления
+        function easeInOutQuad(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+
+        requestAnimationFrame(animation);
+    }
+});
+
+
+// Слайдеры
 document.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector('.speakers')){
         Swiper.use([Navigation]);
@@ -20,15 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 nextEl: '.speakers-button-next',
                 prevEl: '.speakers-button-prev',
             },
-            // pagination: {
-            //     el: '.speakers-pagination',
-            //     clickable: true,
-            // },
-            // breakpoints: {
-            //     640: { slidesPerView: 1 },
-            //     768: { slidesPerView: 2 },
-            //     1024: { slidesPerView: 3 },
-            // }
         });
     }
 
@@ -151,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Табы
 document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.tab-button');
     const contents = document.querySelectorAll('.tab-content');
@@ -175,6 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// Мобильное меню
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('hamburger').addEventListener('click', toggleMobileMenu)
 
@@ -184,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
+// Добавление пользователя в форме
 document.addEventListener('DOMContentLoaded', () => {
     let i = 1;
     document.addEventListener('click', function(e){

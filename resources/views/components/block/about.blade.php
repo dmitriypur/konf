@@ -1,4 +1,4 @@
-<section class="relative z-10 md:z-0">
+<section id="speackers" class="relative z-10 md:z-0">
     <div class="container mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 items-baseline relative">
             <div class="absolute left-100 -top-50 w-150 h-150 rounded-full bg-purple blur-[150px] -z-10"></div>
@@ -16,7 +16,7 @@
             <div class="flex w-full flex-col h-full px-3">
                 <h3 class="relative text-center mt-10 mb-5 lg:m-0 lg:text-left text-5xl lg:text-[40px] lg:pl-11">
                     <span class="hidden lg:block absolute -left-20 top-0">
-                        <img src="{{ asset('images/speackers-icon.webp') }}" alt="Иконка сообщение, лайк, пользователь" width="107" height="73">
+                        <img data-src="{{ asset('images/speackers-icon.webp') }}" alt="Иконка сообщение, лайк, пользователь" width="107" height="73" class="lazy">
                     </span>
                     спикеры
                 </h3>
@@ -28,11 +28,11 @@
                             <div class="swiper-slide">
                                 <div class="relative circle-gr overflow-hidden w-full h-full bg-linear-(--white2-gr) before:bg-linear-(--white3-gr) rounded-4xl before:rounded-4xl before:p-1 before:-z-10 flex items-center mix-blend-overlay after:-z-10">
                                     <div class="absolute w-200 h-127 left-1/2 top-1/2 -translate-y-2/4 -translate-x-2/5 -z-10">
-                                        <img src="{{ asset('images/bg-slide-speacker.webp') }}" alt="Фон карточки спикера" width="1080" height="668" class="w-full h-full">
+                                        <img data-src="{{ asset('images/bg-slide-speacker.webp') }}" alt="Фон карточки спикера" width="1080" height="668" class="w-full h-full lazy">
                                     </div>
-                                    <img src="{{ asset('images/logo-transparent.svg') }}" alt="Логотип прозрачный" width="87" height="85" class="absolute bottom-5 right-7">
+                                    <img data-src="{{ asset('images/logo-transparent.svg') }}" alt="Логотип прозрачный" width="87" height="85" class="absolute bottom-5 right-7 lazy">
                                     <div class="circle-gr overflow-hidden w-full max-w-29 lg:max-w-37 h-full before:max-w-29 lg:before:max-w-37 before:bg-linear-(--pink3-gr) rounded-4xl before:rounded-4xl before:p-2 before:mix-blend-overlay after:-z-10">
-                                        <img src="{{ asset('images/speacker-1.webp') }}" alt="Фото спикера 1" class="w-full h-full object-cover">
+                                        <img data-src="{{ asset('images/speacker-1.webp') }}" alt="Фото спикера 1" class="w-full h-full object-cover lazy">
                                     </div>
                                     <div class="py-4 px-6">
                                         <p class="text-2xl xl:text-4xl font-bold tracking-tighter">Анна Кочкина</p>
@@ -50,9 +50,9 @@
                             <div class="swiper-slide">
                                 <div class="relative circle-gr overflow-hidden w-full h-full bg-linear-(--white2-gr) before:bg-linear-(--white3-gr) rounded-4xl before:rounded-4xl before:p-1 before:-z-10 flex mix-blend-overlay after:-z-10">
                                     <div class="absolute w-200 h-127 left-1/2 top-1/2 -translate-y-2/4 -translate-x-2/5 -z-10">
-                                        <img src="{{ asset('images/bg-slide-speacker.webp') }}" alt="Фон карточки спикера" width="1080" height="668" class="w-full h-full">
+                                        <img data-src="{{ asset('images/bg-slide-speacker.webp') }}" alt="Фон карточки спикера" width="1080" height="668" class="w-full h-full lazy">
                                     </div>
-                                    <img src="{{ asset('images/logo-transparent.svg') }}" alt="Логотип прозрачный" width="210" height="210" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 mix-blend-overlay -z-10">
+                                    <img data-src="{{ asset('images/logo-transparent.svg') }}" alt="Логотип прозрачный" width="210" height="210" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 mix-blend-overlay -z-10 lazy">
                                     <button type="button" data-modal-target="form1" class="open-modal-btn flex items-center justify-center w-full h-full text-2xl lg:text-4xl font-secondary cursor-pointer">Стать спикером</button>
                                 </div>
                             </div>

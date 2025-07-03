@@ -11,8 +11,9 @@
     <link rel="alternate icon" href="{{ asset('favicon.png') }}" type="image/png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('header-scripts')
+    <style>body { cursor: url({{ asset('images/cursor.svg') }}), auto; }</style>
 </head>
-<body class="font-primary bg-no-repeat bg-linear-(--color-primary-gr) text-white">
+<body id="top" class="font-primary bg-no-repeat bg-linear-(--color-primary-gr) text-white">
 <div class="w-full overflow-hidden">
     @include('partials.header')
 
