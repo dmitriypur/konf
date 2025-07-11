@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="relative p-6 lg:p-8">
-                    <p class="text-xs lg:text-base">15 % скидка при регистрации от 2-х человек</p>
+                    <p class="text-xs lg:text-base">5 000 скидка при регистрации от 2-х человек</p>
                     <div class="relative flex items-center gap-2 lg:gap-4 rounded-full bg-white p-[2px] mt-2.5">
                         <div class="bg-linear-(--violet-gr) text-xs text-center font-bold rounded-full w-14 lg:w-43 h-full py-1 px-2">-20%</div>
                         <p class="flex-auto text-xs text-center text-[#1F3462] font-medium">специальная цена до 1 августа</p>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="relative p-6 lg:p-8">
-                    <p class="text-xs lg:text-base">15 % скидка при регистрации от 2-х человек</p>
+                    <p class="text-xs lg:text-base">5 000 скидка при регистрации от 2-х человек</p>
                     <div class="relative flex items-center gap-2 lg:gap-4 rounded-full bg-white p-[2px] mt-2.5">
                         <div class="bg-linear-(--violet-gr) text-xs text-center font-bold rounded-full w-14 lg:w-43 h-full py-1 px-2">-20%</div>
                         <p class="flex-auto text-xs text-center text-[#1F3462] font-medium">специальная цена до 1 августа</p>
