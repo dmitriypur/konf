@@ -137,7 +137,8 @@ class DealController extends Controller
 
     protected function calculateTotalCost(array $participants): int
     {
-        return 24000 * count($participants) - ((24000 * count($participants)) * 0.15);
+        return 24000 * count($participants) - 5000;
+//        return 24000 * count($participants) - ((24000 * count($participants)) * 0.15);
     }
 
     protected function generateComments(array $data, array $participants, int $totalCost): string
