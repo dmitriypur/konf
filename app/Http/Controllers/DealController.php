@@ -160,7 +160,7 @@ class DealController extends Controller
     ): ?int {
         return $this->bitrix->createDeal([
             'TITLE' => 'Новая заявка с konf.future-optic.pro',
-            'CATEGORY_ID' => 1,
+            'CATEGORY_ID' => 12,
             'ASSIGNED_BY_ID' => 242,
             'COMPANY_ID' => $companyId,
             'CONTACT_IDS' => $contactsIds,
