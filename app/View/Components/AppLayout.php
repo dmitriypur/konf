@@ -25,8 +25,6 @@ class AppLayout extends Component
         public ?string         $title = null,
         public ?string         $description = null,
         public ?string         $image = null,
-        public ?bool           $showHeader = true,
-        public ?bool           $showFooter = true,
     )
     {
         if (!$this->image) {
