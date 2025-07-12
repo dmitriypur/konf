@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/check-intl', function () {
+    return extension_loaded('intl') ? 'INTL OK' : 'NOT LOADED';
+});
 Route::get('/', PageController::class);
 
 Route::post('/send-bitrix', [BitrixFormController::class, 'send']);
