@@ -11,6 +11,6 @@ class PageController extends Controller
     public function __invoke()
     {
         $page = Page::where('active', true)->firstOrFail();
-        return view('pages.show', compact('page'));
+        return view('welcome', compact('page'));
     }
 }

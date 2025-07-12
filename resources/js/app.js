@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Добавление пользователя в форме
 document.addEventListener('DOMContentLoaded', () => {
-    let i = 1;
+    let i = 0;
     document.addEventListener('click', function(e){
         if(e.target.classList.contains('add-user')){
             i++;
@@ -250,15 +250,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let inputs = clone.querySelectorAll('input, textarea, select');
             inputs.forEach(el => {
-                el.name = el.name.replace(/[0-9]/g, '');
+                el.name = el.name.replace(/[0-9]/g, i);
                 el.value = '';
                 if(el.parentNode.classList.contains('phone')){
                     el.parentNode.remove();
                 }
-                el.name = el.name + i;
+                console.log(el.name)
+                // el.name = el.name + i;
             });
 
-            clone.insertAdjacentHTML('afterbegin', `<p class="user-num text-sm mb-2">Участник №${i}</p>`);
+            clone.insertAdjacentHTML('afterbegin', `<p class="user-num text-sm mb-2">Участник №${i+1}</p>`);
             if(clone.querySelectorAll('.user-num').length > 1){
                 clone.querySelectorAll('.user-num')[1].remove();
             }

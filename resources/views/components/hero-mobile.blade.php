@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="mt-12">
-                <x-timer></x-timer>
+                <x-timer :time="$time"></x-timer>
             </div>
             <div class="flex justify-between mt-12 px-3 text-xl">
                 <div class="flex items-center font-secondary">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="flex items-center font-medium">
                     <img src="{{ asset('images/calendar.svg') }}" alt="Иконка календарь">
-                    <p>21/09/25</p>
+                    <p>{{ Carbon\Carbon::parse($time)->format('d/m/Y') }}</p>
                 </div>
             </div>
         </div>

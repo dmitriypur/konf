@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\BitrixController;
 use App\Http\Controllers\BitrixFormController;
 use App\Http\Controllers\DealController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', PageController::class);
 
 Route::post('/send-bitrix', [BitrixFormController::class, 'send']);
+Route::post('/submit-bitrix-form', [BitrixController::class, 'submitForm']);
 Route::post('/deals', [DealController::class, 'store']);

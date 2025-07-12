@@ -96,11 +96,85 @@ class BlockResource extends Resource
                             Forms\Components\TextInput::make('text')
                                 ->label('Текст')
                                 ->columnSpan('full'),
+                            Forms\Components\FileUpload::make('icon')
+                                ->label('Иконка')
+                                ->directory('icons')
+                                ->columnSpan('full'),
                         ])
                 ])
                     ->hidden(
                         fn(Forms\Get $get) => BlockType::from($get('type')) !=
                             BlockType::HERO
+                    ),
+
+                Forms\Components\Section::make([
+                    Forms\Components\RichEditor::make('payload.text')
+                        ->label('Текст'),
+                    Forms\Components\TextInput::make('payload.name')
+                        ->label('Имя')
+                        ->default('Анна Кочкина')
+                        ->columnSpan('full'),
+                    Forms\Components\Repeater::make('payload.speackers')
+                        ->label('Спикеры')
+                        ->schema([
+                            Forms\Components\TextInput::make('name')
+                                ->label('Имя спикера')
+                                ->columnSpan('full'),
+                            Forms\Components\RichEditor::make('info')
+                                ->label('Информация о спикере')
+                                ->columnSpan('full'),
+                            Forms\Components\FileUpload::make('image')
+                                ->label('Фото спикера')
+                                ->directory('speackers')
+                                ->columnSpan('full'),
+                        ])
+                ])
+                    ->hidden(
+                        fn(Forms\Get $get) => BlockType::from($get('type')) !=
+                            BlockType::ABOUT
+                    ),
+
+                Forms\Components\Section::make([
+                    Forms\Components\Repeater::make('payload.themes')
+                        ->label('Темы')
+                        ->schema([
+                            Forms\Components\FileUpload::make('icon')
+                                ->label('Иконка')
+                                ->directory('icons')
+                                ->columnSpan('full'),
+                            Forms\Components\TextInput::make('title')
+                                ->label('Заголовок')
+                                ->columnSpan('full'),
+                            Forms\Components\Textarea::make('text')
+                                ->label('Текст')
+                                ->columnSpan('full'),
+
+                        ])
+                ])
+                    ->hidden(
+                        fn(Forms\Get $get) => BlockType::from($get('type')) !=
+                            BlockType::THEMES
+                    ),
+
+                Forms\Components\Section::make([
+                    Forms\Components\Repeater::make('payload.programm')
+                        ->label('Программа')
+                        ->schema([
+                            Forms\Components\TextInput::make('title')
+                                ->label('Название')
+                                ->columnSpan('full'),
+                            Forms\Components\TextInput::make('time')
+                                ->label('Время')
+                                ->columnSpan('full'),
+                            Forms\Components\Textarea::make('text')
+                                ->label('Описание')
+                                ->columnSpan('full'),
+
+                        ])
+                ])
+                    ->hidden(
+                        fn(Forms\Get $get) => BlockType::from($get('type')) !=
+                            BlockType::PROGRAMM
                     ),
             ]);
     }

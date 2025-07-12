@@ -41,8 +41,8 @@ function validateBitrixForm(form) {
  */
 function prepareBitrixFormData(form) {
     const formData = new FormData(form);
-    formData.append('form_type', form.dataset.form || 'default');
-    formData.append('form_name', form.dataset.name || 'unnamed');
+    // formData.append('form_type', form.dataset.form || 'default');
+    // formData.append('form_name', form.dataset.name || 'unnamed');
     return formData;
 }
 
@@ -53,7 +53,7 @@ function sendBitrixFormData(form, formData) {
     const loader = form.querySelector('.form-loader');
     toggleBitrixLoader(loader, true);
 
-    fetch('/deals', {
+    fetch('/submit-bitrix-form', {
         method: 'POST',
         headers: {
             'X-CSRF-TOKEN': getCsrfToken()

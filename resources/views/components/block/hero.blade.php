@@ -1,4 +1,5 @@
 <section class="relative pt-55 lg:pt-35">
+
     <div class="absolute -top-10 left-[50%] -translate-x-1/2 w-full max-w-470 -z-10">
         <img data-src="{{ asset('images/bg-hero-circles.webp') }}" alt="Фон из кружков" class="lazy">
     </div>
@@ -20,28 +21,17 @@
                          class="w-full lazy">
                 </div>
                 <div class="absolute -left-10 top-10 w-100 h-400 bg-linear-(--violet-gr) opacity-50 md:-left-1/3 md:w-100 md:h-100 md:bg-purple rounded-full blur-[70px] -z-10"></div>
-                <small class="text-white/70 text-[10px] md:text-sm font-normal flex items-center justify-between">ул. Вильгельма Пика, д.16, Москва <b class="block text-white text-base lg:text-lg lg:mr-20">21/09/25 </b></small>
-                <h1 class="text-[36px]/10 md:text-[55px]/15 font-bold">
-                    <span class="font-sans">III</span> Национальная конференция <span
-                        class="block">"Оптика Будущего"</span>
+                <small class="text-white/70 text-[10px] md:text-sm font-normal flex items-center justify-between">{{ $block->payload['address'] }} <b class="block text-white text-base lg:text-lg lg:mr-20">{{ Carbon\Carbon::parse($block->payload['date'])->format('d/m/Y') }} </b></small>
+                <h1 class="text-[36px]/10 md:text-[55px]/15 font-bold [&_b]:font-sans [&_span]:block">
+                    {!! $block->title !!}
                 </h1>
                 <div class="grid md:grid-cols-2 mt-6 md:mt-12 gap-4">
-                    <div class="flex items-center gap-4 md:gap-2">
-                        <span class="text-white w-3.5 h-3"><x-icons.plus></x-icons.plus></span>
-                        Реальные кейсы
-                    </div>
-                    <div class="flex items-center gap-4 md:gap-2">
-                        <span class="text-white w-3.5 h-3"><x-icons.plus></x-icons.plus></span>
-                        Точки роста
-                    </div>
-                    <div class="flex items-center gap-4 md:gap-2">
-                        <span class="text-white w-3.5 h-3"><x-icons.plus></x-icons.plus></span>
-                        Практические инструменты
-                    </div>
-                    <div class="flex items-center gap-4 md:gap-2">
-                        <span class="text-white w-3.5 h-3"><x-icons.plus></x-icons.plus></span>
-                        Лидеры отрасли
-                    </div>
+                    @foreach($block->payload['list'] as $item)
+                        <div class="flex items-center gap-4 md:gap-2">
+                            <span class="text-white w-3.5 h-3"><x-icons.plus></x-icons.plus></span>
+                            {{ $item['title'] }}
+                        </div>
+                    @endforeach
                 </div>
                 <div class="hidden relative md:grid grid-cols-2 mt-12 gap-y-8 gap-x-3 font-secondary max-w-125">
                     <button type="button"
@@ -73,42 +63,26 @@
                          class="w-full lazy">
                 </div>
                 <ul class="hidden md:block w-full max-w-70 z-10">
-                    <li class="btn-gr hover:animate-[wiggle_1s_ease-in-out_infinite] rounded-full before:rounded-full text-[46px] font-bold flex items-center justify-evenly px-10 w-full h-20 mb-4 backdrop-blur-lg">
-                        22+ <b class="text-pink font-secondary text-xl">года опыта</b>
-                    </li>
-                    <li class="btn-gr hover:animate-[wiggle_1s_ease-in-out_infinite] rounded-full before:rounded-full text-[46px] font-bold flex items-center justify-evenly px-10 w-full h-20 mb-4 backdrop-blur-lg">
-                        50+ <b class="text-pink font-secondary text-xl">участников</b>
-                    </li>
-                    <li class="btn-gr hover:animate-[wiggle_1s_ease-in-out_infinite] rounded-full before:rounded-full text-[46px] font-bold flex items-center justify-evenly px-10 w-full h-20 backdrop-blur-lg">
-                        8 <b class="text-pink font-secondary text-xl">топовых тем</b>
-                    </li>
+                    @foreach($block->payload['numbers'] as $item)
+                        <li class="btn-gr hover:animate-[wiggle_1s_ease-in-out_infinite] rounded-full before:rounded-full text-[46px] font-bold flex items-center justify-evenly px-10 w-full h-20 mb-4 backdrop-blur-lg">
+                            {{ $item['number'] }} <b class="text-pink font-secondary text-xl">{{ $item['text'] }}</b>
+                        </li>
+                    @endforeach
                 </ul>
-                <x-hero-mobile></x-hero-mobile>
+                <x-hero-mobile :time="$block->payload['date']" />
             </div>
         </div>
         <div class="relative mt-23 px-3 z-10 lg:px-0">
             <ul class="grid lg:grid-cols-3 gap-5 lg:gap-10">
-                <li class="circle-gr bg-linear-(--white2-gr) inline-flex items-center px-10 py-6 rounded-3xl before:rounded-3xl before:bg-linear-(--white3-gr) before:p-[3px] after:bg-linear-(--pink-gr) after:rounded-3xl after:p-[3px] after:opacity-100 lg:after:opacity-0 hover:after:opacity-100 hover:-translate-y-1 hover:[&_span]:border-0 hover:[&_span]:bg-linear-(--pink-gr) backdrop-blur-lg font-secondary transition-transform">
+                @foreach($block->payload['advantages'] as $item)
+                    <li class="circle-gr bg-linear-(--white2-gr) inline-flex items-center px-10 py-6 rounded-3xl before:rounded-3xl before:bg-linear-(--white3-gr) before:p-[3px] after:bg-linear-(--pink-gr) after:rounded-3xl after:p-[3px] after:opacity-100 lg:after:opacity-0 hover:after:opacity-100 hover:-translate-y-1 hover:[&_span]:border-0 hover:[&_span]:bg-linear-(--pink-gr) backdrop-blur-lg font-secondary transition-transform">
                     <span
                         class="inline-flex items-center justify-center w-17 h-17 rounded-full bg-linear-(--pink-gr) lg:bg-linear-(--white4-gr) border border-white/10 mr-5 transition-color">
-                        <x-icons.user></x-icons.user>
+                        <img data-src="{{ asset('storage/' . $item['icon']) }}" alt="{{ $item['text'] }}">
                     </span>
-                    <p><b class="font-primary mr-1">CEO</b> уровень участников</p>
-                </li>
-                <li class="circle-gr bg-linear-(--white2-gr) inline-flex items-center px-10 py-6 rounded-3xl before:rounded-3xl before:bg-linear-(--white3-gr) before:p-[3px] after:bg-linear-(--pink-gr) after:rounded-3xl after:p-[3px] after:opacity-0 hover:after:opacity-100 hover:-translate-y-1 hover:[&_span]:border-0 hover:[&_span]:bg-linear-(--pink-gr) backdrop-blur-lg font-secondary transition-transform">
-                    <span
-                        class="inline-flex items-center justify-center w-17 h-17 rounded-full bg-white/5 border border-white/10 mr-5">
-                        <x-icons.hand-bag></x-icons.hand-bag>
-                    </span>
-                    Решения, которые работают
-                </li>
-                <li class="circle-gr bg-linear-(--white2-gr) inline-flex items-center px-10 py-6 rounded-3xl before:rounded-3xl before:bg-linear-(--white3-gr) before:p-[3px] after:bg-linear-(--pink-gr) after:rounded-3xl after:p-[3px] after:opacity-0 hover:after:opacity-100 hover:-translate-y-1 hover:[&_span]:border-0 hover:[&_span]:bg-linear-(--pink-gr) backdrop-blur-lg font-secondary transition-transform">
-                    <span
-                        class="inline-flex items-center justify-center w-17 h-17 rounded-full bg-white/5 border border-white/10 mr-5">
-                        <x-icons.users></x-icons.users>
-                    </span>
-                    лекции и живые интенсивы
-                </li>
+                        <p class="[&_b]:font-primary [&_b]:mr-1">{{ $item['text'] }}</p>
+                    </li>
+                @endforeach
             </ul>
             <div class="absolute w-50 h-auto -left-20 -bottom-30 md:w-70 md:h-auto md:-left-40 md:-bottom-18 md:rotate-270 -z-40">
                 <img data-src="{{ asset('images/pink-ring.webp') }}" alt="Розовое колечко" width="440" height="300"

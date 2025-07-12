@@ -1,5 +1,5 @@
 <div class="grid grid-cols-4 gap-x-3 px-3 mt-4" id="countdown"
-     data-deadline="2025-09-25T23:59:00" >
+     data-deadline="{{ $time }}" >
     <div>
         <div class="flex items-center justify-center w-14.5 h-11.5" style="background: url({{ asset('images/timer-item.svg') }}) no-repeat center;">
             <span class="text-[32px] font-bold" id="days">00</span>

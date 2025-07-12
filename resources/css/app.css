@@ -216,8 +216,8 @@
 
         }
 
-        .item__step:hover .after__line span::before{
-            background: linear-gradient(var(--violet-gr));
+        .item__step:hover .after__line > .circle-gr::before{
+            background: linear-gradient(var(--violet-gr)) !important;
         }
     }
 
