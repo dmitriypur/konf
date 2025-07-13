@@ -8,6 +8,11 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        fs: {
+            deny: ['storage']
+        }
+    },
     build: {
         minify: 'terser',
         terserOptions: {
