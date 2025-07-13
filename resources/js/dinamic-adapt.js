@@ -1,145 +1,149 @@
 "use strict";
 
-function DynamicAdapt(type) {
-    this.type = type;
-}
+class DynamicAdapt {
+    constructor(type) {
+        this.type = type;
+        this.objects = [];
+        this.daClassname = "_dynamic_adapt_";
+        this.nodes = [];
+        this.mediaQueries = [];
+        this.init();
+    }
 
-DynamicAdapt.prototype.init = function () {
-    const _this = this;
-    // массив объектов
-    this.оbjects = [];
-    this.daClassname = "_dynamic_adapt_";
-    // массив DOM-элементов
-    this.nodes = document.querySelectorAll("[data-da]");
-    // наполнение оbjects объктами
-    for (let i = 0; i < this.nodes.length; i++) {
-        const node = this.nodes[i];
-        const data = node.dataset.da.trim();
-        const dataArray = data.split(",");
-        const оbject = {};
-        оbject.element = node;
-        оbject.parent = node.parentNode;
-        оbject.destination = document.querySelector(dataArray[0].trim());
-        оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
-        оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
-        оbject.index = this.indexInParent(оbject.parent, оbject.element);
-        this.оbjects.push(оbject);
+    init() {
+        this.nodes = document.querySelectorAll("[data-da]");
+        if (this.nodes.length === 0) return;
+
+        this.fillObjects();
+        this.arraySort(this.objects);
+        this.createMediaQueries();
+        this.addMediaListeners();
     }
-    this.arraySort(this.оbjects);
-    // массив уникальных медиа-запросов
-    this.mediaQueries = Array.prototype.map.call(this.оbjects, function (item) {
-        return '(' + this.type + "-width: " + item.breakpoint + "px)," + item.breakpoint;
-    }, this);
-    this.mediaQueries = Array.prototype.filter.call(this.mediaQueries, function (item, index, self) {
-        return Array.prototype.indexOf.call(self, item) === index;
-    });
-    // навешивание слушателя на медиа-запрос
-    // и вызов обработчика при первом запуске
-    for (let i = 0; i < this.mediaQueries.length; i++) {
-        const media = this.mediaQueries[i];
-        const mediaSplit = String.prototype.split.call(media, ',');
-        const matchMedia = window.matchMedia(mediaSplit[0]);
-        const mediaBreakpoint = mediaSplit[1];
-        // массив объектов с подходящим брейкпоинтом
-        const оbjectsFilter = Array.prototype.filter.call(this.оbjects, function (item) {
-            return item.breakpoint === mediaBreakpoint;
-        });
-        matchMedia.addListener(function () {
-            _this.mediaHandler(matchMedia, оbjectsFilter);
-        });
-        this.mediaHandler(matchMedia, оbjectsFilter);
-    }
-};
-DynamicAdapt.prototype.mediaHandler = function (matchMedia, оbjects) {
-    if (matchMedia.matches) {
-        for (let i = 0; i < оbjects.length; i++) {
-            const оbject = оbjects[i];
-            оbject.index = this.indexInParent(оbject.parent, оbject.element);
-            this.moveTo(оbject.place, оbject.element, оbject.destination);
-        }
-    } else {
-        //for (let i = 0; i < оbjects.length; i++) {
-        for (let i = оbjects.length - 1; i >= 0; i--) {
-            const оbject = оbjects[i];
-            if (оbject.element.classList.contains(this.daClassname)) {
-                this.moveBack(оbject.parent, оbject.element, оbject.index);
+
+    fillObjects() {
+        for (let i = 0; i < this.nodes.length; i++) {
+            const node = this.nodes[i];
+            const data = node.dataset.da.trim();
+            const dataArray = data.split(",");
+            
+            const object = {
+                element: node,
+                parent: node.parentNode,
+                destination: document.querySelector(dataArray[0].trim()),
+                breakpoint: dataArray[1] ? dataArray[1].trim() : "767",
+                place: dataArray[2] ? dataArray[2].trim() : "last",
+                index: this.indexInParent(node.parentNode, node)
+            };
+
+            if (object.destination) {
+                this.objects.push(object);
             }
         }
     }
-};
-// Функция перемещения
-DynamicAdapt.prototype.moveTo = function (place, element, destination) {
-    element.classList.add(this.daClassname);
-    if (place === 'last' || place >= destination.children.length) {
-        destination.insertAdjacentElement('beforeend', element);
-        return;
+
+    createMediaQueries() {
+        this.mediaQueries = this.objects
+            .map(item => `(${this.type}-width: ${item.breakpoint}px),${item.breakpoint}`)
+            .filter((item, index, self) => self.indexOf(item) === index);
     }
-    if (place === 'first') {
-        destination.insertAdjacentElement('afterbegin', element);
-        return;
-    }
-    destination.children[place].insertAdjacentElement('beforebegin', element);
-}
-// Функция возврата
-DynamicAdapt.prototype.moveBack = function (parent, element, index) {
-    element.classList.remove(this.daClassname);
-    if (parent.children[index] !== undefined) {
-        parent.children[index].insertAdjacentElement('beforebegin', element);
-    } else {
-        parent.insertAdjacentElement('beforeend', element);
-    }
-}
-// Функция получения индекса внутри родителя
-DynamicAdapt.prototype.indexInParent = function (parent, element) {
-    const array = Array.prototype.slice.call(parent.children);
-    return Array.prototype.indexOf.call(array, element);
-};
-// Функция сортировки массива по breakpoint и place
-// по возрастанию для this.type = min
-// по убыванию для this.type = max
-DynamicAdapt.prototype.arraySort = function (arr) {
-    if (this.type === "min") {
-        Array.prototype.sort.call(arr, function (a, b) {
-            if (a.breakpoint === b.breakpoint) {
-                if (a.place === b.place) {
-                    return 0;
-                }
 
-                if (a.place === "first" || b.place === "last") {
-                    return -1;
-                }
+    addMediaListeners() {
+        this.mediaQueries.forEach(media => {
+            const mediaSplit = media.split(',');
+            const matchMedia = window.matchMedia(mediaSplit[0]);
+            const mediaBreakpoint = mediaSplit[1];
+            
+            const objectsFilter = this.objects.filter(item => 
+                item.breakpoint === mediaBreakpoint
+            );
 
-                if (a.place === "last" || b.place === "first") {
-                    return 1;
-                }
+            const mediaHandler = () => {
+                this.mediaHandler(matchMedia, objectsFilter);
+            };
 
-                return a.place - b.place;
-            }
-
-            return a.breakpoint - b.breakpoint;
+            matchMedia.addEventListener('change', mediaHandler);
+            this.mediaHandler(matchMedia, objectsFilter);
         });
-    } else {
-        Array.prototype.sort.call(arr, function (a, b) {
-            if (a.breakpoint === b.breakpoint) {
-                if (a.place === b.place) {
-                    return 0;
-                }
-
-                if (a.place === "first" || b.place === "last") {
-                    return 1;
-                }
-
-                if (a.place === "last" || b.place === "first") {
-                    return -1;
-                }
-
-                return b.place - a.place;
-            }
-
-            return b.breakpoint - a.breakpoint;
-        });
-        return;
     }
-};
-const da = new DynamicAdapt("max");
-da.init();
+
+    mediaHandler(matchMedia, objects) {
+        if (matchMedia.matches) {
+            objects.forEach(object => {
+                object.index = this.indexInParent(object.parent, object.element);
+                this.moveTo(object.place, object.element, object.destination);
+            });
+        } else {
+            for (let i = objects.length - 1; i >= 0; i--) {
+                const object = objects[i];
+                if (object.element.classList.contains(this.daClassname)) {
+                    this.moveBack(object.parent, object.element, object.index);
+                }
+            }
+        }
+    }
+
+    moveTo(place, element, destination) {
+        element.classList.add(this.daClassname);
+        
+        if (place === 'last' || place >= destination.children.length) {
+            destination.insertAdjacentElement('beforeend', element);
+            return;
+        }
+        
+        if (place === 'first') {
+            destination.insertAdjacentElement('afterbegin', element);
+            return;
+        }
+        
+        destination.children[place].insertAdjacentElement('beforebegin', element);
+    }
+
+    moveBack(parent, element, index) {
+        element.classList.remove(this.daClassname);
+        
+        if (parent.children[index] !== undefined) {
+            parent.children[index].insertAdjacentElement('beforebegin', element);
+        } else {
+            parent.insertAdjacentElement('beforeend', element);
+        }
+    }
+
+    indexInParent(parent, element) {
+        return Array.from(parent.children).indexOf(element);
+    }
+
+    arraySort(arr) {
+        if (this.type === "min") {
+            arr.sort((a, b) => {
+                if (a.breakpoint === b.breakpoint) {
+                    if (a.place === b.place) return 0;
+                    if (a.place === "first" || b.place === "last") return -1;
+                    if (a.place === "last" || b.place === "first") return 1;
+                    return a.place - b.place;
+                }
+                return a.breakpoint - b.breakpoint;
+            });
+        } else {
+            arr.sort((a, b) => {
+                if (a.breakpoint === b.breakpoint) {
+                    if (a.place === b.place) return 0;
+                    if (a.place === "first" || b.place === "last") return 1;
+                    if (a.place === "last" || b.place === "first") return -1;
+                    return b.place - a.place;
+                }
+                return b.breakpoint - a.breakpoint;
+            });
+        }
+    }
+}
+
+// Инициализация при загрузке DOM
+function initDynamicAdapt() {
+    new DynamicAdapt("max");
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDynamicAdapt);
+} else {
+    initDynamicAdapt();
+}

@@ -35,4 +35,12 @@ return [
         'webhook_url' => env('BITRIX_WEBHOOK_URL'),
     ],
 
+    'bitrix24' => [
+        'domain' => env('BITRIX24_DOMAIN', 'https://zrenie1.bitrix24.ru'),
+        'webhook' => env('BITRIX24_WEBHOOK', 'wv49g0rovqdogsn8'),
+        'timeout' => env('BITRIX24_TIMEOUT', 30),
+        'connect_timeout' => env('BITRIX24_CONNECT_TIMEOUT', 10),
+        'async' => env('BITRIX24_ASYNC', false),
+    ],
+
 ];

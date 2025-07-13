@@ -7,7 +7,14 @@ export default {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                'primary': ['Montserrat', 'Arial', 'system-ui', 'sans-serif'],
+                'secondary': ['SoyuzGrotesk', 'Arial', 'system-ui', 'sans-serif'],
+            },
         },
     },
     plugins: [],
+    future: {
+        hoverOnlyWhenSupported: true,
+    },
 }

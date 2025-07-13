@@ -8,4 +8,25 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: {
+        minify: 'terser',
+        terserOptions: {
+            compress: {
+                drop_console: true,
+                drop_debugger: true,
+            },
+        },
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    swiper: ['swiper'],
+                    lazyload: ['vanilla-lazyload'],
+                },
+            },
+        },
+        chunkSizeWarningLimit: 1000,
+    },
+    optimizeDeps: {
+        include: ['swiper', 'vanilla-lazyload'],
+    },
 });

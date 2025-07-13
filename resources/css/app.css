@@ -1,53 +1,71 @@
 @import "tailwindcss";
 @import 'tailwind-scrollbar-hide/v4';
 
+/* Критические стили для ускорения рендеринга */
+@layer base {
+    html {
+        font-family: 'Montserrat', 'Arial', system-ui, sans-serif;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+}
+
 /* Оптимизация загрузки шрифтов */
 @layer base {
     @font-face {
         font-family: 'SoyuzGrotesk';
-        src: url('/public/fonts/SoyuzGrotesk/SoyuzGrotesk.eot') format('woff2'),
-        url("/public/fonts/SoyuzGrotesk/SoyuzGrotesk.eot?#iefix") format("embedded-opentype"),
-        url("/public/fonts/SoyuzGrotesk/SoyuzGrotesk.woff") format("woff"),
-        url("/public/fonts/SoyuzGrotesk/SoyuzGrotesk.ttf") format("truetype");
+        src: url('../fonts/SoyuzGrotesk/SoyuzGrotesk.woff2') format('woff2'),
+        url('../fonts/SoyuzGrotesk/SoyuzGrotesk.woff') format('woff'),
+        url('../fonts/SoyuzGrotesk/SoyuzGrotesk.ttf') format('truetype');
         font-weight: 700;
         font-style: normal;
         font-display: swap;
     }
     @font-face {
         font-family: 'Montserrat';
-        src: url("/public/fonts/Montserrat/Montserrat-Bold.woff") format("woff"),
-        url("/public/fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+        src: url("../fonts/Montserrat/Montserrat-Bold.woff2") format("woff2"),
+        url("../fonts/Montserrat/Montserrat-Bold.woff") format("woff"),
+        url("../fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
         font-weight: 700;
         font-style: normal;
         font-display: swap;
     }
     @font-face {
         font-family: 'Montserrat';
-        src: url("/public/fonts/Montserrat/Montserrat-SemiBold.woff") format("woff"),
-        url("/public/fonts/Montserrat/Montserrat-SemiBold.ttf") format("truetype");
+        src: url("../fonts/Montserrat/Montserrat-SemiBold.woff2") format("woff2"),
+        url("../fonts/Montserrat/Montserrat-SemiBold.woff") format("woff"),
+        url("../fonts/Montserrat/Montserrat-SemiBold.ttf") format("truetype");
         font-weight: 600;
         font-style: normal;
         font-display: swap;
     }
     @font-face {
         font-family: 'Montserrat';
-        src: url("/public/fonts/Montserrat/Montserrat-Medium.woff") format("woff"),
-        url("/public/fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
+        src: url("../fonts/Montserrat/Montserrat-Medium.woff2") format("woff2"),
+        url("../fonts/Montserrat/Montserrat-Medium.woff") format("woff"),
+        url("../fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
         font-weight: 500;
         font-style: normal;
         font-display: swap;
     }
     @font-face {
         font-family: 'Montserrat';
-        src: url("/public/fonts/Montserrat/Montserrat-Regular.woff") format("woff"),
-        url("/public/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+        src: url("../fonts/Montserrat/Montserrat-Regular.woff2") format("woff2"),
+        url("../fonts/Montserrat/Montserrat-Regular.woff") format("woff"),
+        url("../fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
     }
-    html {
-        font-family: 'Arial', system-ui, sans-serif;
-    }
+    
     h1,h2,h3,h4,h5,h6{
         font-family: var(--font-secondary);
     }
@@ -242,6 +260,68 @@
             transform: rotate(5deg);
         }
     }
+
+
+}
+
+/* Глобальные стили модального окна (вне @layer) */
+.modal-backdrop {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: flex !important;
+}
+
+.modal-backdrop.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.modal-content {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-backdrop.show .modal-content {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+}
+
+/* Анимация закрытия */
+.modal-backdrop.closing {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.modal-backdrop.closing .modal-content {
+    transform: scale(0.9) !important;
+    opacity: 0 !important;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
 }
 
 @theme {
@@ -273,4 +353,3 @@
     --breakpoint-xl: 78rem;
     --radius-40: 40px;
 }
-

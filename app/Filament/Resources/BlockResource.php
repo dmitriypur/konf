@@ -11,6 +11,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\Layout\Grid;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -75,21 +76,21 @@ class BlockResource extends Resource
                     Forms\Components\Repeater::make('payload.list')
                         ->label('Элементы под заголовком')
                         ->schema([
-                        Forms\Components\TextInput::make('title')
-                            ->label('Заголовок')
-                            ->columnSpan('full')
-                            ->required(),
-                    ]),
+                            Forms\Components\TextInput::make('title')
+                                ->label('Заголовок')
+                                ->columnSpan('full')
+                                ->required(),
+                        ]),
                     Forms\Components\Repeater::make('payload.numbers')
                         ->label('Цифры')
                         ->schema([
-                        Forms\Components\TextInput::make('number')
-                            ->label('Цифра')
-                            ->columnSpan('full'),
-                        Forms\Components\TextInput::make('text')
-                            ->label('Текст')
-                            ->columnSpan('full'),
-                    ]),
+                            Forms\Components\TextInput::make('number')
+                                ->label('Цифра')
+                                ->columnSpan('full'),
+                            Forms\Components\TextInput::make('text')
+                                ->label('Текст')
+                                ->columnSpan('full'),
+                        ]),
                     Forms\Components\Repeater::make('payload.advantages')
                         ->label('Преимущества внизу блока')
                         ->schema([
@@ -175,6 +176,42 @@ class BlockResource extends Resource
                     ->hidden(
                         fn(Forms\Get $get) => BlockType::from($get('type')) !=
                             BlockType::PROGRAMM
+                    ),
+
+                Forms\Components\Section::make([
+                    Forms\Components\Section::make([
+                        Forms\Components\RichEditor::make('payload.tariff-1')
+                            ->label('Что включено')
+                            ->columnSpan('full'),
+                        Forms\Components\TextInput::make('payload.text-1')
+                            ->label('Доп. текст')
+                            ->columnSpan('full'),
+                        Forms\Components\TextInput::make('payload.price-1')
+                            ->label('Цена')
+                            ->columnSpan('full'),
+                        Forms\Components\TextInput::make('payload.old_price-1')
+                            ->label('Старая цена')
+                            ->columnSpan('full'),
+                    ])->columnSpan(1),
+                    Forms\Components\Section::make([
+                        Forms\Components\RichEditor::make('payload.tariff-2')
+                            ->label('Что включено')
+                            ->columnSpan('full'),
+                        Forms\Components\TextInput::make('payload.text-2')
+                            ->label('Доп. текст')
+                            ->columnSpan('full'),
+                        Forms\Components\TextInput::make('payload.price-2')
+                            ->label('Цена')
+                            ->columnSpan('full'),
+                        Forms\Components\TextInput::make('payload.old_price-2')
+                            ->label('Старая цена')
+                            ->columnSpan('full'),
+                    ])->columnSpan(1),
+                ])
+                    ->columns(2)
+                    ->hidden(
+                        fn(Forms\Get $get) => BlockType::from($get('type')) !=
+                            BlockType::TARIFFS
                     ),
             ]);
     }

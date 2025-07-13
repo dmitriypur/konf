@@ -1,60 +1,142 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('modal');
-    const modalContent = document.getElementById('modal-content');
-    const modalClose = document.getElementById('modal-close');
+// Глобальные переменные
+let modal = null;
+let modalContent = null;
+let modalClose = null;
 
-    document.querySelectorAll('.open-modal-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const targetId = button.dataset.modalTarget;
-            const template = document.getElementById(targetId);
+// Инициализация модальных окон
+function initModals() {
+    modal = document.getElementById('modal');
+    modalContent = document.getElementById('modal-content');
+    modalClose = document.getElementById('modal-close');
 
-            if (template) {
-                modalContent.innerHTML = ''; // Очищаем перед вставкой
-                modalContent.appendChild(template.content.cloneNode(true));
-                modal.classList.remove('hidden');
-            }
+    if (!modal || !modalContent || !modalClose) {
+        console.warn('Modal elements not found');
+        return;
+    }
+    
 
-            phoneMask();
-            const form = document.querySelector('form');
-            const requiredFields = form.querySelectorAll('[data-required]');
-            requiredFields.forEach(function(input) {
 
-                input.addEventListener('input', function (e) {
-                    if (e.target.value.trim().length < 2) {
-                        input.parentNode.classList.add('before:bg-red-600');
-                        input.parentNode.classList.remove('before:bg-linear-(--white2-gr)', 'before:bg-linear-(--violet-gr)');
-                    }else{
-                        input.parentNode.classList.add('before:bg-green-600');
-                        input.parentNode.classList.remove('before:bg-red-600');
-                    }
-                })
-            });
-        });
+
+
+    // Делегирование событий для кнопок открытия
+    document.addEventListener('click', function(e) {
+        const button = e.target.closest('.open-modal-btn');
+        if (!button) return;
+
+        const targetId = button.dataset.modalTarget;
+        if (!targetId) return;
+
+        openModal(targetId);
     });
 
     // Закрытие по кнопке
-    modalClose.addEventListener('click', () => {
-        modal.classList.add('hidden');
-        modalContent.innerHTML = '';
-    });
+    modalClose.addEventListener('click', closeModal);
 
     // Закрытие по клику вне окна
-    modal.addEventListener('click', (e) => {
+    modal.addEventListener('click', function(e) {
         if (e.target === modal) {
-            modal.classList.add('hidden');
-            modalContent.innerHTML = '';
+            closeModal();
         }
     });
-});
-function phoneMask(){
+
+    // Закрытие по Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModal();
+        }
+    });
+}
+
+// Открытие модального окна
+function openModal(targetId) {
+    const template = document.getElementById(targetId);
+    if (!template) {
+        console.warn('Modal template not found:', targetId);
+        return;
+    }
+
+    // Очищаем контент перед вставкой
+    modalContent.innerHTML = '';
+    modalContent.appendChild(template.content.cloneNode(true));
+    modal.classList.remove('hidden');
+
+    // Инициализируем компоненты внутри модального окна
+    initModalComponents();
+}
+
+// Закрытие модального окна
+function closeModal() {
+    modal.classList.add('hidden');
+    modalContent.innerHTML = '';
+}
+
+// Инициализация компонентов внутри модального окна
+function initModalComponents() {
+    // Инициализация маски телефона
+    initPhoneMask();
+    
+    // Инициализация валидации полей
+    initFormValidation();
+}
+
+// Инициализация маски телефона
+function initPhoneMask() {
     const phoneInput = document.querySelector('.phone-input');
-    phoneInput.addEventListener('input', function (e){
-        let x = phoneInput.value.replace(/\D/g, '').substring(1); // удаляем всё кроме цифр
+    if (!phoneInput) return;
+
+    phoneInput.addEventListener('input', function(e) {
+        let value = phoneInput.value.replace(/\D/g, '').substring(1);
         let formatted = '+7';
-        if (x.length > 0) formatted += ' (' + x.substring(0, 3);
-        if (x.length >= 3) formatted += ') ' + x.substring(3, 6);
-        if (x.length >= 6) formatted += '-' + x.substring(6, 8);
-        if (x.length >= 8) formatted += '-' + x.substring(8, 10);
+        
+        if (value.length > 0) formatted += ' (' + value.substring(0, 3);
+        if (value.length >= 3) formatted += ') ' + value.substring(3, 6);
+        if (value.length >= 6) formatted += '-' + value.substring(6, 8);
+        if (value.length >= 8) formatted += '-' + value.substring(8, 10);
+        
         phoneInput.value = formatted;
-    })
+    });
+}
+
+// Инициализация валидации формы
+function initFormValidation() {
+    const form = document.querySelector('form');
+    if (!form) return;
+
+    const requiredFields = form.querySelectorAll('[data-required]');
+    if (requiredFields.length === 0) return;
+
+    requiredFields.forEach(function(input) {
+        input.addEventListener('input', function(e) {
+            validateField(e.target);
+        });
+
+        input.addEventListener('blur', function(e) {
+            validateField(e.target);
+        });
+    });
+}
+
+// Валидация отдельного поля
+function validateField(input) {
+    const parent = input.parentNode;
+    if (!parent) return;
+
+    const isValid = input.value.trim().length >= 2;
+    
+    if (isValid) {
+        parent.classList.add('before:bg-green-600');
+        parent.classList.remove('before:bg-red-600', 'before:bg-linear-(--white2-gr)', 'before:bg-linear-(--violet-gr)');
+    } else {
+        parent.classList.add('before:bg-red-600');
+        parent.classList.remove('before:bg-green-600', 'before:bg-linear-(--white2-gr)', 'before:bg-linear-(--violet-gr)');
+    }
+}
+
+
+
+// Инициализация при загрузке DOM
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initModals);
+} else {
+    initModals();
 }

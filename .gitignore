@@ -9,11 +9,14 @@
 .env.backup
 .env.production
 .phpunit.result.cache
+convert-fonts.sh
+DEPLOYMENT.md
 Homestead.json
 Homestead.yaml
 auth.json
 npm-debug.log
 yarn-error.log
+nginx.conf
 /.fleet
 /.idea
 /.vscode
