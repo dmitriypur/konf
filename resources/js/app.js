@@ -16,7 +16,7 @@ let swiperInstances = new Map();
 function initLazyLoad() {
     if (!lazyMedia) {
         lazyMedia = new LazyLoad({
-            elements_selector: '[data-src],[data-srcset]',
+            elements_selector: '[data-src]:not([fetchpriority="high"])',
             class_loaded: '_lazy-loaded',
             use_native: true,
             callback_loaded: (img) => {
@@ -41,7 +41,7 @@ const loadSwiper = async () => {
 // Оптимизированная функция плавного скролла
 function smoothScrollTo(target) {
     if (!target) return;
-    
+
     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
@@ -73,12 +73,12 @@ function initSmoothScroll() {
     document.addEventListener('click', function(e) {
         const anchor = e.target.closest('a[href^="#"]');
         if (!anchor) return;
-        
+
         const targetId = anchor.getAttribute('href');
         if (targetId === '#' || targetId === '#!') return;
 
         e.preventDefault();
-        
+
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             smoothScrollTo(targetElement);
@@ -86,7 +86,7 @@ function initSmoothScroll() {
     });
 }
 
-// Инициализация Swiper слайдеров
+// Оптимизированная инициализация Swiper слайдеров с отложенной загрузкой
 function initSwipers(Swiper) {
     const swiperConfigs = [
         {
@@ -161,24 +161,28 @@ function initSwipers(Swiper) {
         }
     ];
 
-    swiperConfigs.forEach(({ selector, config }) => {
+    // Инициализируем слайдеры с задержкой для избежания layout thrashing
+    swiperConfigs.forEach(({ selector, config }, index) => {
         const element = document.querySelector(selector);
         if (!element) return;
 
-        const slidesCount = element.querySelectorAll('.swiper-slide').length;
-        const minSlides = config.slidesPerView || 1;
-        
-        // Проверяем количество слайдов для loop с учетом breakpoints
-        let maxSlidesPerView = minSlides;
-        if (config.breakpoints) {
-            maxSlidesPerView = Math.max(...Object.values(config.breakpoints).map(bp => bp.slidesPerView || minSlides));
-        }
-        
-        // Включаем loop только если слайдов больше чем максимальное количество на экране
-        config.loop = slidesCount > maxSlidesPerView;
-        
-        const swiper = new Swiper(selector, config);
-        swiperInstances.set(selector, swiper);
+        // Отложенная инициализация для каждого слайдера
+        setTimeout(() => {
+            const slidesCount = element.querySelectorAll('.swiper-slide').length;
+            const minSlides = config.slidesPerView || 1;
+
+            // Проверяем количество слайдов для loop с учетом breakpoints
+            let maxSlidesPerView = minSlides;
+            if (config.breakpoints) {
+                maxSlidesPerView = Math.max(...Object.values(config.breakpoints).map(bp => bp.slidesPerView || minSlides));
+            }
+
+            // Включаем loop только если слайдов больше чем максимальное количество на экране
+            config.loop = slidesCount > maxSlidesPerView;
+
+            const swiper = new Swiper(selector, config);
+            swiperInstances.set(selector, swiper);
+        }, index * 50); // 50ms задержка между инициализацией слайдеров
     });
 
     // Специальная обработка для partners слайдера
@@ -195,19 +199,22 @@ function initPartnersSwiper(Swiper) {
 
     function enableSwiper() {
         if (swiperInstance) return;
-        
-        const slidesCount = swiperElement.querySelectorAll('.swiper-slide').length;
-        swiperInstance = new Swiper(swiperElement, {
-            modules: [Navigation],
-            loop: slidesCount > 3,
-            spaceBetween: 90,
-            slidesPerView: 3,
-            navigation: {
-                nextEl: '.partners-button-next',
-                prevEl: '.partners-button-prev',
-            },
-        });
-        swiperInstances.set('.partners', swiperInstance);
+
+        // Отложенная инициализация
+        setTimeout(() => {
+            const slidesCount = swiperElement.querySelectorAll('.swiper-slide').length;
+            swiperInstance = new Swiper(swiperElement, {
+                modules: [Navigation],
+                loop: slidesCount > 3,
+                spaceBetween: 90,
+                slidesPerView: 3,
+                navigation: {
+                    nextEl: '.partners-button-next',
+                    prevEl: '.partners-button-prev',
+                },
+            });
+            swiperInstances.set('.partners', swiperInstance);
+        }, 100);
     }
 
     function disableSwiper() {
@@ -252,7 +259,7 @@ function initTabs() {
             // Добавляем active классы
             button.classList.add('text-white');
             button.classList.remove('text-white/60');
-            
+
             const targetContent = document.getElementById(tabId);
             if (targetContent) {
                 targetContent.classList.remove('hidden');
@@ -269,7 +276,7 @@ function initMobileMenu() {
     hamburger.addEventListener('click', () => {
         const pinkCircle = document.getElementById('pink-circle');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         if (pinkCircle) pinkCircle.classList.toggle('opacity-60');
         if (mobileMenu) mobileMenu.classList.toggle('max-h-80');
     });
@@ -278,17 +285,17 @@ function initMobileMenu() {
 // Инициализация формы добавления пользователей
 function initUserForm() {
     let userCount = 0;
-    
+
     document.addEventListener('click', function(e) {
         if (!e.target.classList.contains('add-user')) return;
-        
+
         userCount++;
         const blocks = document.querySelectorAll('.user-data');
         if (blocks.length === 0) return;
-        
+
         const clone = blocks[blocks.length - 1].cloneNode(true);
         const inputs = clone.querySelectorAll('input, textarea, select');
-        
+
         inputs.forEach(el => {
             el.name = el.name.replace(/[0-9]/g, userCount);
             el.value = '';
@@ -298,7 +305,7 @@ function initUserForm() {
         });
 
         clone.insertAdjacentHTML('afterbegin', `<p class="user-num text-sm mb-2">Участник №${userCount + 1}</p>`);
-        
+
         const userNums = clone.querySelectorAll('.user-num');
         if (userNums.length > 1) {
             userNums[1].remove();
@@ -342,7 +349,7 @@ function initApp() {
     initMobileMenu();
     initUserForm();
     initFollower();
-    
+
     // Инициализируем LazyLoad
     initLazyLoad();
 }
@@ -354,21 +361,43 @@ if (document.readyState === 'loading') {
     initApp();
 }
 
-// Инициализация Swiper после загрузки
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const Swiper = await loadSwiper();
-        initSwipers(Swiper);
-        
-        // Обновляем LazyLoad после инициализации слайдеров
-        if (lazyMedia) {
-            lazyMedia.update();
-            setTimeout(() => lazyMedia.update(), 100);
-        }
-    } catch (error) {
-        console.error('Failed to initialize Swiper:', error);
+// Оптимизированная инициализация Swiper с использованием requestIdleCallback
+function initSwipersWhenIdle() {
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(async () => {
+            try {
+                const Swiper = await loadSwiper();
+                initSwipers(Swiper);
+
+                // Обновляем LazyLoad после инициализации слайдеров
+                if (lazyMedia) {
+                    lazyMedia.update();
+                    setTimeout(() => lazyMedia.update(), 100);
+                }
+            } catch (error) {
+                console.error('Failed to initialize Swiper:', error);
+            }
+        }, { timeout: 2000 });
+    } else {
+        // Fallback для браузеров без requestIdleCallback
+        setTimeout(async () => {
+            try {
+                const Swiper = await loadSwiper();
+                initSwipers(Swiper);
+
+                if (lazyMedia) {
+                    lazyMedia.update();
+                    setTimeout(() => lazyMedia.update(), 100);
+                }
+            } catch (error) {
+                console.error('Failed to initialize Swiper:', error);
+            }
+        }, 100);
     }
-});
+}
+
+// Инициализация Swiper после загрузки с оптимизацией
+document.addEventListener('DOMContentLoaded', initSwipersWhenIdle);
 
 // Очистка при размонтировании
 window.addEventListener('beforeunload', () => {
