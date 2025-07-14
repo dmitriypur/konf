@@ -1,79 +1,108 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // const container = document.getElementById('countdown');
-    // const deadlineStr = container.dataset.deadline;
-    // const deadline = new Date(deadlineStr);
-    //
-    // const monthsEl = document.getElementById('months');
-    // const daysEl = document.getElementById('days');
-    // const hoursEl = document.getElementById('hours');
-    // const minutesEl = document.getElementById('minutes');
-    //
-    // const pad = (num) => String(num).padStart(2, '0');
-    //
-    // function updateCountdown() {
-    //     const now = new Date();
-    //     let diff = deadline - now;
-    //
-    //     if (diff <= 0) {
-    //         // Время вышло — всё обнуляем
-    //         monthsEl.textContent = daysEl.textContent = hoursEl.textContent = minutesEl.textContent = '00';
-    //         clearInterval(timer);
-    //         return;
-    //     }
-    //
-    //     // расчёт
-    //     const totalMinutes = Math.floor(diff / 1000 / 60);
-    //     const totalHours = Math.floor(totalMinutes / 60);
-    //     const totalDays = Math.floor(totalHours / 24);
-    //
-    //     const months = Math.floor(totalDays / 30); // приблизительно
-    //     const days = totalDays % 30;
-    //     const hours = totalHours % 24;
-    //     const minutes = totalMinutes % 60;
-    //
-    //     monthsEl.textContent = pad(months);
-    //     daysEl.textContent = pad(days);
-    //     hoursEl.textContent = pad(hours);
-    //     minutesEl.textContent = pad(minutes);
-    // }
-    //
-    // updateCountdown();
-    // const timer = setInterval(updateCountdown, 60 * 1000); // обновляем каждую минуту
+// Глобальные переменные
+let timerInterval = null;
+let countdownElement = null;
 
-    (function () {
-        const container = document.getElementById('countdown');
-        const deadlineStr = container.dataset.deadline;
-        const deadline = new Date(deadlineStr).getTime();
+// Инициализация таймера
+function initTimer() {
+    countdownElement = document.getElementById('countdown');
+    if (!countdownElement) {
+        console.warn('Countdown element not found');
+        return;
+    }
 
-        var timerInterval = setInterval(updateTimer, 1000);
+    const deadlineStr = countdownElement.dataset.deadline;
+    if (!deadlineStr) {
+        console.warn('Deadline not set');
+        return;
+    }
 
-        function updateTimer() {
-            var now = new Date().getTime();
-            var timeLeft = deadline - now;
+    const deadline = new Date(deadlineStr).getTime();
+    if (isNaN(deadline)) {
+        console.warn('Invalid deadline format');
+        return;
+    }
 
-            if (timeLeft <= 0) {
-                clearInterval(timerInterval);
-                setTimerDisplay(0, 0, 0, 0);
-                return;
+    // Очищаем предыдущий интервал
+    if (timerInterval) {
+        clearInterval(timerInterval);
+    }
+
+    // Запускаем таймер
+    timerInterval = setInterval(() => updateTimer(deadline), 1000);
+
+    // Первоначальное обновление
+    updateTimer(deadline);
+}
+
+// Обновление таймера
+function updateTimer(deadline) {
+    const now = new Date().getTime();
+    const timeLeft = deadline - now;
+
+    if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        setTimerDisplay(0, 0, 0, 0);
+        return;
+    }
+
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    setTimerDisplay(days, hours, minutes, seconds);
+}
+
+// Форматирование чисел
+function pad(n) {
+    return n < 10 ? '0' + n : n;
+}
+
+// Установка значений таймера
+function setTimerDisplay(d, h, m, s) {
+    const elements = {
+        days: document.getElementById('days'),
+        hours: document.getElementById('hours'),
+        minutes: document.getElementById('minutes'),
+        seconds: document.getElementById('seconds')
+    };
+
+    // Проверяем наличие элементов
+    Object.entries(elements).forEach(([key, element]) => {
+        if (element) {
+            switch (key) {
+                case 'days':
+                    element.textContent = pad(d);
+                    break;
+                case 'hours':
+                    element.textContent = pad(h);
+                    break;
+                case 'minutes':
+                    element.textContent = pad(m);
+                    break;
+                case 'seconds':
+                    element.textContent = pad(s);
+                    break;
             }
-
-            var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            setTimerDisplay(days, hours, minutes, seconds);
         }
+    });
+}
 
-        function pad(n) {
-            return n < 10 ? '0' + n : n;
-        }
+// Очистка таймера
+function cleanupTimer() {
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
+}
 
-        function setTimerDisplay(d, h, m, s) {
-            document.getElementById('days').textContent = pad(d);
-            document.getElementById('hours').textContent = pad(h);
-            document.getElementById('minutes').textContent = pad(m);
-            document.getElementById('seconds').textContent = pad(s);
-        }
-    })();
-});
+// Инициализация при загрузке DOM
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTimer);
+} else {
+    initTimer();
+}
+
+// Очистка при размонтировании
+window.addEventListener('beforeunload', cleanupTimer);
