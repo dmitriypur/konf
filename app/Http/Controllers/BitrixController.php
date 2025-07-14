@@ -12,22 +12,6 @@ class BitrixController extends Controller
 
     public function submitForm(Request $request)
     {
-//        $fios = $request->input('fio', []);
-//        $emails = $request->input('email', []);
-//        $telegrams = $request->input('telegram', []);
-//        $phones = $request->input('phone', []);
-//
-//        $people = [];
-//        $count = count($fios); // Предполагаем, что длины одинаковы
-//
-//        for ($i = 0; $i < $count; $i++) {
-//            $people[] = [
-//                'fio' => $fios[$i] ?? '',
-//                'email' => $emails[$i] ?? '',
-//                'telegram' => $telegrams[$i] ?? '',
-//                'phone' => $phones[$i] ?? null, // Только у первого
-//            ];
-//        }
 
         // Валидация (упрощённо)
         $request->validate([
@@ -80,7 +64,6 @@ class BitrixController extends Controller
             'UF_CRM_1752325727' => $peopleEmails,
             'UF_CRM_1752325750' => $peopleTelegram,
             'UF_CRM_1752325761' => $request->input('people.0.phone'),
-            'UF_CRM_1752326131' => $request->input('tariff_id'),
             'UF_CRM_1752325426' => $countPeople,
             'UF_CRM_1752326205' => $discount,
             'STAGE_ID' => 'NEW', // начальный этап сделки, замените если нужно

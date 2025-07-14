@@ -34,12 +34,10 @@
                     @endforeach
                 </div>
                 <div class="hidden relative md:grid grid-cols-2 mt-12 gap-y-8 gap-x-3 font-secondary max-w-125">
-                    <button type="button"
-                            data-modal-target="form3"
-                            class="open-modal-btn btn-gr-pink text-xl w-full h-20 col-span-full rounded-full before:rounded-full before:p-0.5 cursor-pointer backdrop-blur-lg">
+                    <a href="#tariffs" class="flex items-center justify-center btn-gr-pink text-xl w-full h-20 col-span-full rounded-full before:rounded-full before:p-0.5 cursor-pointer backdrop-blur-lg">
                         Зарегистрироваться на конференцию
                         <span class="bg-gr"></span>
-                    </button>
+                    </a>
                     <button type="button"
                             data-modal-target="form1"
                             class="open-modal-btn btn-gr-pink w-full h-15 col-span-1 rounded-full before:rounded-full before:p-0.5 cursor-pointer backdrop-blur-lg">

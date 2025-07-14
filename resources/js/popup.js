@@ -24,9 +24,11 @@ function initModals() {
         if (!button) return;
 
         const targetId = button.dataset.modalTarget;
+        const price = button.dataset.price;
+        const tariff = button.dataset.tariff;
         if (!targetId) return;
 
-        openModal(targetId);
+        openModal(targetId, tariff);
     });
 
     // Закрытие по кнопке
@@ -48,8 +50,12 @@ function initModals() {
 }
 
 // Открытие модального окна
-function openModal(targetId) {
+function openModal(targetId, tariff) {
     const template = document.getElementById(targetId);
+    const inputTariff = template.content.querySelector('form > input[name="tariff_id"]');
+    if(inputTariff){
+        inputTariff.value = tariff;
+    }
     if (!template) {
         console.warn('Modal template not found:', targetId);
         return;

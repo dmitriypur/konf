@@ -42,12 +42,11 @@
             <div class="bg-linear-(--violet-gr) opacity-70 text-xs font-bold rounded-full h-full py-1 px-2">-20%</div>
             <p class="text-xs font-semibold">специальная цена до 1 августа</p>
         </div>
-        <button type="button"
-                data-modal-target="form3"
-                class="open-modal-btn btn-gr-pink before:p-0.5 w-full h-15 font-secondary col-span-full rounded-full before:rounded-full cursor-pointer backdrop-blur-lg mt-4.5">
+        <a href="#tariffs"
+                class="flex items-center justify-center btn-gr-pink before:p-0.5 w-full h-15 font-secondary col-span-full rounded-full before:rounded-full backdrop-blur-lg mt-4.5">
             Зарегистрироваться
             <span class="bg-gr"></span>
-        </button>
+        </a>
         <button type="button"
                 data-modal-target="form1"
                 class="open-modal-btn btn-gr-pink before:p-0.5 w-full h-15 font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg mt-4.5">

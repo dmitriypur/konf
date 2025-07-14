@@ -1,4 +1,4 @@
-<section class="relative py-8">
+<section class="relative py-8" id="tariffs">
     <div class="container mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-9 px-3 lg:px-0">
             <div class="bg-[rgba(31, 52, 98, 0.09)] border rounded-(--radius-40)">
@@ -33,6 +33,8 @@
                         <div class="relative font-bold text-[32px] lg:text-[40px]">24 000 руб. <del class="hidden lg:block absolute -top-5 right-0 block text-xl text-white/50 font-normal">30 000 руб.</del></div>
                         <button type="button"
                                 data-modal-target="form3"
+                                data-price="24000"
+                                data-tariff="18"
                                 class="open-modal-btn flex-auto btn-gr-pink before:p-0.5 w-full lg:w-auto h-20 font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg">
                             стать участником
                             <span class="bg-gr"></span>
@@ -73,6 +75,8 @@
                         <div class="relative font-bold text-[32px] lg:text-[40px]">28 000 руб. <del class="hidden lg:block absolute -top-5 right-0 block text-xl text-white/50 font-normal">35 000 руб.</del></div>
                         <button type="button"
                                 data-modal-target="form3"
+                                data-price="28000"
+                                data-tariff="14"
                                 class="open-modal-btn flex-auto btn-gr-pink before:p-0.5 w-full lg:w-auto h-20 font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg">
                             стать участником
                             <span class="bg-gr"></span>

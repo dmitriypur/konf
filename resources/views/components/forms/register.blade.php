@@ -52,7 +52,7 @@
                            class="w-full rounded-full px-6 py-3 bg-[rgba(255,255,255,0.15)] placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30 transition"/>
                 </div>
             </div>
-            <input type="hidden" name="tariff_id" value="14">
+            <input type="hidden" name="tariff_id" value="18">
             <button type="button" id="add-user" class="add-user circle-gr text-sm mt-8 relative w-full py-2 px-5 flex items-center justify-center gap-x-3 rounded-full [&_svg]:w-3 before:rounded-full before:bg-linear-(--white-gr) before:p-[1px] cursor-pointer">
                 <x-icons.plus></x-icons.plus>
                 Добавить ещё одного участника
