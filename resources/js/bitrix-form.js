@@ -1,14 +1,7 @@
-// Глобальные переменные
-let formSubmissions = new Set();
-
 // Делегирование событий для обработки динамических форм
 document.addEventListener('submit', function (e) {
     if (!e.target.classList.contains('bitrix-form')) return;
     e.preventDefault();
-    
-    // Предотвращаем множественные отправки
-    if (formSubmissions.has(e.target)) return;
-    
     handleBitrixFormSubmit(e.target);
 });
 
@@ -33,8 +26,6 @@ function validateBitrixForm(form) {
         if (!input.value.trim()) {
             isValid = false;
             markFieldAsInvalid(input);
-        } else {
-            markFieldAsValid(input);
         }
     });
 
@@ -50,6 +41,8 @@ function validateBitrixForm(form) {
  */
 function prepareBitrixFormData(form) {
     const formData = new FormData(form);
+    // formData.append('form_type', form.dataset.form || 'default');
+    // formData.append('form_name', form.dataset.name || 'unnamed');
     return formData;
 }
 
@@ -59,9 +52,6 @@ function prepareBitrixFormData(form) {
 function sendBitrixFormData(form, formData) {
     const loader = form.querySelector('.form-loader');
     toggleBitrixLoader(loader, true);
-    
-    // Добавляем форму в список отправляемых
-    formSubmissions.add(form);
 
     fetch('/submit-bitrix-form', {
         method: 'POST',
@@ -71,12 +61,7 @@ function sendBitrixFormData(form, formData) {
         body: formData
     })
         .then(response => handleBitrixResponse(form, loader, response))
-        .catch(error => handleBitrixError(form, loader, error))
-        .finally(() => {
-            toggleBitrixLoader(loader, false);
-            // Удаляем форму из списка отправляемых
-            formSubmissions.delete(form);
-        });
+        .catch(error => handleBitrixError(form, loader, error));
 }
 
 /**
@@ -88,21 +73,15 @@ function handleBitrixResponse(form, loader, response) {
             if (data.success) {
                 showBitrixAlert(form, 'Заявка успешно отправлена!', 'success');
                 form.reset();
-                clearFormValidation(form);
 
-                // Закрытие модального окна после успешной отправки
+                // Закрытие модального окна после успешной отправки (если нужно)
                 const modal = form.closest('#modal');
-                if (modal) {
-                    setTimeout(() => modal.classList.add('hidden'), 1000);
-                }
+                if (modal) setTimeout(() => modal.classList.add('hidden'), 1000);
             } else {
                 showBitrixAlert(form, data.message || 'Ошибка отправки. Попробуйте позже.', 'error');
             }
         })
-        .catch(error => {
-            console.error('JSON parsing error:', error);
-            showBitrixAlert(form, 'Ошибка обработки ответа сервера.', 'error');
-        });
+        .finally(() => toggleBitrixLoader(loader, false));
 }
 
 /**
@@ -111,6 +90,7 @@ function handleBitrixResponse(form, loader, response) {
 function handleBitrixError(form, loader, error) {
     showBitrixAlert(form, 'Ошибка сети. Повторите попытку.', 'error');
     console.error('Form submission error:', error);
+    toggleBitrixLoader(loader, false);
 }
 
 /**
@@ -128,11 +108,6 @@ function showBitrixAlert(form, message, type) {
     alertBox.textContent = message;
     alertBox.className = `form-alert text-xs text-center text-white p-2 rounded-xl ${type === 'success' ? 'bg-green-600' : 'bg-red-400'}`;
     alertBox.classList.remove('hidden');
-    
-    // Автоматически скрываем alert через 5 секунд
-    setTimeout(() => {
-        alertBox.classList.add('hidden');
-    }, 5000);
 }
 
 function markFieldAsInvalid(field) {
@@ -140,36 +115,10 @@ function markFieldAsInvalid(field) {
     const parent = field.parentNode;
     if (parent) {
         parent.classList.add('before:bg-red-600');
-        parent.classList.remove('before:bg-green-600', 'before:bg-linear-(--white2-gr)', 'before:bg-linear-(--violet-gr)');
+        parent.classList.remove('before:bg-linear-(--white2-gr)', 'before:bg-linear-(--violet-gr)');
     }
-}
-
-function markFieldAsValid(field) {
-    field.classList.remove('border-red-500');
-    const parent = field.parentNode;
-    if (parent) {
-        parent.classList.add('before:bg-green-600');
-        parent.classList.remove('before:bg-red-600', 'before:bg-linear-(--white2-gr)', 'before:bg-linear-(--violet-gr)');
-    }
-}
-
-function clearFormValidation(form) {
-    const fields = form.querySelectorAll('[data-required]');
-    fields.forEach(field => {
-        field.classList.remove('border-red-500');
-        const parent = field.parentNode;
-        if (parent) {
-            parent.classList.remove('before:bg-red-600', 'before:bg-green-600');
-            parent.classList.add('before:bg-linear-(--white2-gr)');
-        }
-    });
 }
 
 function getCsrfToken() {
     return document.querySelector('meta[name="csrf-token"]')?.content || '';
 }
-
-// Очистка при размонтировании
-window.addEventListener('beforeunload', () => {
-    formSubmissions.clear();
-});

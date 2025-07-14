@@ -8,24 +8,4 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    server: {
-        fs: {
-            deny: ['storage']
-        }
-    },
-    build: {
-        minify: 'esbuild',
-        rollupOptions: {
-            output: {
-                manualChunks: {
-                    swiper: ['swiper'],
-                    lazyload: ['vanilla-lazyload'],
-                },
-            },
-        },
-        chunkSizeWarningLimit: 1000,
-    },
-    optimizeDeps: {
-        include: ['swiper', 'vanilla-lazyload'],
-    },
 });

@@ -10,14 +10,7 @@ class PageController extends Controller
 {
     public function __invoke()
     {
-        $page = Cache::remember('active_page_with_blocks', 3600, function () {
-            return Page::where('active', true)
-                ->with(['blocks' => function ($query) {
-                    $query->orderBy('order_column');
-                }])
-                ->firstOrFail();
-        });
-        
+        $page = Page::where('active', true)->firstOrFail();
         return view('welcome', compact('page'));
     }
 }
