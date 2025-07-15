@@ -78,7 +78,7 @@
                         class="inline-flex items-center justify-center w-17 h-17 rounded-full bg-linear-(--pink-gr) lg:bg-linear-(--white4-gr) border border-white/10 mr-5 transition-color">
                         <img data-src="{{ asset('storage/' . $item['icon']) }}" alt="{{ $item['text'] }}">
                     </span>
-                        <p class="[&_b]:font-primary [&_b]:mr-1">{{ $item['text'] }}</p>
+                        <p class="[&_b]:font-primary [&_b]:mr-1 [&_b]:text-pink [&_b]:!font-primary [&_b]:mr-1 [&_b]:font-semibold">{!! $item['text'] !!}</p>
                     </li>
                 @endforeach
             </ul>
