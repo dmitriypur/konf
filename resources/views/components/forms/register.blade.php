@@ -27,9 +27,6 @@
                        class="w-full rounded-full px-6 py-3 bg-white/15 placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30"/>
             </div>
 
-
-
-
             <div class="user-data mt-10 space-y-5">
                 <div
                     class="circle-gr relative rounded-full before:bg-linear-(--white2-gr) before:p-[1px] before:rounded-[30px] before:-z-10 after:-z-10">
@@ -53,6 +50,7 @@
                 </div>
             </div>
             <input type="hidden" name="tariff_id" value="18">
+            <input type="hidden" name="form_name" value="3">
             <button type="button" id="add-user" class="add-user circle-gr text-sm mt-8 relative w-full py-2 px-5 flex items-center justify-center gap-x-3 rounded-full [&_svg]:w-3 before:rounded-full before:bg-linear-(--white-gr) before:p-[1px] cursor-pointer">
                 <x-icons.plus></x-icons.plus>
                 Добавить ещё одного участника

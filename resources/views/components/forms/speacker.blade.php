@@ -15,13 +15,13 @@
                 <!-- Поля формы -->
                 <div
                     class="circle-gr relative rounded-full before:bg-linear-(--violet-gr) before:p-[1px] before:rounded-[30px] before:-z-10 after:-z-10">
-                    <input type="text" placeholder="*ФИО" data-required name="fio"
+                    <input type="text" placeholder="*ФИО" data-required name="people[0][fio]"
                            class="w-full rounded-full px-6 py-3 bg-white/15 placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30"/>
                 </div>
 
                 <div
                     class="circle-gr relative rounded-full before:bg-linear-(--violet-gr) before:p-[1px] before:rounded-[30px] before:-z-10 after:-z-10">
-                    <input type="tel" placeholder="*Номер телефона" data-required name="phone"
+                    <input type="tel" placeholder="*Номер телефона" data-required name="people[0][phone]"
                            class="phone-input w-full rounded-full px-6 py-3 bg-[rgba(255,255,255,0.15)] placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30 transition"/>
                 </div>
                 <div
@@ -31,12 +31,12 @@
                 </div>
                 <div
                     class="mt-10 circle-gr relative rounded-full before:bg-linear-(--violet-gr) before:p-[1px] before:rounded-[30px] before:-z-10 after:-z-10">
-                    <input type="text" placeholder="Telegram ID" name="telegram"
+                    <input type="text" placeholder="Telegram ID" name="people[0][telegram]"
                            class="w-full rounded-full px-6 py-3 bg-[rgba(255,255,255,0.15)] placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30 transition"/>
                 </div>
                 <div
                     class="circle-gr relative rounded-full before:bg-linear-(--violet-gr) before:p-[1px] before:rounded-[30px] before:-z-10 after:-z-10">
-                    <input type="email" placeholder="E-mail" name="email"
+                    <input type="email" placeholder="E-mail" name="people[0][email]"
                            class="w-full rounded-full px-6 py-3 bg-[rgba(255,255,255,0.15)] placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-white/30 transition"/>
                 </div>
                 <!-- Подпись -->
@@ -51,7 +51,7 @@
                 <textarea placeholder="Начните писать..." name="message"
                           class="w-full rounded-3xl px-6 py-4 h-32 bg-[rgba(255,255,255,0.15)] placeholder-white/60 text-white outline-none resize-none focus:ring-2 focus:ring-white/30 transition"></textarea>
                 </div>
-
+                <input type="hidden" name="form_name" value="1">
                 <!-- Alert -->
                 <div class="form-alert hidden text-sm mt-2"></div>
 
@@ -72,7 +72,8 @@
                     <input
                         type="checkbox"
                         class="peer sr-only"
-                        required
+                        name="agree"
+                        data-required
                         checked
                     />
                     <div
