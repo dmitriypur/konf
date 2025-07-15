@@ -8,10 +8,10 @@
                         class="inline-flex items-center justify-center w-11 h-11 min-w-11 [&_svg]:w-6 [&_svg]:h-6 rounded-full bg-white/5 border border-white/10">
                         <x-icons.user></x-icons.user>
                     </span>
-                    <p class="text-base/5">{{ $item['name'] }}</p>
+                    <p class="text-base/5">{!! $item['name'] !!}</p>
                 </div>
                 <div class="mt-5 text-sm/5">
-                {{ $item['text'] }}
+                {!! $item['text'] !!}
                 </div>
             </div>
         </div>
