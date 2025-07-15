@@ -1,16 +1,16 @@
 <section class="relative py-8" id="how-it-was">
     <div class="container mx-auto">
-        <h2 class="text-[40px]/10 text-center lg:text-[64px]">{{ $block->title }}</h2>
+        <h2 class="text-[40px]/10 text-center lg:text-[64px]">{{ $block->title ?? '' }}</h2>
         <div class="flex flex-col lg:flex-row items-center my-6 lg:my-16 px-3 lg:px-0">
             <div class="relative">
                 <div
                     class="overflow-hidden rounded-4xl circle-gr before:bg-linear-(--white2-gr) before:p-1.5 before:rounded-4xl after:-z-10">
-                    <img data-src="storage/{{ $block->payload['video_cover'] }}" alt="{{ $block->title }}" width="618"
+                    <img data-src="storage/{{ $block->payload['video_cover'] ?? asset('images/video-cover.webp') }}" alt="{{ $block->title ?? '' }}" width="618"
                          height="363" class="lazy">
                 </div>
                 <button type="button"
                         data-modal-target="video"
-                        data-video="storage/{{ $block->payload['video'] }}"
+                        data-video="{{ 'storage/' . $block->payload['video'] ?? '' }}"
                         class="open-modal-btn max-w-[320px] absolute overflow-hidden right-1/2 translate-x-1/2 lg:-right-12 -bottom-8 flex items-center gap-2 circle-gr bg-linear-(--white2-gr) py-6 px-8 lg:py-11 lg:px-12 lg:text-2xl text-left rounded-2xl lg:rounded-4xl backdrop-blur-xl cursor-pointer hover:[&_.span-bg]:opacity-100 after:-z-10 before:-z-10">
                     Смотреть видео
                     <span
@@ -35,11 +35,15 @@
                         </div>
                     </div>
                     <div id="tab1" class="tab-content">
+                        @if(!empty($block->payload['reviews']))
                         <x-slider-review :reviews="$block->payload['reviews']"></x-slider-review>
+                        @endif
                     </div>
 
                     <div id="tab2" class="tab-content hidden">
+                        @if(!empty($block->payload['gallery']))
                         <x-slider-gallery :gallery="$block->payload['gallery']"></x-slider-gallery>
+                        @endif
                     </div>
                 </div>
             </div>

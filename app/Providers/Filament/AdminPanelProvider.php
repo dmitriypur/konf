@@ -21,12 +21,6 @@ use Filament\Forms\Components\FileUpload;
 
 class AdminPanelProvider extends PanelProvider
 {
-    public function boot(): void
-    {
-        FileUpload::configureUsing(function (FileUpload $component) {
-            $component->maxSize(102400); // 100 МБ
-        });
-    }
 
     public function panel(Panel $panel): Panel
     {
