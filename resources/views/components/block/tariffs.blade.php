@@ -9,7 +9,7 @@
                 <div class="relative flex flex-col lg:flex-row gap-x-2 p-6 lg:py-8 lg:px-10 border-y-1 before:absolute before:inset-0 before:bg-linear-(--white3-gr) before:mix-blend-overlay before:-z-10">
                     <div class="w-4/5 lg:w-2/5 lg:min-w-2/5">
                         <h4 class="text-3xl/7">Что включено в&nbsp;тариф:</h4>
-                        <img data-src="{{ asset('images/tariff-1.svg') }}" alt="Картинка слои цветная" width="168" height="109" class="absolute top-4 right-4 max-w-28 lg:max-w-full lg:relative lg:mt-15">
+                        <img data-src="{{ asset('images/tariff-1.webp') }}" alt="Картинка слои цветная" width="168" height="109" class="absolute top-4 right-4 max-w-28 lg:max-w-full lg:relative lg:mt-15">
                     </div>
                     <div class="flex-auto mt-4 lg:mt-0">
                         <ul class="flex flex-col gap-2">
@@ -30,7 +30,7 @@
                         <p class="flex-auto text-xs text-center text-[#1F3462] font-medium">специальная цена до 1 августа</p>
                     </div>
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-2 gap-x-8 mt-8.5">
-                        <div class="relative font-bold text-[32px] lg:text-[40px]">24 000 руб. <del class="hidden lg:block absolute -top-5 right-0 block text-xl text-white/50 font-normal">30 000 руб.</del></div>
+                        <div class="relative font-bold text-[32px] lg:text-[40px]">24 000 руб. <del class="absolute -top-5 md:right-0 block text-lg md:text-xl text-white/50 font-normal">30 000 руб.</del></div>
                         <button type="button"
                                 data-modal-target="form3"
                                 data-price="24000"
@@ -72,7 +72,7 @@
                         <p class="flex-auto text-xs text-center text-[#1F3462] font-medium">специальная цена до 1 августа</p>
                     </div>
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-2 gap-x-8 mt-8.5">
-                        <div class="relative font-bold text-[32px] lg:text-[40px]">28 000 руб. <del class="hidden lg:block absolute -top-5 right-0 block text-xl text-white/50 font-normal">35 000 руб.</del></div>
+                        <div class="relative font-bold text-[32px] lg:text-[40px]">28 000 руб. <del class="absolute -top-5 md:right-0 block text-lg md:text-xl text-white/50 font-normal">35 000 руб.</del></div>
                         <button type="button"
                                 data-modal-target="form3"
                                 data-price="28000"
