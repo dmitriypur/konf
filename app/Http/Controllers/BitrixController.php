@@ -20,12 +20,12 @@ class BitrixController extends Controller
             'brand' => 'required|string',
             'people' => 'required|array|min:1', // массив пользователей
             'people.*.fio' => 'required|string',
-            'people.*.email' => 'required|email',
+            'people.*.email' => 'nullable|email',
             'people.*.telegram' => 'nullable|string',
             'people.0.phone' => 'required|string',
             'tariff_id' => 'required|string', // ID тарифа из формы (значение из списка)
+            'agree' => 'accepted',
         ]);
-
 
         // Подготовка данных для сделки
         $peopleNames = [];

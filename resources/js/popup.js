@@ -66,12 +66,41 @@ function openModal(targetId, tariff) {
     modalContent.appendChild(template.content.cloneNode(true));
     modal.classList.remove('hidden');
 
+    // Динамический src для видео
+    if (targetId === 'video') {
+        // Найти кнопку, вызвавшую модалку
+        const lastActiveBtn = document.activeElement;
+        let videoSrc = '';
+        if (lastActiveBtn && lastActiveBtn.classList.contains('open-modal-btn')) {
+            videoSrc = lastActiveBtn.getAttribute('data-video') || '';
+        }
+        // fallback: ищем последнюю кликнутую .open-modal-btn
+        if (!videoSrc) {
+            const btn = document.querySelector('.open-modal-btn[data-modal-target="video"]:focus') || document.querySelector('.open-modal-btn[data-modal-target="video"]');
+            if (btn) videoSrc = btn.getAttribute('data-video') || '';
+        }
+        // Подставить src
+        const video = modalContent.querySelector('#html5Video');
+        const source = video ? video.querySelector('source') : null;
+        if (source) {
+            source.src = videoSrc;
+            video.load();
+        }
+    }
+
     // Инициализируем компоненты внутри модального окна
     initModalComponents();
 }
 
 // Закрытие модального окна
 function closeModal() {
+    // Очищаем src у видео, если есть
+    const video = modalContent.querySelector('#html5Video');
+    if (video) {
+        const source = video.querySelector('source');
+        if (source) source.src = '';
+        video.load();
+    }
     modal.classList.add('hidden');
     modalContent.innerHTML = '';
 }
@@ -135,6 +164,15 @@ function validateField(input) {
     } else {
         parent.classList.add('before:bg-red-600');
         parent.classList.remove('before:bg-green-600', 'before:bg-linear-(--white2-gr)', 'before:bg-linear-(--violet-gr)');
+    }
+
+    if (input.name === 'agree') {
+        if (!input.checked) {
+            parent.classList.add('bg-red-400', 'p-2', 'rounded-xl');
+        } else {
+            parent.classList.remove('bg-red-400', 'p-2', 'rounded-xl');
+        }
+        
     }
 }
 

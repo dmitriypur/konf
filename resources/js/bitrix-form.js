@@ -28,13 +28,20 @@ function handleBitrixFormSubmit(form) {
 function validateBitrixForm(form) {
     const requiredFields = form.querySelectorAll('[data-required]');
     let isValid = true;
-
     requiredFields.forEach(input => {
         if (!input.value.trim()) {
             isValid = false;
             markFieldAsInvalid(input);
         } else {
             markFieldAsValid(input);
+        }
+        if (input.name === 'agree') {
+            if (!input.checked) {
+                isValid = false;
+                markFieldAsInvalid(input);
+            } else {
+                markFieldAsValid(input);
+            }
         }
     });
 
@@ -145,8 +152,15 @@ function markFieldAsInvalid(field) {
 }
 
 function markFieldAsValid(field) {
+
     field.classList.remove('border-red-500');
     const parent = field.parentNode;
+    if (field.name === 'agree') {
+        console.log(field.name);
+        if (parent) {
+            parent.classList.add('bg-red-400', 'p-2', 'rounded-xl');
+        }
+    }
     if (parent) {
         parent.classList.add('before:bg-green-600');
         parent.classList.remove('before:bg-red-600', 'before:bg-linear-(--white2-gr)', 'before:bg-linear-(--violet-gr)');

@@ -213,6 +213,40 @@ class BlockResource extends Resource
                         fn(Forms\Get $get) => BlockType::from($get('type')) !=
                             BlockType::TARIFFS
                     ),
+
+                Forms\Components\Section::make([
+                    Forms\Components\FileUpload::make('payload.video_cover')
+                        ->label('Обложка видео')
+                        ->directory('images')
+                        ->columnSpan('full'),
+                    Forms\Components\FileUpload::make('payload.video')
+                        ->label('Видео')
+                        ->directory('files')
+                        ->acceptedFileTypes(['video/mp4'])
+                        ->maxSize(102400) // 100 МБ
+                        ->columnSpan('full'),
+                    Forms\Components\Repeater::make('payload.reviews')
+                        ->label('Отзывы')
+                        ->schema([
+                            Forms\Components\TextInput::make('name')
+                                ->label('Имя')
+                                ->columnSpan('full'),
+                            Forms\Components\Textarea::make('text')
+                                ->label('Текст')
+                                ->columnSpan('full'),
+                        ]),
+                    Forms\Components\Repeater::make('payload.gallery')
+                        ->label('Галерея')
+                        ->schema([
+                            Forms\Components\FileUpload::make('image')
+                                ->label('Фото')
+                                ->columnSpan('full'),
+                        ]),
+                ])
+                    ->hidden(
+                        fn(Forms\Get $get) => BlockType::from($get('type')) !=
+                            BlockType::HOW_IT_WAS
+                    ),
             ]);
     }
 

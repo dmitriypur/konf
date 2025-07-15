@@ -80,6 +80,7 @@
                 <input
                     type="checkbox"
                     class="peer sr-only"
+                    name="agree"
                     checked
                     data-required
                 />
