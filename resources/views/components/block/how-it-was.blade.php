@@ -10,7 +10,7 @@
                 </div>
                 <button type="button"
                         data-modal-target="video"
-                        data-video="{{ 'storage/' . $block->payload['video'] ?? '' }}"
+                        data-video="{{ !empty($block->payload['video']) ? 'storage/' . $block->payload['video'] : asset('files/video.mp4') }}"
                         class="open-modal-btn max-w-[320px] absolute overflow-hidden right-1/2 translate-x-1/2 lg:-right-12 -bottom-8 flex items-center gap-2 circle-gr bg-linear-(--white2-gr) py-6 px-8 lg:py-11 lg:px-12 lg:text-2xl text-left rounded-2xl lg:rounded-4xl backdrop-blur-xl cursor-pointer hover:[&_.span-bg]:opacity-100 after:-z-10 before:-z-10">
                     Смотреть видео
                     <span
