@@ -9,7 +9,7 @@
         <div class="lg:flex px-3 lg:px-0">
             <div class="">
                 <h2 class="relative text-center max-w-90 mx-auto lg:max-w-full lg:text-left text-[40px]/9 lg:text-[64px]/20 pb-20 lg:pb-0 lg:pl-24 z-20">
-                    место проведения
+                    {{ $block->title }}
                     <span class="absolute w-35 lg:w-50 h-auto top-10 lg:top-20 right-full translate-x-full lg:translate-x-0 lg:-right-18 lg:-translate-y-2 z-10">
                         <img data-src="{{ asset('images/circle-pointer.svg') }}" class="lazy" alt="Указатель на картинку" width="200" height="74">
                     </span>
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="w-full h-auto mt-6 relative lg:hidden">
-                        <img data-src="{{ asset('images/hotel-m.webp') }}" alt="Отель" width="370" height="307" class="lazy w-full">
+                        <img data-src="{{ asset('images/hotel-2-m.webp') }}" alt="Отель" width="370" height="307" class="lazy w-full">
                         <a href="tel:74951392020" class="absolute left-4 bottom-2 font-semibold">+7 495 139 20 20</a>
                     </div>
                     <div class="locations grid grid-cols-2 lg:flex gap-4 lg:gap-x-7 mt-6 lg:mt-16 lg:pr-6">
@@ -68,7 +68,7 @@
             </div>
             <div class="relative hidden lg:block relative flex-auto z-10">
                 <div class="lg:absolute inset-0 mt-9 w-full h-full">
-                    <img data-src="{{ asset('images/hotel.webp') }}" alt="Отель" width="608" height="493" class="lazy">
+                    <img data-src="{{ asset('images/hotel-2.webp') }}" alt="Отель" width="608" height="493" class="lazy">
                     <a href="tel:74951392020" class="absolute left-20 bottom-15">+7 495 139 20 20</a>
                 </div>
             </div>
