@@ -179,6 +179,16 @@ class BlockResource extends Resource
                     ),
 
                 Forms\Components\Section::make([
+                    Forms\Components\TextInput::make('payload.subtitle')
+                        ->label('Подзаголовок')
+                        ->columnSpan('full'),
+                ])
+                    ->hidden(
+                        fn(Forms\Get $get) => BlockType::from($get('type')) !=
+                            BlockType::CALL_TO_ACTION
+                    ),
+
+                Forms\Components\Section::make([
                     Forms\Components\Section::make([
                         Forms\Components\RichEditor::make('payload.tariff-1')
                             ->label('Что включено')
