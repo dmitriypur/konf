@@ -89,7 +89,7 @@
 
                     <span>
                     Я даю согласие на обработку персональных данных<br/>
-                    и соглашаюсь с <a href="#" class="underline">политикой конфиденциальности</a>
+                    и соглашаюсь с <a href="{{ route('privacy-policy') }}" target="_blank" class="underline">политикой конфиденциальности</a>
                   </span>
                 </label>
 
