@@ -13,10 +13,10 @@
                                 <div class="swiper-slide">
                                     <div class="circle-gr relative bg-white/5 w-full h-full rounded-3xl p-5 before:absolute before:bg-linear-(--violet-gr) before:p-0.5 before:rounded-3xl before:-z-10">
                                         <div class="flex items-center justify-center w-full h-29.5">
-                                            <img data-src="{{ asset('images/fond.webp') }}" alt="Национальный фонд защиты детского зрения">
+                                            <img data-src="{{ 'storage/' . $item['image'] }}" alt="{{ $item['name'] }}">
                                         </div>
                                         <div class="mt-5 relative circle-gr w-full h-15 flex items-center justify-center rounded-full text-sm/4 text-center tracking-tight bg-linear-(--violet-gr) before:absolute before:bg-linear-(--white3-gr) before:p-0.5 before:rounded-3xl before:rounded-full before:mix-blend-overlay">
-                                            <span class="relative z-10">Национальный фонд защиты детского зрения</span>
+                                            <span class="relative z-10">{{ $item['name'] }}</span>
                                         </div>
                                     </div>
                                 </div>
