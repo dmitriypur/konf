@@ -20,22 +20,22 @@
                 <div class="mt-10 lg:mt-20">
                     <div class="flex justify-center lg:justify-start lg:gap-x-7">
                         <div data-da=".locations,1024,1" class="circle-gr relative w-full lg:max-w-44 h-auto overflow-hidden rounded-4xl before:rounded-4xl before:bg-linear-(--white2-gr) before:p-1">
-                            <img data-src="{{ asset('images/location-1.webp') }}" alt="Конференц зал" class="lazy w-full h-full object-cover">
+                            <img data-src="{{ 'storage/' . $block->payload['pic-1'] }}" alt="Конференц зал" class="lazy w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col items-center lg:block">
                             <img data-src="{{ asset('images/rating-stars.svg') }}" alt="Звездный рейтинг" width="117" height="29" class="lazy order-2 mt-2 lg:mt-0">
-                            <p class="text-3xl text-center font-bold mt-2 order-1">SOLUXE HOTEL MOSCOW</p>
+                            <p class="text-3xl text-center font-bold mt-2 order-1">{{ $block->payload['name_hotel'] }}</p>
                             <span class="block w-full h-[1px] bg-linear-(--white-vertical2-gr) mt-7.5 order-3"></span>
-                            <p class="mt-5 text-xl lg:text-2xl tracking-tight order-4">ул. Вильгельма Пика, д.16, Москва</p>
+                            <p class="mt-5 text-xl lg:text-2xl tracking-tight order-4">{{ $block->payload['address'] }}</p>
                         </div>
                     </div>
                     <div class="w-full h-auto mt-6 relative lg:hidden">
-                        <img data-src="{{ asset('images/hotel-2-m.webp') }}" alt="Отель" width="370" height="307" class="lazy w-full">
+                        <img data-src="{{ 'storage/' . $block->payload['pic-main-mobile'] }}" alt="Отель" width="370" height="307" class="lazy w-full">
                         <a href="tel:74951392020" class="absolute left-4 bottom-2 font-semibold">+7 495 139 20 20</a>
                     </div>
                     <div class="locations grid grid-cols-2 lg:flex gap-4 lg:gap-x-7 mt-6 lg:mt-16 lg:pr-6">
                         <div class="circle-gr relative w-full lg:max-w-44 h-auto overflow-hidden rounded-4xl before:rounded-4xl before:bg-linear-(--white2-gr) before:p-1">
-                            <img data-src="{{ asset('images/location-2.webp') }}" alt="Конференц зал" class="lazy w-full h-full object-cover">
+                            <img data-src="{{ 'storage/' . $block->payload['pic-2'] }}" alt="Конференц зал" class="lazy w-full h-full object-cover">
                         </div>
                         <div class="col-span-2 w-full flex flex-col gap-8 lg:gap-0">
                             <div class="grid grid-cols-2 gap-x-4 lg:gap-x-7.5">
@@ -68,7 +68,7 @@
             </div>
             <div class="relative hidden lg:block relative flex-auto z-10">
                 <div class="lg:absolute inset-0 mt-9 w-full h-full">
-                    <img data-src="{{ asset('images/hotel-2.webp') }}" alt="Отель" width="608" height="493" class="lazy">
+                    <img data-src="{{ 'storage/' . $block->payload['pic-main'] }}" alt="Отель" width="608" height="493" class="lazy">
                     <a href="tel:74951392020" class="absolute left-20 bottom-15">+7 495 139 20 20</a>
                 </div>
             </div>

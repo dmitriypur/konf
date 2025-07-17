@@ -13,24 +13,20 @@
                     </div>
                     <div class="flex-auto mt-4 lg:mt-0">
                         <ul class="flex flex-col gap-2">
-                            <li class="pl-6" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">Полный доступ к конференции</li>
-                            <li class="pl-6" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">Материалы презентаций</li>
-                            <li class="pl-6" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">Кофе-брейки и обед</li>
-                            <li class="pl-6" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">Сертификат участника</li>
-                            <li class="pl-6" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">Брендированные материалы</li>
-                            <li class="pl-6" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">Участие в воркшопе</li>
-                            <li class="pl-6" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">Нетворкинг-сессия</li>
+                            @foreach($block->payload['tariff_1'] as $item)
+                                <li class="pl-6" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">{{ $item['title'] }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="relative p-6 lg:p-8">
-                    <p class="text-xs lg:text-base">5 000 скидка при регистрации от 2-х человек</p>
+                    <p class="text-xs lg:text-base">{{ $block->payload['text_1'] }}</p>
                     <div class="relative flex items-center gap-2 lg:gap-4 rounded-full bg-white p-[2px] mt-2.5">
                         <div class="bg-linear-(--violet-gr) text-xs text-center font-bold rounded-full w-14 lg:w-43 h-full py-1 px-2">-20%</div>
                         <p class="flex-auto text-xs text-center text-[#1F3462] font-medium">специальная цена до 1 августа</p>
                     </div>
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-2 gap-x-8 mt-8.5">
-                        <div class="relative font-bold text-[32px] lg:text-[40px]">24 000 руб. <del class="absolute -top-5 md:right-0 block text-lg md:text-xl text-white/50 font-normal">30 000 руб.</del></div>
+                        <div class="relative font-bold text-[32px] lg:text-[40px]">{{ $block->payload['price_1'] }} <del class="absolute -top-5 md:right-0 block text-lg md:text-xl text-white/50 font-normal">{{ $block->payload['old_price_1'] }}</del></div>
                         <button type="button"
                                 data-modal-target="form3"
                                 data-price="24000"
@@ -59,20 +55,20 @@
                             +
                         </div>
                         <ul class="relative flex flex-col gap-4 before:absolute before:top-1/2 before:right-0 before:-translate-y-1/2 before:h-full before:w-1.5 before:border-y before:border-e before:rounded-r-sm">
-                            <li class="pl-6 text-sm/5" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">Видео-запись выступлений с доступом на 90 дней</li>
-                            <li class="pl-6 text-sm/5" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">90 дней доступа к IT продуктам, которые будут представлены на конференции</li>
-                            <li class="pl-6 text-sm/5" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">Доступ к первым рядам в зале</li>
+                            @foreach($block->payload['tariff_2'] as $item)
+                                <li class="pl-6 text-sm/5" style="background: url({{ asset('images/plus.svg') }}) no-repeat center left">{{ $item['title'] }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="relative p-6 lg:p-8">
-                    <p class="text-xs lg:text-base">5 000 скидка при регистрации от 2-х человек</p>
+                    <p class="text-xs lg:text-base">{{ $block->payload['text_2'] }}</p>
                     <div class="relative flex items-center gap-2 lg:gap-4 rounded-full bg-white p-[2px] mt-2.5">
                         <div class="bg-linear-(--violet-gr) text-xs text-center font-bold rounded-full w-14 lg:w-43 h-full py-1 px-2">-20%</div>
                         <p class="flex-auto text-xs text-center text-[#1F3462] font-medium">специальная цена до 1 августа</p>
                     </div>
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-2 gap-x-8 mt-8.5">
-                        <div class="relative font-bold text-[32px] lg:text-[40px]">28 000 руб. <del class="absolute -top-5 md:right-0 block text-lg md:text-xl text-white/50 font-normal">35 000 руб.</del></div>
+                        <div class="relative font-bold text-[32px] lg:text-[40px]">{{ $block->payload['price_2'] }} <del class="absolute -top-5 md:right-0 block text-lg md:text-xl text-white/50 font-normal">{{ $block->payload['old_price_2'] }}</del></div>
                         <button type="button"
                                 data-modal-target="form3"
                                 data-price="28000"

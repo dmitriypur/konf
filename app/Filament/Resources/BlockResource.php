@@ -190,30 +190,38 @@ class BlockResource extends Resource
 
                 Forms\Components\Section::make([
                     Forms\Components\Section::make([
-                        Forms\Components\RichEditor::make('payload.tariff-1')
+                        Forms\Components\Repeater::make('payload.tariff_1')
                             ->label('Что включено')
-                            ->columnSpan('full'),
-                        Forms\Components\TextInput::make('payload.text-1')
+                            ->schema([
+                                Forms\Components\TextInput::make('title')
+                                    ->label('Название')
+                                    ->columnSpan('full'),
+                            ]),
+                        Forms\Components\TextInput::make('payload.text_1')
                             ->label('Доп. текст')
                             ->columnSpan('full'),
-                        Forms\Components\TextInput::make('payload.price-1')
+                        Forms\Components\TextInput::make('payload.price_1')
                             ->label('Цена')
                             ->columnSpan('full'),
-                        Forms\Components\TextInput::make('payload.old_price-1')
+                        Forms\Components\TextInput::make('payload.old_price_1')
                             ->label('Старая цена')
                             ->columnSpan('full'),
                     ])->columnSpan(1),
                     Forms\Components\Section::make([
-                        Forms\Components\RichEditor::make('payload.tariff-2')
+                        Forms\Components\Repeater::make('payload.tariff_2')
                             ->label('Что включено')
-                            ->columnSpan('full'),
-                        Forms\Components\TextInput::make('payload.text-2')
+                            ->schema([
+                                Forms\Components\TextInput::make('title')
+                                    ->label('Название')
+                                    ->columnSpan('full'),
+                            ]),
+                        Forms\Components\TextInput::make('payload.text_2')
                             ->label('Доп. текст')
                             ->columnSpan('full'),
-                        Forms\Components\TextInput::make('payload.price-2')
+                        Forms\Components\TextInput::make('payload.price_2')
                             ->label('Цена')
                             ->columnSpan('full'),
-                        Forms\Components\TextInput::make('payload.old_price-2')
+                        Forms\Components\TextInput::make('payload.old_price_2')
                             ->label('Старая цена')
                             ->columnSpan('full'),
                     ])->columnSpan(1),
@@ -256,6 +264,56 @@ class BlockResource extends Resource
                     ->hidden(
                         fn(Forms\Get $get) => BlockType::from($get('type')) !=
                             BlockType::HOW_IT_WAS
+                    ),
+
+                Forms\Components\Section::make([
+                    Forms\Components\TextInput::make('payload.name_hotel')
+                        ->label('Название отеля')
+                        ->columnSpan('full'),
+                    Forms\Components\TextInput::make('payload.address')
+                        ->label('Адрес')
+                        ->columnSpan('full'),
+                    Forms\Components\FileUpload::make('payload.pic-1')
+                        ->label('Фото 1')
+                        ->directory('images')
+                        ->columnSpan('full'),
+                    Forms\Components\FileUpload::make('payload.pic-2')
+                        ->label('Фото 2')
+                        ->directory('images')
+                        ->columnSpan('full'),
+                    Forms\Components\FileUpload::make('payload.pic-main')
+                        ->label('Основное фото')
+                        ->directory('images')
+                        ->columnSpan('full'),
+                    Forms\Components\FileUpload::make('payload.pic-main-mobile')
+                        ->label('Основное фото мобильный')
+                        ->directory('images')
+                        ->columnSpan('full'),
+                ])
+                    ->hidden(
+                        fn(Forms\Get $get) => BlockType::from($get('type')) !=
+                            BlockType::LOCATION
+                    ),
+
+
+                Forms\Components\Section::make([
+                    Forms\Components\Repeater::make('payload.partners')
+                        ->label('Партнеры')
+                        ->schema([
+                            Forms\Components\FileUpload::make('image')
+                                ->label('Лого партнера')
+                                ->columnSpan('full'),
+                            Forms\Components\TextInput::make('name')
+                                ->label('Название партнера')
+                                ->columnSpan('full'),
+                            Forms\Components\Checkbox::make('button')
+                                ->label('Кнопка "Стать партнером"')
+                                ->columnSpan('full'),
+                        ]),
+                ])
+                    ->hidden(
+                        fn(Forms\Get $get) => BlockType::from($get('type')) !=
+                            BlockType::PARTHNERS
                     ),
             ]);
     }
