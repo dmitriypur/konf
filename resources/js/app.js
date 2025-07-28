@@ -93,11 +93,16 @@ function initSwipers(Swiper) {
             selector: '.speakers',
             config: {
                 modules: [Navigation],
-                spaceBetween: 20,
+                spaceBetween: 95,
                 slidesPerView: 1,
                 navigation: {
                     nextEl: '.speakers-button-next',
                     prevEl: '.speakers-button-prev',
+                },
+                breakpoints: {
+                    0: { slidesPerView: 1 },
+                    768: { slidesPerView: 1 },
+                    1024: { slidesPerView: 2 },
                 }
             }
         },

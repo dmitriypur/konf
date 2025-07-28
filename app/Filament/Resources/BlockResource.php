@@ -111,10 +111,6 @@ class BlockResource extends Resource
                 Forms\Components\Section::make([
                     Forms\Components\RichEditor::make('payload.text')
                         ->label('Текст'),
-                    Forms\Components\TextInput::make('payload.name')
-                        ->label('Имя')
-                        ->default('Анна Кочкина')
-                        ->columnSpan('full'),
                     Forms\Components\Repeater::make('payload.speackers')
                         ->label('Спикеры')
                         ->schema([
@@ -133,6 +129,30 @@ class BlockResource extends Resource
                     ->hidden(
                         fn(Forms\Get $get) => BlockType::from($get('type')) !=
                             BlockType::ABOUT
+                    ),
+
+                Forms\Components\Section::make([
+                    Forms\Components\Repeater::make('payload.speackers')
+                        ->label('Спикеры')
+                        ->schema([
+                            Forms\Components\TextInput::make('name')
+                                ->label('Имя спикера')
+                                ->columnSpan('full'),
+                            Forms\Components\TextInput::make('subtitle')
+                                ->label('Подзаголовок')
+                                ->columnSpan('full'),
+                            Forms\Components\RichEditor::make('info')
+                                ->label('Информация о спикере')
+                                ->columnSpan('full'),
+                            Forms\Components\FileUpload::make('image')
+                                ->label('Фото спикера')
+                                ->directory('speackers')
+                                ->columnSpan('full'),
+                        ])
+                ])
+                    ->hidden(
+                        fn(Forms\Get $get) => BlockType::from($get('type')) !=
+                            BlockType::SPEAKERS
                     ),
 
                 Forms\Components\Section::make([

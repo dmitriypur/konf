@@ -4,7 +4,7 @@
              class="w-full">
     </div>
     <div class="container mx-auto px-3 lg:px-0">
-        <h2 class="text-center text-5xl md:text-[64px]">программа</h2>
+        <h2 class="text-center text-5xl md:text-[64px]">{{ $block->title }}</h2>
         <div class="swiper programm">
             <div class="swiper-wrapper before:content-none lg:before:content-[''] before:absolute before:w-full before:h-[1px] before:bg-white before:top-1/2 before:-translate-y-3 mt-15">
                 @foreach($block->payload['programm'] as $item)

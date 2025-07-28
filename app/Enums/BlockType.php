@@ -13,6 +13,7 @@ enum BlockType: int
     case LOCATION = 6;
     case HOW_IT_WAS = 7;
     case THEMES = 8;
+    case SPEAKERS = 9;
 
     public function getLabel(): string
     {
@@ -26,6 +27,7 @@ enum BlockType: int
             self::LOCATION => 'Место проведения',
             self::HOW_IT_WAS => 'Как это было',
             self::THEMES => 'Темы',
+            self::SPEAKERS => 'Спикеры',
         };
     }
 

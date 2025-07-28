@@ -16,7 +16,7 @@
                                             <img data-src="{{ 'storage/' . $item['image'] }}" alt="{{ $item['name'] }}">
                                         </div>
                                         <div class="mt-5 relative circle-gr w-full h-15 flex items-center justify-center rounded-full text-sm/4 text-center tracking-tight bg-linear-(--violet-gr) before:absolute before:bg-linear-(--white3-gr) before:p-0.5 before:rounded-3xl before:rounded-full before:mix-blend-overlay">
-                                            <span class="relative z-10">{{ $item['name'] }}</span>
+                                            <span class="relative z-10">{!! $item['name'] !!}</span>
                                         </div>
                                     </div>
                                 </div>

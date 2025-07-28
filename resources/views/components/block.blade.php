@@ -27,5 +27,8 @@
     @case(\App\Enums\BlockType::HOW_IT_WAS)
         <x-block.how-it-was :block="$block"/>
         @break
+    @case(\App\Enums\BlockType::SPEAKERS)
+        <x-block.speakers :block="$block"/>
+        @break
 
 @endswitch
