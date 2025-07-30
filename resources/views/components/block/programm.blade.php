@@ -1,6 +1,6 @@
-<section class="relative pt-10 pb-20 z-10" id="programm">
+<section class="relative pt-10 pb-10 lg:pb-0 z-10" id="programm">
     <div
-        class="absolute opacity-50 lg:opacity-100 -rotate-130 lg:rotate-0 w-400 -left-180 -top-150 lg:left-1/2 lg:-translate-x-1/2 lg:-top-90 lg:w-550 h-auto -z-10">
+        class="absolute opacity-50 lg:opacity-100 -rotate-130 lg:rotate-0 w-400 -left-180 lg:left-1/2 lg:-translate-x-1/2 lg:w-550 h-auto -z-10">
         <img data-src="{{ asset('images/morph.webp') }}" alt="Разноцветное облако" width="2200" height="920"
              class="w-full">
     </div>
