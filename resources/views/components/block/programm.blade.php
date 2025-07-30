@@ -97,7 +97,7 @@
                                                     <div
                                                         class="theme-card invisible opacity-0 absolute -bottom-24 w-[360px] themes-block__card border border-white rounded-[20px] p-4 bg-linear-(--violet-gr) z-10">
                                                         <div class="flex gap-5">
-                                                            <div class="flex items-end bg-white/40 overflow-hidden border border-white rounded-[10px] h-auto min-w-[76px]">
+                                                            <div class="flex items-end bg-white/40 overflow-hidden border border-white rounded-[10px] h-auto {{ count($theme['speakers']) > 1 ? 'min-w-[152px]' : 'min-w-[76px]' }}">
                                                                 @foreach($theme['speakers'] as $speaker)
                                                                     <div
                                                                         class="relative h-[90px] w-[76px]">
