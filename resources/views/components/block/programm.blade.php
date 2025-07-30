@@ -57,7 +57,7 @@
                                                                 class="flex items-end bg-white/40 overflow-hidden border border-white rounded-[10px] h-auto {{ count($theme['speakers']) > 1 ? 'min-w-[140px]' : 'min-w-[70px]' }}">
                                                                 @foreach($theme['speakers'] as $speaker)
                                                                     <div
-                                                                        class="relative h-[84px] w-[70px]">
+                                                                        class="relative h-[90px] w-[70px]">
                                                                         <img src="{{ '/storage/' . $speaker['photo'] }}"
                                                                              alt="{{ $speaker['name'] }}"
                                                                              class="w-full h-full object-cover">
