@@ -1,0 +1,89 @@
+
+.programms__item::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: overlay;
+    z-index: -2;
+}
+.time-block{
+    background: url("../images/shtrih.svg") repeat-x left top;
+}
+.time-block-2{
+    background: url("../images/shtrih.svg") repeat-x left bottom;
+}
+.time-label{
+    box-shadow: 0 1px 30px rgba(255, 255, 255, 0.5);
+}
+.time-label::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    mix-blend-mode: overlay;
+}
+
+.pink-round::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+
+.pink-round::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 20px;
+    background: #fff;
+    left: 50%;
+    bottom: -26px;
+    transform: translateX(-50%);
+}
+
+.violet-round::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+.violet-round::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 20px;
+    background: #fff;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+}
+.violet-round.inverted::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 20px;
+    background: #fff;
+    left: 50%;
+    bottom: -22px;
+    transform: translateX(-50%);
+}
+.dark-desctop-card *{
+    transition: opacity .3s, padding .3s, left .3s;
+}
+.dark-desctop-card:hover img{
+    left: 0;
+}
+.dark-desctop-card:hover p{
+    padding-left: 30px;
+}
+.dark-desctop-card:hover .theme-card{
+    visibility: visible;
+    opacity: 1;
+}
+

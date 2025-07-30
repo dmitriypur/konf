@@ -11,7 +11,7 @@
     <div class="container mx-auto pt-5 pb-8  lg:py-16">
         <div class="flex flex-col md:flex-row relative px-3">
             <div class="max-w-140 relative">
-                <div class="absolute md:animate-[reverse-rotate_8s_ease-in-out_infinite] rotate-270 md:-rotate-20 w-40 h-auto top-70 md:-top-14 left-65 md:left-90 -z-10">
+                <div class="absolute md:animate-[reverse-rotate_8s_ease-in-out_infinite] rotate-270 md:-rotate-20 w-40 h-auto top-70 md:-top-14 left-65 md:left-110 -z-10">
                     <img data-src="{{ asset('images/pink-ring.webp') }}" alt="Розовое колечко" width="160" height="145"
                          class="w-full lazy">
                 </div>
@@ -21,7 +21,7 @@
                          class="w-full lazy">
                 </div>
                 <div class="absolute -left-10 top-10 w-100 h-400 bg-linear-(--violet-gr) opacity-50 md:-left-1/3 md:w-100 md:h-100 md:bg-purple rounded-full blur-[70px] -z-10"></div>
-                <small class="text-white/70 text-[10px] md:text-sm font-normal flex items-center justify-between">{{ $block->payload['address'] }} <b class="block text-white text-base lg:text-lg lg:mr-20">{{ Carbon\Carbon::parse($block->payload['date'])->format('d/m/Y') }} </b></small>
+                <small class="text-white/70 text-[10px] md:text-sm font-normal flex items-center justify-between">{{ $block->payload['address'] }} <b class="block text-white text-base lg:text-lg ">{{ Carbon\Carbon::parse($block->payload['date'])->format('d/m/Y') }} </b></small>
                 <h1 class="text-[36px]/10 md:text-[55px]/15 font-bold [&_b]:font-sans [&_span]:block">
                     {!! $block->title !!}
                 </h1>
@@ -38,18 +38,24 @@
                         Зарегистрироваться на конференцию
                         <span class="bg-gr"></span>
                     </a>
-                    <button type="button"
-                            data-modal-target="form1"
-                            class="open-modal-btn btn-gr-pink w-full h-15 col-span-1 rounded-full before:rounded-full before:p-0.5 cursor-pointer backdrop-blur-lg">
-                        Стать спикером
-                        <span class="bg-gr"></span>
-                    </button>
-                    <button type="button"
-                            data-modal-target="form2"
-                            class="open-modal-btn btn-gr-pink w-full h-15 col-span-1 rounded-full before:rounded-full before:p-0.5 cursor-pointer backdrop-blur-lg">
-                        Стать партнёром
-                        <span class="bg-gr"></span>
-                    </button>
+                    @if($block->payload['btn-speaker'])
+                        <button type="button"
+                                data-modal-target="form1"
+                                class="open-modal-btn btn-gr-pink w-full h-15 col-span-1 rounded-full before:rounded-full before:p-0.5 cursor-pointer backdrop-blur-lg">
+                            Стать спикером
+                            <span class="bg-gr"></span>
+                        </button>
+                    @endif
+
+                    @if($block->payload['btn-partner'])
+                        <button type="button"
+                                data-modal-target="form2"
+                                class="open-modal-btn btn-gr-pink w-full h-15 col-span-1 rounded-full before:rounded-full before:p-0.5 cursor-pointer backdrop-blur-lg">
+                            Стать партнёром
+                            <span class="bg-gr"></span>
+                        </button>
+                    @endif
+
                 </div>
             </div>
             <div class="relative flex-auto flex flex-col justify-center">
@@ -60,7 +66,7 @@
                     <img data-src="{{ asset('images/pink-ring.webp') }}" alt="Розовое колечко" width="160" height="145"
                          class="w-full lazy">
                 </div>
-                <ul class="hidden md:block w-full max-w-70 z-10">
+                <ul class="hidden md:block w-full max-w-70 z-10 relative top-24">
                     @foreach($block->payload['numbers'] as $item)
                         <li class="btn-gr hover:animate-[wiggle_1s_ease-in-out_infinite] rounded-full before:rounded-full text-[46px] font-bold flex items-center justify-evenly px-10 w-full h-20 mb-4 backdrop-blur-lg">
                             {{ $item['number'] }} <b class="text-pink font-secondary text-xl">{{ $item['text'] }}</b>
@@ -70,7 +76,7 @@
                 <x-hero-mobile :time="$block->payload['date']" />
             </div>
         </div>
-        <div class="relative mt-23 px-3 z-10 lg:px-0">
+        <div class="relative mt-24 md:mt-32 px-3 z-10 lg:px-0">
             <ul class="grid lg:grid-cols-3 gap-5 lg:gap-10">
                 @foreach($block->payload['advantages'] as $item)
                     <li class="circle-gr bg-linear-(--white2-gr) inline-flex items-center px-10 py-6 rounded-3xl before:rounded-3xl before:bg-linear-(--white3-gr) before:p-[3px] after:bg-linear-(--pink-gr) after:rounded-3xl after:p-[3px] after:opacity-100 lg:after:opacity-0 hover:after:opacity-100 hover:-translate-y-1 hover:[&_span]:border-0 hover:[&_span]:bg-linear-(--pink-gr) backdrop-blur-lg font-secondary transition-transform">

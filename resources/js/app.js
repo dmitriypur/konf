@@ -413,3 +413,10 @@ window.addEventListener('beforeunload', () => {
     });
     swiperInstances.clear();
 });
+
+document.getElementById('open-programms').addEventListener('click', function (e) {
+    this.classList.add('hidden')
+    document.querySelectorAll('.programm__card').forEach(card => {
+        card.classList.remove('hidden');
+    })
+})

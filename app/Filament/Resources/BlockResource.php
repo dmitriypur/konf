@@ -101,7 +101,13 @@ class BlockResource extends Resource
                                 ->label('Иконка')
                                 ->directory('icons')
                                 ->columnSpan('full'),
-                        ])
+                        ]),
+                    Forms\Components\Toggle::make('payload.btn-speaker')
+                        ->label('Кнопка "Стать спикером"')
+                        ->columnSpan('full'),
+                    Forms\Components\Toggle::make('payload.btn-partner')
+                        ->label('Кнопка "Стать партнером"')
+                        ->columnSpan('full'),
                 ])
                     ->hidden(
                         fn(Forms\Get $get) => BlockType::from($get('type')) !=
@@ -178,6 +184,10 @@ class BlockResource extends Resource
                     ),
 
                 Forms\Components\Section::make([
+                    Forms\Components\FileUpload::make('payload.link_programm')
+                        ->label('Загрузить прогрумму')
+                        ->directory('programm')
+                        ->columnSpan('full'),
                     Forms\Components\Repeater::make('payload.programm')
                         ->label('Программа')
                         ->schema([
@@ -190,6 +200,25 @@ class BlockResource extends Resource
                             Forms\Components\Textarea::make('text')
                                 ->label('Описание')
                                 ->columnSpan('full'),
+                            Forms\Components\Repeater::make('themes')
+                                ->label('Темы')->schema([
+                                    Forms\Components\TextInput::make('title')
+                                        ->label('Тема')
+                                        ->columnSpan('full'),
+                                    Forms\Components\Textarea::make('text')
+                                        ->label('Описание')
+                                        ->columnSpan('full'),
+                                    Forms\Components\Repeater::make('speakers')
+                                        ->label('Спикеры')->schema([
+                                            Forms\Components\TextInput::make('name')
+                                                ->label('Имя спикера')
+                                                ->columnSpan('full'),
+                                            Forms\Components\FileUpload::make('photo')
+                                                ->label('Фото спикера')
+                                                ->directory('speackers')
+                                                ->columnSpan('full'),
+                                        ])
+                                ])
 
                         ])
                 ])
