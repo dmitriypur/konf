@@ -54,13 +54,13 @@
                                                         class="theme-card w-full themes-block__card border border-white rounded-[20px] p-3 bg-linear-(--violet-gr)">
                                                         <div class="flex gap-5">
                                                             <div
-                                                                class="flex items-end bg-white/40 overflow-hidden border border-white rounded-[10px] h-auto min-w-[70px]">
+                                                                class="flex items-end bg-white/40 overflow-hidden border border-white rounded-[10px] h-auto {{ count($theme['speakers']) > 1 ? 'min-w-[140px]' : 'min-w-[70px]' }}">
                                                                 @foreach($theme['speakers'] as $speaker)
                                                                     <div
                                                                         class="relative h-[84px] w-[70px]">
                                                                         <img src="{{ '/storage/' . $speaker['photo'] }}"
                                                                              alt="{{ $speaker['name'] }}"
-                                                                             class="w-full">
+                                                                             class="w-full h-full object-cover">
                                                                         <div
                                                                             class="absolute left-0 bottom-0 w-full h-6 bg-linear-(--white-vertical3-gr) px-2 pt-1 text-[10px]/2 text-black">
                                                                             {!! $speaker['name'] !!}
@@ -121,7 +121,7 @@
                                                                         class="relative h-[90px] w-[76px]">
                                                                         <img src="{{ '/storage/' . $speaker['photo'] }}"
                                                                              alt="{{ $speaker['name'] }}"
-                                                                             class="w-full">
+                                                                             class="w-full h-full object-cover">
                                                                         <div
                                                                             class="absolute left-0 bottom-0 w-full h-6 bg-linear-(--white-vertical3-gr) px-2 pt-1 text-[10px]/2 text-black">
                                                                             {!! $speaker['name'] !!}
