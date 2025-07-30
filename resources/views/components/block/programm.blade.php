@@ -12,14 +12,21 @@
                     @foreach($block->payload['programm'] as $key => $item)
                         @if(empty($item['text']))
                             <div class="programm__card relative mt-4 md:mt-0 lg:flex lg:flex-col {{ $key ? 'hidden' : '' }}">
-                            <span
-                                class="pink-round block w-7.5 h-7.5 relative left-1/2 -top-9 -translate-x-1/2 rounded-full before:bg-linear-(--pink-gr) before:p-1.5 before:inset-0 before:rounded-full"></span>
+                                @if($key !== (count($block->payload['programm']) - 1))
+                                    <span
+                                        class="pink-round block w-7.5 h-7.5 relative left-1/2 -top-9 -translate-x-1/2 rounded-full before:bg-linear-(--pink-gr) before:p-1.5 before:inset-0 before:rounded-full"></span>
+                                @else
+                                    <span
+                                        class="pink-round block w-7.5 h-7.5 relative left-1/2 -top-9 -translate-x-1/2 rounded-full">
+                                        <img src="{{ asset('images/coin.svg') }}" alt="Рубль">
+                                    </span>
+                                @endif
                                 <div
-                                    class="programms__item lg:grow lg:flex lg:flex-col relative overflow-hidden rounded-[20px] before:bg-linear-(--white3-gr) border border-[#E972F5]">
+                                    class="programms__item lg:grow lg:flex lg:flex-col relative overflow-hidden rounded-[20px] before:bg-linear-(--white3-gr) border {{ $key !== (count($block->payload['programm']) - 1) ? 'border-[#E972F5]' : 'border-[#FAA287]' }}">
                                     <p class="text-2xl p-4 lg:grow font-secondary text-center">{{ $item['title'] }}</p>
                                     <div class="time-block p-4">
                                         <div
-                                            class="time-label max-w-40 mx-auto relative p-2.5 rounded-full text-center bg-linear-(--pink5-gr) before:bg-linear-(--pink5-gr) before:p-0.5 before:rounded-full">{{ $item['time'] }}</div>
+                                            class="time-label max-w-40 mx-auto relative p-2.5 rounded-full text-center {{ $key !== (count($block->payload['programm']) - 1) ? 'bg-linear-(--pink5-gr) before:bg-linear-(--pink5-gr)' : 'bg-linear-(--brown-gr) before:bg-linear-(--brown-gr)' }}  before:p-0.5 before:rounded-full">{{ $item['time'] }}</div>
                                     </div>
                                 </div>
                             </div>
