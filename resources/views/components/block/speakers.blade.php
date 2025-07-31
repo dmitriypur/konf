@@ -5,7 +5,7 @@
             <div class="swiper speakers w-full h-full !pt-10">
                 <div class="swiper-wrapper">
                     @foreach($block->payload['speackers'] as $k => $item)
-                        <div class="swiper-slide">
+                        <div class="swiper-slide !h-auto">
                             <div class="relative flex w-full h-full rounded-4xl backdrop-blur-md">
                                 <div
                                     class="absolute inset-0 rounded-4xl circle-gr bg-linear-(--darkblue3-gr) before:absolute before:bg-linear-(--violet-gr) before:p-0.5 before:rounded-4xl before:-z-10 -z-10"></div>
@@ -13,7 +13,7 @@
                                     <div
                                         class="lg:hidden absolute inset-0 rounded-4xl circle-gr before:absolute before:opacity-70 before:bg-linear-(--white2-gr) before:p-1 before:rounded-4xl before:-z-10 z-10"></div>
                                     <img data-src="{{ 'storage/' . $item['image'] }}" alt="{{ $item['name'] }}"
-                                         class="lg:absolute left-0.5 bottom-0.5 w-full h-full lg:h-auto object-cover rounded-4xl">
+                                         class="lg:absolute left-0.5 bottom-0.5 w-full h-full lg:h-auto object-cover rounded-s-4xl">
                                 </div>
                                 <div class="p-3 lg:py-6 lg:pr-3 lg:pl-0">
                                     <div class="header-info-{{$k}} flex items-center gap-2">
