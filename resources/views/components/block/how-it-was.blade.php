@@ -22,12 +22,12 @@
                 </button>
             </div>
             <div class="lg:ml-auto w-full lg:max-w-96 mt-20 lg:mt-0">
-                <div class="relative w-full h-full rounded-4xl overflow-hidden pb-5">
+                <div class="relative w-full h-full rounded-4xl overflow-hidden pb-5 before:absolute before:inset-0 before:backdrop-blur-md before:-z-10">
                     <div class="absolute w-120 h-120 left-1/2 -translate-x-1/2 -top-5 -z-10">
                         <img data-src="{{ asset('images/bg-tabs-slider.svg') }}" class="lazy" alt="Цветное облако фоновое изображение" width="580" height="580">
                     </div>
                     <span class="absolute inset-0 -z-10 bg-linear-(--white3-gr) mix-blend-overlay"></span>
-                    <div class="py-5 px-13.5">
+                    <div class="py-5 px-13.5 backdrop-blur-md">
                         <div class="flex items-center justify-between">
                             <button data-tab="tab1" class="tab-button cursor-pointer text-white hover:text-white">Отзывы</button>
                             <span class="block h-[1px] w-10 rotate-90 bg-linear-(--white-vertical2-gr)"></span>

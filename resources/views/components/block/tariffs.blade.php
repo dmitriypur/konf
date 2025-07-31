@@ -1,7 +1,7 @@
 <section class="relative py-8" id="tariffs">
     <div class="container mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-9 px-3 lg:px-0">
-            <div class="bg-[rgba(31, 52, 98, 0.09)] border rounded-(--radius-40)">
+            <div class="bg-[rgba(31, 52, 98, 0.09)] border rounded-(--radius-40) relative before:absolute before:inset-0 before:backdrop-blur-md before:-z-10">
                 <div class="p-6 lg:py-8 lg:px-10">
                     <p class="lg:font-semibold text-white/50 lg:text-white">Стоимость участия</p>
                     <h3 class="text-[40px]/10 lg:text-[55px]/11">Тариф “Бизнес”</h3>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-[rgba(31, 52, 98, 0.09)] border rounded-(--radius-40)">
+            <div class="bg-[rgba(31, 52, 98, 0.09)] border rounded-(--radius-40) relative before:absolute before:inset-0 before:backdrop-blur-md before:-z-10">
                 <div class="p-6 lg:py-8 lg:px-10 relative">
                     <p class="lg:font-semibold text-white/50 lg:text-white">Стоимость участия</p>
                     <h3 class="text-[38px]/10 lg:text-[55px]/11">Тариф <span class="text-pink">“премиум”</span></h3>

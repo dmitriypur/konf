@@ -10,7 +10,7 @@
                     <div class="swiper-wrapper flex-col gap-5 lg:gap-0 lg:flex-row">
                         @foreach($block->payload['partners'] as $item)
                             @if(!$item['button'])
-                                <div class="swiper-slide">
+                                <div class="swiper-slide backdrop-blur-md">
                                     <div class="circle-gr relative bg-white/5 w-full h-full rounded-3xl p-5 before:absolute before:bg-linear-(--violet-gr) before:p-0.5 before:rounded-3xl before:-z-10">
                                         <div class="flex items-center justify-center w-full h-29.5">
                                             <img data-src="{{ 'storage/' . $item['image'] }}" alt="{{ $item['name'] }}">
@@ -21,7 +21,7 @@
                                     </div>
                                 </div>
                             @else
-                                <div class="swiper-slide">
+                                <div class="swiper-slide backdrop-blur-md">
                                     <div class="circle-gr relative bg-white/5 w-full h-full rounded-3xl p-5 before:absolute before:bg-linear-(--violet-gr) before:p-0.5 before:rounded-3xl before:-z-10 after:-z-10">
                                         <div class="flex items-center justify-center w-full h-29.5 circle-gr relative rounded-3xl p-5 before:absolute before:bg-linear-(--violet-gr) before:p-[1px] before:rounded-3xl before:-z-10">
                                             <span class="absolute inset-0 bg-linear-(--white3-gr) rounded-3xl -z-10 opacity-30"></span>

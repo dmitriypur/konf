@@ -5,7 +5,7 @@
             <div class="absolute left-80 top-30 w-100 h-100 rounded-full bg-my-dark-blue blur-[150px] -z-10"></div>
             <div class="w-full">
                 <h2 class="font-secondary text-center md:text-left text-5xl md:text-[64px]">{{ $block->title }}</h2>
-                <div class="text-sm/5 italic -ml-1 -mr-1 lg:ml-0 lg:mr-0 mt-6 circle-gr relative py-7 px-3 lg:px-10 bg-white/5 md:rounded-3xl before:absolute before:bg-linear-(--violet-gr) before:p-0.5 md:before:rounded-3xl before:-z-10 backdrop-blur-lg">
+                <div class="text-sm/5 italic -ml-1 -mr-1 lg:ml-0 lg:mr-0 mt-6 circle-gr relative py-7 px-3 lg:px-10 bg-white/5 md:rounded-3xl before:absolute before:bg-linear-(--violet-gr) before:p-0.5 md:before:rounded-3xl before:-z-10 before:backdrop-blur-md">
                     {!! $block->payload['text'] !!}
                 </div>
             </div>
