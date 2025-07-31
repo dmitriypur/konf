@@ -138,7 +138,7 @@ class BlockResource extends Resource
                     ),
 
                 Forms\Components\Section::make([
-                    Forms\Components\Toggle::make('is_visible')
+                    Forms\Components\Toggle::make('payload.is_visible')
                         ->label("Показывать")
                         ->default(true),
                     Forms\Components\Repeater::make('payload.speackers')

@@ -1,4 +1,4 @@
-<section class="relative py-8" id="partners">
+<section class="relative py-8 {{ !$block->payload['is_visible'] ? 'hidden' : '' }}" id="partners">
     <div class="container mx-auto">
         <h2 class="text-5xl lg:text-[64px] text-center">{{ $block->title }}</h2>
         <div class="w-full lg:h-[295px] flex-initial mt-6 lg:mt-8 relative px-3 lg:p-0">
