@@ -15,7 +15,7 @@
                                     <img data-src="{{ 'storage/' . $item['image'] }}" alt="{{ $item['name'] }}"
                                          class="lg:absolute left-0.5 bottom-0.5 w-full h-full lg:h-auto object-cover rounded-4xl">
                                 </div>
-                                <div class="p-3 lg:py-6 lg:px-1">
+                                <div class="p-3 lg:py-6 lg:pr-3 lg:pl-0">
                                     <div class="header-info-{{$k}} flex items-center gap-2">
                                         <div>
                                             <p class="uppercase text-[28px]/7 font-bold">{{ $item['name'] }}</p>
