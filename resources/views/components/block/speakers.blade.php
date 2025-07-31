@@ -13,7 +13,7 @@
                                     <div
                                         class="lg:hidden absolute inset-0 rounded-4xl circle-gr before:absolute before:opacity-70 before:bg-linear-(--white2-gr) before:p-1 before:rounded-4xl before:-z-10 z-10"></div>
                                     <img data-src="{{ 'storage/' . $item['image'] }}" alt="{{ $item['name'] }}"
-                                         class="lg:absolute left-0 bottom-0 w-full h-full lg:h-auto object-cover">
+                                         class="lg:absolute left-0.5 bottom-0.5 w-full h-full lg:h-auto object-cover rounded-4xl">
                                 </div>
                                 <div class="p-3 lg:py-6 lg:px-1">
                                     <div class="header-info-{{$k}} flex items-center gap-2">
