@@ -28,7 +28,7 @@ function initModals() {
         const tariff = button.dataset.tariff;
         if (!targetId) return;
 
-        openModal(targetId, tariff);
+        openModal(targetId, tariff, price);
     });
 
     // Закрытие по кнопке
@@ -50,11 +50,15 @@ function initModals() {
 }
 
 // Открытие модального окна
-function openModal(targetId, tariff) {
+function openModal(targetId, tariff, price) {
     const template = document.getElementById(targetId);
     const inputTariff = template.content.querySelector('form > input[name="tariff_id"]');
+    const inputPrice = template.content.querySelector('form > input[name="price"]');
     if(inputTariff){
         inputTariff.value = tariff;
+    }
+    if(inputPrice){
+        inputPrice.value = price;
     }
     if (!template) {
         console.warn('Modal template not found:', targetId);
@@ -172,7 +176,7 @@ function validateField(input) {
         } else {
             parent.classList.remove('bg-red-400', 'p-2', 'rounded-xl');
         }
-        
+
     }
 }
 

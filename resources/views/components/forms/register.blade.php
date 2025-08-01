@@ -51,6 +51,7 @@
             </div>
             <input type="hidden" name="tariff_id" value="18">
             <input type="hidden" name="form_name" value="3">
+            <input type="hidden" name="price" value="30000">
             <button type="button" id="add-user" class="add-user circle-gr text-sm mt-8 relative w-full py-2 px-5 flex items-center justify-center gap-x-3 rounded-full [&_svg]:w-3 before:rounded-full before:bg-linear-(--white-gr) before:p-[1px] cursor-pointer">
                 <x-icons.plus></x-icons.plus>
                 Добавить ещё одного участника

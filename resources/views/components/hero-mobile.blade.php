@@ -38,9 +38,9 @@
                 </div>
             </div>
         </div>
-        <div class="relative flex items-center gap-4 rounded-full circle-gr bg-linear-(--white-gr) before:bg-linear-(--white-gr) before:p-0.5 before:rounded-full p-[2px] mt-2.5">
-            <div class="bg-linear-(--violet-gr) opacity-70 text-xs font-bold rounded-full h-full py-1 px-2">-20%</div>
-            <p class="text-xs font-semibold">специальная цена до 1 августа</p>
+        <div class="relative flex items-center gap-4 rounded-full circle-gr bg-white p-[2px] mt-2.5 after:-z-10">
+            <div class="bg-linear-(--violet-gr) text-xs font-bold rounded-full h-full py-1 px-2">- 5000 руб.</div>
+            <p class="text-xs font-semibold text-my-dark-blue">за второго участника</p>
         </div>
         <a href="#tariffs"
                 class="flex items-center justify-center btn-gr-pink before:p-0.5 w-full h-15 font-secondary col-span-full rounded-full before:rounded-full backdrop-blur-lg mt-4.5">
