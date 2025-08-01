@@ -39,30 +39,32 @@ const loadSwiper = async () => {
 };
 
 // Оптимизированная функция плавного скролла
-function smoothScrollTo(target) {
+function smoothScrollTo(target, offset = 0) {
     if (!target) return;
 
-    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
-    const duration = Math.min(Math.abs(distance) * 0.3, 600); // Уменьшил длительность
+    // Увеличиваем длительность для более медленного скролла
+    const duration = Math.min(Math.abs(distance) * 0.8, 2500); // Было 0.3 и 1000
     let startTime = null;
 
     function animation(currentTime) {
         if (startTime === null) startTime = currentTime;
         const timeElapsed = currentTime - startTime;
-        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+        const run = easeInOutCubic(timeElapsed, startPosition, distance, duration); // Изменили функцию easing
         window.scrollTo(0, run);
         if (timeElapsed < duration) {
             requestAnimationFrame(animation);
         }
     }
 
-    function easeInOutQuad(t, b, c, d) {
+    // Более плавная функция easing (cubic вместо quad)
+    function easeInOutCubic(t, b, c, d) {
         t /= d / 2;
-        if (t < 1) return c / 2 * t * t + b;
-        t--;
-        return -c / 2 * (t * (t - 2) - 1) + b;
+        if (t < 1) return c / 2 * t * t * t + b;
+        t -= 2;
+        return c / 2 * (t * t * t + 2) + b;
     }
 
     requestAnimationFrame(animation);
@@ -81,7 +83,8 @@ function initSmoothScroll() {
 
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-            smoothScrollTo(targetElement);
+            // Добавьте нужный отступ в пикселях (например, 100px)
+            smoothScrollTo(targetElement, 100);
         }
     });
 }

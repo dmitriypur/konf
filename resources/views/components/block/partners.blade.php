@@ -1,4 +1,4 @@
-<section class="relative py-8" id="partners">
+<section class="relative py-8" id="partners" id="partners">
     <div class="lg:hidden absolute -left-30 -top-40 w-180 -z-10">
         <img data-src="{{ asset('images/bg-mobile-partner.webp') }}" alt="Фоновое изображение разноцветное облако" width="720" height="1047">
     </div>

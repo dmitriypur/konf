@@ -1,4 +1,4 @@
-<section id="speackers" class="relative z-10 md:z-0 pb-10">
+<section id="about" class="relative z-10 md:z-0 pb-10">
     <div class="container mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 items-end relative">
             <div class="absolute left-100 -top-50 w-150 h-150 rounded-full bg-purple blur-[150px] -z-10"></div>

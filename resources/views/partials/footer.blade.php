@@ -14,11 +14,11 @@
                     <p class="font-medium text-lg mb-6">Оптика Будущего</p>
                     <nav class="absolute left-10 bottom-14 lg:bottom-0 lg:left-0 lg:relative" data-da=".logo,1024,1">
                         <ul class="flex flex-col font-semibold lg:font-normal gap-y-1 lg:gap-y-2">
-                            <li><a href="#speackers" class="text-white/70 hover:text-white transition-colors">О конференции</a>
+                            <li><a href="#about" class="text-white/70 hover:text-white transition-colors">О конференции</a>
                             </li>
                             <li><a href="#programm" class="text-white/70 hover:text-white transition-colors">Программа</a></li>
                             <li><a href="#speackers" class="text-white/70 hover:text-white transition-colors">Спикеры</a></li>
-                            <li><a href="#register" class="text-white/70 hover:text-white transition-colors">Регистрация</a>
+                            <li><a href="#tariffs" class="text-white/70 hover:text-white transition-colors">Регистрация</a>
                             </li>
                             <li><a href="#partners" class="text-white/70 hover:text-white transition-colors">Партнеры</a></li>
                             <li><a href="#location" class="text-white/70 hover:text-white transition-colors">Место и
