@@ -21,8 +21,8 @@
                 </div>
                 <div class="relative p-6 lg:p-8">
                     <div class="relative flex items-center gap-2 lg:gap-4 rounded-full bg-white p-[2px] mt-2.5">
-                        <div class="bg-linear-(--violet-gr) text-xl text-center font-bold rounded-full w-14 lg:w-50 h-full py-2 px-2">- 5000 руб.</div>
-                        <p class="flex-auto text-xl text-center text-[#1F3462]">за второго участника</p>
+                        <div class="bg-linear-(--violet-gr) text-sm md:text-xl text-center font-bold rounded-full lg:w-50 h-full py-1 md:py-2 px-2">- 5000 руб.</div>
+                        <p class="flex-auto text-sm md:text-xl text-center text-[#1F3462]">за второго участника</p>
                     </div>
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-2 gap-x-8 mt-8.5">
                         <div class="relative font-bold text-[32px] lg:text-[40px]">{{ $block->payload['price_2'] ? number_format($block->payload['price_1'], 0, '.', ' ') . ' руб.' : '' }} @if($block->payload['old_price_1']) <del class="absolute -top-5 md:right-0 block text-lg md:text-xl text-white/50 font-normal">{{ number_format($block->payload['old_price_1'], 0, '.', ' ') }} руб.</del>@endif</div>
@@ -30,7 +30,7 @@
                                 data-modal-target="form3"
                                 data-price="{{ $block->payload['price_1'] }}"
                                 data-tariff="18"
-                                class="open-modal-btn flex-auto btn-gr-pink before:p-0.5 w-full lg:w-auto h-20 font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg">
+                                class="open-modal-btn flex-auto btn-gr-pink before:p-0.5 w-full lg:w-auto h-14 md:h-20 font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg">
                             стать участником
                             <span class="bg-gr"></span>
                         </button>
@@ -62,8 +62,8 @@
                 </div>
                 <div class="relative p-6 lg:p-8">
                     <div class="relative flex items-center gap-2 lg:gap-4 rounded-full bg-white p-[2px] mt-2.5">
-                        <div class="bg-linear-(--violet-gr) text-xl text-center font-bold rounded-full w-14 lg:w-50 h-full py-2 px-2">- 5000 руб.</div>
-                        <p class="flex-auto text-xl text-center text-[#1F3462]">за второго участника</p>
+                        <div class="bg-linear-(--violet-gr) text-sm md:text-xl text-center font-bold rounded-full lg:w-50 h-full py-1 md:py-2 px-2">- 5000 руб.</div>
+                        <p class="flex-auto text-sm md:text-xl text-center text-[#1F3462]">за второго участника</p>
                     </div>
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-2 gap-x-8 mt-8.5">
                         <div class="relative font-bold text-[32px] lg:text-[40px]">{{ $block->payload['price_2'] ? number_format($block->payload['price_2'], 0, '.', ' ') . ' руб.' : '' }} @if($block->payload['old_price_2'])<del class="absolute -top-5 md:right-0 block text-lg md:text-xl text-white/50 font-normal">{{ number_format($block->payload['old_price_2'], 0, '.', ' ') }} руб.</del> @endif</div>
@@ -71,7 +71,7 @@
                                 data-modal-target="form3"
                                 data-price="{{ $block->payload['price_2'] }}"
                                 data-tariff="14"
-                                class="open-modal-btn flex-auto btn-gr-pink before:p-0.5 w-full lg:w-auto h-20 font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg">
+                                class="open-modal-btn flex-auto btn-gr-pink before:p-0.5 w-full lg:w-auto h-14 md:h-20 font-secondary col-span-1 rounded-full before:rounded-full cursor-pointer backdrop-blur-lg">
                             стать участником
                             <span class="bg-gr"></span>
                         </button>
