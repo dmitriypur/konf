@@ -17,7 +17,7 @@
                     <ul class="flex flex-col lg:flex-row lg:gap-6 xl:gap-12">
                         <li><a href="#programm" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Программа</a></li>
                         <li><a href="#speackers" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Спикеры</a></li>
-                        <li><a href="#register" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Регистрация</a></li>
+                        <li><a href="#tariffs" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Регистрация</a></li>
                         <li><a href="#location" class="lg:relative py-1.5 lg:py-4 block lg:inline-block hover:text-pink transition-colors duration-300 before:absolute before:bottom-3 before:left-0 before:w-0 before:h-0.5 before:bg-pink hover:before:w-full before:transition-[width]">Место и контакты</a></li>
                     </ul>
                 </nav>
