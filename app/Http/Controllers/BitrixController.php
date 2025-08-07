@@ -42,6 +42,7 @@ class BitrixController extends Controller
 
         $dealFields = [
             'CATEGORY_ID' => 12,
+            'ASSIGNED_BY_ID' => 242,
             'UF_CRM_1752325711' => $peopleNames,
             'UF_CRM_1752325727' => $peopleEmails,
             'UF_CRM_1752325761' => $request->input('people.0.phone'),
