@@ -190,6 +190,7 @@ class BlockResource extends Resource
                     Forms\Components\FileUpload::make('payload.link_programm')
                         ->label('Загрузить прогрумму')
                         ->directory('programm')
+                        ->preserveFilenames()
                         ->columnSpan('full'),
                     Forms\Components\Repeater::make('payload.programm')
                         ->label('Программа')
